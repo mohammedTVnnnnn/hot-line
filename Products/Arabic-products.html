@@ -730,6 +730,65 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Search box styling */
+.search-container {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(255, 225, 0, 0.2);
+    outline: none;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.search-button:hover {
+    color: var(--accent);
+}
+
+/* RTL adjustments for the search box */
+html[dir="rtl"] .search-input {
+    padding: 12px 15px 12px 45px;
+}
+
+html[dir="rtl"] .search-button {
+    right: auto;
+    left: 10px;
+}
+
+/* Style for no results message */
+.no-results {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #666;
+    width: 100%;
+    grid-column: 1 / -1;
+}
     </style>
 </head>
 <body>
@@ -787,6 +846,12 @@
     <!-- Products Section -->
     <section id="products">
         <div class="container">
+            <div class="search-container">
+                <input type="text" id="productSearch" placeholder="بحث عن منتج..." class="search-input">
+                <button class="search-button">
+                    <i class="search-icon">🔍</i>
+                </button>
+            </div>
             <h2 class="section-title">منتجاتنا</h2>
             <div class="products-grid" id="productsContainer">
                 <!-- Products will be loaded dynamically -->
@@ -915,7 +980,9 @@ const products = [
         cancel: "إلغاء",
         login: "دخول",
         incorrectPassword: "كلمة المرور غير صحيحة",
-        sendOrder: "إرسال الطلب"
+        sendOrder: "إرسال الطلب",
+        searchPlaceholder: "بحث عن منتج...",
+        noResults: "لم يتم العثور على منتجات مطابقة للبحث"
     },
     en: {
         home: "Home",
@@ -941,7 +1008,9 @@ const products = [
         cancel: "Cancel",
         login: "Login",
         incorrectPassword: "Incorrect password",
-        sendOrder: "Send Order"
+        sendOrder: "Send Order",
+        searchPlaceholder: "Search for a product...",
+        noResults: "No matching products found"
     },
     ka: {
         home: "მთავარი",
@@ -967,9 +1036,80 @@ const products = [
         cancel: "გაუქმება",
         login: "შესვლა",
         incorrectPassword: "არასწორი პაროლი",
-        sendOrder: "შეკვეთის გაგზავნა"
+        sendOrder: "შეკვეთის გაგზავნა",
+        searchPlaceholder: "პროდუქტის ძიება...",
+        noResults: "შესაბამისი პროდუქტები ვერ მოიძებნა"
+        
     }
 };
+// Search functionality
+function setupSearch() {
+    const searchInput = document.getElementById('productSearch');
+    if (!searchInput) return;
+    
+    // Update search placeholder based on language
+    updateSearchPlaceholder();
+    
+    // Add event listener for search input
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.trim().toLowerCase();
+        filterProducts(searchTerm);
+    });
+}
+
+// Update search placeholder text based on current language
+function updateSearchPlaceholder() {
+    const searchInput = document.getElementById('productSearch');
+    if (searchInput) {
+        if (currentLang === 'ar') {
+            searchInput.placeholder = "بحث عن منتج...";
+        } else if (currentLang === 'en') {
+            searchInput.placeholder = "Search for a product...";
+        } else {
+            searchInput.placeholder = "პროდუქტის ძიება...";
+        }
+    }
+}
+
+// Filter products based on search term
+function filterProducts(searchTerm) {
+    const productCards = document.querySelectorAll('.product-card');
+    let hasResults = false;
+    
+    // Remove any existing "no results" message
+    const existingNoResults = document.querySelector('.no-results');
+    if (existingNoResults) {
+        existingNoResults.remove();
+    }
+    
+    productCards.forEach(card => {
+        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+        const productDesc = card.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (productTitle.includes(searchTerm) || productDesc.includes(searchTerm)) {
+            card.style.display = 'block';
+            hasResults = true;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Show "no results" message if no products match
+    if (!hasResults) {
+        const noResultsMsg = document.createElement('div');
+        noResultsMsg.className = 'no-results';
+        
+        if (currentLang === 'ar') {
+            noResultsMsg.textContent = "لم يتم العثور على منتجات مطابقة للبحث";
+        } else if (currentLang === 'en') {
+            noResultsMsg.textContent = "No matching products found";
+        } else {
+            noResultsMsg.textContent = "შესაბამისი პროდუქტები ვერ მოიძებნა";
+        }
+        
+        productsContainer.appendChild(noResultsMsg);
+    }
+}
 
     // Load products based on language
     function loadProducts() {
@@ -997,6 +1137,11 @@ const products = [
     // Update UI text based on current language
     // Update UI text based on current language
 function updateUIText() {
+    // Update search placeholder
+    let searchInput = document.getElementById('productSearch');
+    if (searchInput) {
+    searchInput.placeholder = translations[currentLang].searchPlaceholder;
+}
     // Update navigation links
     document.querySelectorAll('.nav-link').forEach((link, index) => {
         const keys = ['home', 'products', 'about', 'contact'];
@@ -1309,6 +1454,7 @@ function showProductPopup(product) {
         loadProducts();
         addCoffeeBeans();
         updateUIText();
+        setupSearch();
     });
     </script>
 </body>
