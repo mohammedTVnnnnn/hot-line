@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Line -  بهارات وأعشاب</title>
+    <link rel="icon" href="img/logo.ico" sizes="192x192">
+    <style>
+        :root {
+            --primary: #FFE100;
+            --dark: #000000;
+            --light: #FFFFFF;
+            --accent: #C87D55;
+            --secondary: #8B4513;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;
+        }
+        .created {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+}
+
+.created::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.created:hover {
+    color: var(--accent);
+}
+
+.created:hover::after {
+    width: 100%;
+}
+
+.created::before {
+    content: '✦ ';
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-5px);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.created:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: #ffffff00;
+            border-radius: 50%;
+            margin-left: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-right: 25px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .current-lang {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .current-lang span {
+            margin-left: 5px;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark);
+            border-radius: 4px;
+            padding: 10px 0;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 10;
+        }
+
+        .lang-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lang-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .lang-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-available {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .product-unavailable {
+            background-color: #f44336;
+        }
+
+        .product-buy {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-buy:hover {
+            background-color: #f0d500;
+        }
+
+        .about-section {
+            background-color: #f9f9f9;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .admin-link {
+            display: block;
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .admin-link:hover {
+            background-color: #222;
+        }
+
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .login-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .login-modal.show .login-form {
+            transform: translateY(0);
+        }
+
+        .login-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .close-modal {
+            padding: 10px 15px;
+            background-color: #f2f2f2;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: #e5e5e5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .coffee-bean {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            z-index: 2;
+            opacity: 0.8;
+            animation: float 15s infinite linear;
+        }
+
+        .coffee-bean::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-800px) rotate(405deg);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="img/logo.png" alt="شعار الخط الساخن" width="90" height="90">
+                                </div>
+                <div class="brand-name"></div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link active">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">اتصل بنا</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <div class="current-lang" onclick="toggleLangDropdown()">
+                    العربية <span>▾</span>
+                </div>
+                <div class="lang-dropdown" id="langDropdown">
+                    <div class="lang-option" onclick="changeLang('ar')">العربية</div>
+                    <div class="lang-option" onclick="changeLang('en')">English</div>
+                    <div class="lang-option" onclick="changeLang('ka')">ქართული</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://avatars.mds.yandex.net/i?id=abbe08d90573a84c091dc52eb125be3a71d2174a-12165746-images-thumbs&n=13') center/cover no-repeat;">
+        <div id="particles"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">محمصة القهوة المميزة</h1>
+            <p class="hero-subtitle"></p>    
+            <div>
+                <a href="#products" class="btn btn-outline">اكتشف منتجاتنا</a>
+                <a href="#contact" class="btn">تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>نحن دائماً في خدمتكم</h3>
+                    <p>يمكنكم التواصل معنا من خلال القنوات التالية:</p>
+                    <p><strong>العنوان:</strong> المدينة، الشارع الرئيسي، بناية رقم 42</p>
+                    <p><strong>الهاتف:</strong> +123 456 7890</p>
+                    <p><strong>البريد الإلكتروني:</strong> info@coffee-roastery.com</p>
+                    <p><strong>ساعات العمل:</strong> يومياً من 8:00 صباحاً حتى 10:00 مساءً</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=7720c98b29ef59e6320ba4fe7ed65a2601036b0d-5014002-images-thumbs&n=13" alt="تواصل معنا">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>من نحن</h4>
+                    <p>نحن شركة متخصصة في تجارة وتوزيع المنتجات العربية داخل جورجيا، وتحديدًا في قلب العاصمة تبليسي. انطلقنا برؤية واضحة تهدف إلى تلبية احتياجات الجالية العربية، وتوفير المنتجات الأصيلة التي تعكس نكهة وثقافة الوطن.</p>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>t</i></a>
+                        <a href="#"><i>i</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>روابط مهمة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>ساعات العمل</h4>
+                    <p>الاثنين - الجمعة: 8:00 ص - 10:00 م</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 الخط الساخن. جميع الحقوق محفوظة.</p>
+                <p>Created py <a class="created" href="https://www.facebook.com/profile.php?id=61553690433032&locale=ar_AR">mohammed Abo rajap</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-form">
+            <h3>تسجيل الدخول للإدارة</h3>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="close-modal" id="closeModal">إلغاء</button>
+                    <button type="submit" class="btn">دخول</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+
+const products = [
+{
+    id: 1,
+    name: "حبة البركة",
+    name_en: "Black Seed",
+    name_ka: "შავი თესლი",
+    description: "بذور عشبية ذات فوائد صحية متعددة، تستخدم في الطب التقليدي وإضافة نكهة للطعام",
+    description_en: "Herbal seeds with multiple health benefits, used in traditional medicine and to add flavor to food",
+    description_ka: "სამკურნალო თესლები მრავალი ჯანმრთელობის სარგებლით, გამოიყენება ტრადიციულ მედიცინაში და საკვების გემოს გასაუმჯობესებლად",
+    price: 12.00,
+    image: "img/BOHARAT/1.png",
+    available: true
+  },
+  {
+    id: 2,
+    name: "بهارات همبرغر",
+    name_en: "Hamburger Seasoning",
+    name_ka: "ჰამბურგერის სანელებლები",
+    description: "خلطة توابل خاصة لتتبيل اللحم المفروم وإضفاء نكهة شهية للهمبرغر",
+    description_en: "Special spice blend for seasoning ground meat and adding delicious flavor to hamburgers",
+    description_ka: "სპეციალური სანელებლების ნარევი დაკეპილი ხორცის შესაკაზმად და ჰამბურგერისთვის გემრიელი არომატის მისაცემად",
+    price: 15.00,
+    image: "img/BOHARAT/2.png",
+    available: true
+  },
+  {
+    id: 3,
+    name: "جوز هند",
+    name_en: "Coconut",
+    name_ka: "ქოქოსი",
+    description: "جوز هند مبشور جاف، يستخدم في الحلويات والمخبوزات وإضافة نكهة استوائية للأطباق",
+    description_en: "Dried shredded coconut, used in desserts, baked goods, and to add tropical flavor to dishes",
+    description_ka: "გამხმარი დაფქული ქოქოსი, გამოიყენება დესერტებში, ცომეულში და კერძებისთვის ტროპიკული გემოს მისაცემად",
+    price: 18.00,
+    image: "img/BOHARAT/3.png",
+    available: true
+  },
+  {
+    id: 4,
+    name: "قرفة قشر",
+    name_en: "Cinnamon Sticks",
+    name_ka: "დარიჩინის ჯოხები",
+    description: "عيدان قرفة طبيعية كاملة، تضيف نكهة دافئة وحلوة للمشروبات والحلويات والأطباق",
+    description_en: "Natural whole cinnamon sticks, adding warm and sweet flavor to beverages, desserts, and dishes",
+    description_ka: "ბუნებრივი მთლიანი დარიჩინის ჯოხები, სასმელებს, დესერტებს და კერძებს ანიჭებს თბილ და ტკბილ არომატს",
+    price: 14.00,
+    image: "img/BOHARAT/4.png",
+    available: true
+  },
+  {
+    id: 5,
+    name: "كربوناتو",
+    name_en: "Sodium Bicarbonate",
+    name_ka: "საცხობი სოდა",
+    description: "بيكربونات الصوديوم، تستخدم في الخبز والحلويات كعامل تخمير",
+    description_en: "Sodium bicarbonate, used in baking and desserts as a leavening agent",
+    description_ka: "ნატრიუმის ბიკარბონატი, გამოიყენება ცხობისა და დესერტებისთვის, როგორც საფუარი",
+    price: 8.00,
+    image: "img/BOHARAT/5.png",
+    available: true
+  },
+  {
+    id: 6,
+    name: "كاري",
+    name_en: "Curry Powder",
+    name_ka: "კარის ფხვნილი",
+    description: "خليط من التوابل الهندية يضفي نكهة غنية وعطرية للأطباق الآسيوية",
+    description_en: "Blend of Indian spices that adds rich and aromatic flavor to Asian dishes",
+    description_ka: "ინდური სანელებლების ნარევი, რომელიც აზიურ კერძებს მდიდარ და არომატულ გემოს ანიჭებს",
+    price: 16.00,
+    image: "img/BOHARAT/6.png",
+    available: true
+  },
+  {
+    id: 7,
+    name: "كزبرة ناعمة",
+    name_en: "Ground Coriander",
+    name_ka: "დაფქული ქინძი",
+    description: "بودرة الكزبرة المطحونة، تضيف نكهة حمضية خفيفة وعطرية للأطباق الشرقية",
+    description_en: "Ground coriander powder, adds mild citrusy and aromatic flavor to Middle Eastern dishes",
+    description_ka: "დაფქული ქინძის ფხვნილი, ახლო აღმოსავლურ კერძებს ანიჭებს მსუბუქ ციტრუსოვან და არომატულ გემოს",
+    price: 10.00,
+    image: "img/BOHARAT/7.png",
+    available: true
+  },
+  {
+    id: 8,
+    name: "كمون",
+    name_en: "Cumin",
+    name_ka: "ზირა",
+    description: "بهار أساسي بنكهة قوية ومميزة، يستخدم في أطباق متنوعة حول العالم",
+    description_en: "Essential spice with strong and distinctive flavor, used in various dishes worldwide",
+    description_ka: "აუცილებელი სანელებელი ძლიერი და განსხვავებული გემოთი, გამოიყენება მსოფლიოს სხვადასხვა კერძებში",
+    price: 11.00,
+    image: "img/BOHARAT/8.png",
+    available: true
+  },
+  {
+    id: 9,
+    name: "نعناع",
+    name_en: "Mint",
+    name_ka: "პიტნა",
+    description: "نعناع مجفف، يضيف نكهة منعشة للمشروبات والحلويات والأطباق المالحة",
+    description_en: "Dried mint, adds refreshing flavor to beverages, desserts, and savory dishes",
+    description_ka: "გამხმარი პიტნა, სასმელებს, დესერტებს და მლაშე კერძებს ანიჭებს სიახლეს",
+    price: 9.00,
+    image: "img/BOHARAT/9.png",
+    available: true
+  },
+  {
+    id: 10,
+    name: "جوزة طيب ناعم",
+    name_en: "Ground Nutmeg",
+    name_ka: "დაფქული ჯავზი",
+    description: "بهار مطحون بنكهة مميزة، يستخدم في الحلويات والصلصات وأطباق اللحوم",
+    description_en: "Ground spice with distinctive flavor, used in desserts, sauces, and meat dishes",
+    description_ka: "დაფქული სანელებელი განსაკუთრებული გემოთი, გამოიყენება დესერტებში, სოუსებში და ხორციან კერძებში",
+    price: 17.00,
+    image: "img/BOHARAT/10.png",
+    available: true
+  },
+  {
+    id: 11,
+    name: "بهارات مندي",
+    name_en: "Mandi Spice Mix",
+    name_ka: "მანდის სანელებლების ნარევი",
+    description: "خلطة توابل خاصة لتحضير أطباق المندي التقليدية بنكهة غنية وعطرية",
+    description_en: "Special spice blend for preparing traditional Mandi dishes with rich and aromatic flavor",
+    description_ka: "სპეციალური სანელებლების ნარევი ტრადიციული მანდის კერძების მოსამზადებლად მდიდარი და არომატული გემოთი",
+    price: 20.00,
+    image: "img/BOHARAT/11.png",
+    available: true
+  },
+  {
+    id: 12,
+    name: "ملح ليمون",
+    name_en: "Citric Acid",
+    name_ka: "ლიმონმჟავა",
+    description: "حمض الستريك البلوري، يضيف طعم حامض للأطباق والمشروبات",
+    description_en: "Crystalline citric acid, adds sour taste to dishes and beverages",
+    description_ka: "კრისტალური ლიმონმჟავა, კერძებს და სასმელებს ანიჭებს მჟავე გემოს",
+    price: 7.00,
+    image: "img/BOHARAT/12.png",
+    available: true
+  },
+  {
+    id: 13,
+    name: "ماجي",
+    name_en: "Maggi Seasoning",
+    name_ka: "მაგის საკაზმი",
+    description: "معزز نكهة يضيف طعم غني للشوربات والصلصات والأطباق المختلفة",
+    description_en: "Flavor enhancer that adds rich taste to soups, sauces, and various dishes",
+    description_ka: "გემოს გამაძლიერებელი, რომელიც წვნიანებს, სოუსებს და სხვადასხვა კერძებს ანიჭებს მდიდარ გემოს",
+    price: 13.00,
+    image: "img/BOHARAT/13.png",
+    available: true
+  },
+  {
+    id: 14,
+    name: "سماق ناعم",
+    name_en: "Ground Sumac",
+    name_ka: "დაფქული სუმაქი",
+    description: "بهار أحمر حامض، يستخدم في المطبخ الشرقي لإضافة نكهة حمضية للسلطات واللحوم",
+    description_en: "Sour red spice, used in Middle Eastern cuisine to add tangy flavor to salads and meats",
+    description_ka: "მჟავე წითელი სანელებელი, გამოიყენება ახლო აღმოსავლურ სამზარეულოში სალათებისა და ხორცისთვის მჟავე გემოს მისაცემად",
+    price: 15.00,
+    image: "img/BOHARAT/14.png",
+    available: true
+  },
+  {
+    id: 15,
+    name: "بهارات سجق",
+    name_en: "Sausage Seasoning",
+    name_ka: "ძეხვის საკაზმი",
+    description: "خلطة توابل خاصة لتحضير السجق البيتي بنكهة تقليدية لذيذة",
+    description_en: "Special spice blend for preparing homemade sausage with traditional delicious flavor",
+    description_ka: "სპეციალური სანელებლების ნარევი სახლში დამზადებული ძეხვისთვის ტრადიციული გემრიელი გემოთი",
+    price: 16.00,
+    image: "img/BOHARAT/15.png",
+    available: true
+  },
+  {
+    id: 16,
+    name: "سكر مطحون",
+    name_en: "Powdered Sugar",
+    name_ka: "შაქრის პუდრა",
+    description: "سكر ناعم للتزيين والخبز، يستخدم في الحلويات والمخبوزات",
+    description_en: "Fine sugar for decoration and baking, used in desserts and pastries",
+    description_ka: "წმინდა შაქარი დეკორაციისა და ცხობისთვის, გამოიყენება დესერტებში და ცომეულში",
+    price: 8.00,
+    image: "img/BOHARAT/16.png",
+    available: true
+  },
+  {
+    id: 17,
+    name: "زنجبيل",
+    name_en: "Ginger",
+    name_ka: "კოჭა",
+    description: "بهار حار بنكهة مميزة، يستخدم في المأكولات الآسيوية والحلويات والمشروبات الساخنة",
+    description_en: "Spicy spice with distinctive flavor, used in Asian cuisine, desserts, and hot beverages",
+    description_ka: "ცხარე სანელებელი განსაკუთრებული გემოთი, გამოიყენება აზიურ სამზარეულოში, დესერტებში და ცხელ სასმელებში",
+    price: 14.00,
+    image: "img/BOHARAT/17.png",
+    available: true
+  },
+  {
+    id: 18,
+    name: "فلفل اسود ناعم",
+    name_en: "Ground Black Pepper",
+    name_ka: "დაფქული შავი პილპილი",
+    description: "فلفل أسود مطحون، بهار أساسي لإضافة النكهة الحارة والعطرية للأطباق",
+    description_en: "Ground black pepper, essential spice for adding spicy and aromatic flavor to dishes",
+    description_ka: "დაფქული შავი პილპილი, აუცილებელი სანელებელი კერძებისთვის ცხარე და არომატული გემოს მისაცემად",
+    price: 12.00,
+    image: "img/BOHARAT/18.png",
+    available: true
+  },
+  {
+    id: 19,
+    name: "فلفل ابيض ناعم",
+    name_en: "Ground White Pepper",
+    name_ka: "დაფქული თეთრი პილპილი",
+    description: "فلفل أبيض مطحون بنكهة أكثر اعتدالاً من الأسود، يستخدم في الصلصات البيضاء والشوربات",
+    description_en: "Ground white pepper with milder flavor than black, used in white sauces and soups",
+    description_ka: "დაფქული თეთრი პილპილი შავზე უფრო რბილი გემოთი, გამოიყენება თეთრ სოუსებში და წვნიანებში",
+    price: 13.00,
+    image: "img/BOHARAT/19.png",
+    available: true
+  },
+  {
+    id: 20,
+    name: "خلطة شيش طاووق",
+    name_en: "Shish Tawook Mix",
+    name_ka: "შიშ თაუკის ნარევი",
+    description: "خلطة توابل لتتبيل الدجاج المشوي على الطريقة اللبنانية",
+    description_en: "Spice blend for marinating grilled chicken Lebanese style",
+    description_ka: "სანელებლების ნარევი ლიბანური სტილის შემწვარი ქათმის მარინადისთვის",
+    price: 18.00,
+    image: "img/BOHARAT/20.png",
+    available: true
+  },
+  {
+    id: 21,
+    name: "خلطة زنجر",
+    name_en: "Zinger Mix",
+    name_ka: "ზინგერის ნარევი",
+    description: "خلطة توابل حارة لتحضير دجاج زنجر المقرمش الشهير",
+    description_en: "Spicy seasoning blend for preparing famous crispy zinger chicken",
+    description_ka: "ცხარე სანელებლების ნარევი ცნობილი ხრაშუნა ზინგერ ქათმის მოსამზადებლად",
+    price: 19.00,
+    image: "img/BOHARAT/21.png",
+    available: true
+  },
+  {
+    id: 22,
+    name: "خلطة شاورما",
+    name_en: "Shawarma Mix",
+    name_ka: "შაურმის ნარევი",
+    description: "خلطة توابل تقليدية لتتبيل لحم الشاورما بنكهة شرق أوسطية أصيلة",
+    description_en: "Traditional spice blend for seasoning shawarma meat with authentic Middle Eastern flavor",
+    description_ka: "ტრადიციული სანელებლების ნარევი შაურმის ხორცის შესაკაზმად ავთენტური ახლო აღმოსავლური გემოთი",
+    price: 17.00,
+    image: "img/BOHARAT/22.png",
+    available: true
+  },
+  {
+    id: 23,
+    name: "خلطة بروستد",
+    name_en: "Broasted Mix",
+    name_ka: "ბროასტედის ნარევი",
+    description: "خلطة توابل لتحضير الدجاج المقلي المضغوط بنكهة مقرمشة ولذيذة",
+    description_en: "Spice blend for preparing pressure-fried chicken with crispy and delicious flavor",
+    description_ka: "სანელებლების ნარევი წნევით შემწვარი ქათმის მოსამზადებლად ხრაშუნა და გემრიელი გემოთი",
+    price: 18.00,
+    image: "img/BOHARAT/23.png",
+    available: true
+  },
+  {
+    id: 24,
+    name: "خلطة كفتة تركية",
+    name_en: "Turkish Kofta Mix",
+    name_ka: "თურქული ქოფთას ნარევი",
+    description: "خلطة توابل لتحضير الكفتة على الطريقة التركية التقليدية",
+    description_en: "Spice blend for preparing kofta in traditional Turkish style",
+    description_ka: "სანელებლების ნარევი ქოფთას ტრადიციული თურქული სტილით მოსამზადებლად",
+    price: 16.00,
+    image: "img/BOHARAT/24.png",
+    available: true
+  },
+  {
+    id: 25,
+    name: "خلطة فلافل",
+    name_en: "Falafel Mix",
+    name_ka: "ფალაფელის ნარევი",
+    description: "خلطة توابل لتحضير الفلافل المقرمشة بالنكهة العربية التقليدية",
+    description_en: "Spice blend for preparing crispy falafel with traditional Arabic flavor",
+    description_ka: "სანელებლების ნარევი ხრაშუნა ფალაფელის მოსამზადებლად ტრადიციული არაბული გემოთი",
+    price: 15.00,
+    image: "img/BOHARAT/25.png",
+    available: true
+  },
+  {
+    id: 26,
+    name: "دقة",
+    name_en: "Dukkah",
+    name_ka: "დუკა",
+    description: "خليط من المكسرات والتوابل المطحونة، يستخدم كغمس للخبز أو رش على السلطات",
+    description_en: "Blend of crushed nuts and spices, used as a dip for bread or sprinkled on salads",
+    description_ka: "დაფქული თხილეულისა და სანელებლების ნარევი, გამოიყენება პურის ამოსავლებად ან სალათებზე მოსაყრელად",
+    price: 22.00,
+    image: "img/BOHARAT/26.png",
+    available: true
+  },
+  {
+    id: 27,
+    name: "تبلة سمك",
+    name_en: "Fish Seasoning",
+    name_ka: "თევზის საკაზმი",
+    description: "خلطة توابل خاصة لتتبيل الأسماك قبل الطهي بنكهة متوازنة",
+    description_en: "Special spice blend for seasoning fish before cooking with balanced flavor",
+    description_ka: "სპეციალური სანელებლების ნარევი თევზის შესაკაზმად მომზადებამდე დაბალანსებული გემოთი",
+    price: 14.00,
+    image: "img/BOHARAT/27.png",
+    available: true
+  },
+  {
+    id: 28,
+    name: "خلطة كبسة",
+    name_en: "Kabsa Mix",
+    name_ka: "ქაბსას ნარევი",
+    description: "خلطة توابل تقليدية لتحضير طبق الكبسة السعودي الشهير",
+    description_en: "Traditional spice blend for preparing the famous Saudi Kabsa dish",
+    description_ka: "ტრადიციული სანელებლების ნარევი ცნობილი საუდის ქაბსას კერძის მოსამზადებლად",
+    price: 18.00,
+    image: "img/BOHARAT/28.png",
+    available: true
+  },
+  {
+    id: 29,
+    name: "خلطة ميكسيكانو 2",
+    name_en: "Mexicano Mix 2",
+    name_ka: "მექსიკანოს ნარევი 2",
+    description: "خلطة توابل حارة على الطريقة المكسيكية لإعداد أطباق التاكو والفاهيتا",
+    description_en: "Spicy Mexican-style seasoning blend for preparing tacos and fajitas",
+    description_ka: "ცხარე მექსიკური სტილის სანელებლების ნარევი ტაკოსა და ფახიტას მოსამზადებლად",
+    price: 19.00,
+    image: "img/BOHARAT/29.png",
+    available: true
+  },
+  {
+    id: 30,
+    name: "خلطة ميكسيكانو 1",
+    name_en: "Mexicano Mix 1",
+    name_ka: "მექსიკანოს ნარევი 1",
+    description: "خلطة توابل معتدلة الحرارة على الطريقة المكسيكية لإعداد أطباق التشيلي والبوريتو",
+    description_en: "Medium-spicy Mexican-style seasoning blend for preparing chili and burritos",
+    description_ka: "საშუალო სიცხარის მექსიკური სტილის სანელებლების ნარევი ჩილისა და ბურიტოს მოსამზადებლად",
+    price: 19.00,
+    image: "img/BOHARAT/30.png",
+    available: true
+  },
+  {
+    id: 31,
+    name: "سبع بهارات",
+    name_en: "Seven Spices",
+    name_ka: "შვიდი სანელებელი",
+    description: "خلطة من سبعة بهارات أساسية تستخدم في المطبخ العربي لتتبيل اللحوم والأرز",
+    description_en: "Blend of seven essential spices used in Arabic cuisine for seasoning meat and rice",
+    description_ka: "შვიდი ძირითადი სანელებლის ნარევი, რომელიც გამოიყენება არაბულ სამზარეულოში ხორცისა და ბრინჯის შესაკაზმად",
+    price: 17.00,
+    image: "img/BOHARAT/31.png",
+    available: true
+  },
+  {
+    id: 32,
+    name: "كركم ناعم",
+    name_en: "Ground Turmeric",
+    name_ka: "დაფქული ყვითელი კოჭა",
+    description: "بودرة صفراء ذهبية تضيف لون ونكهة مميزة للأطباق، وتمتلك خصائص صحية",
+    description_en: "Golden yellow powder that adds distinctive color and flavor to dishes, with health benefits",
+    description_ka: "ოქროსფერ-ყვითელი ფხვნილი, რომელიც კერძებს ანიჭებს განსაკუთრებულ ფერსა და გემოს, ჯანმრთელობის სარგებლით",
+    price: 13.00,
+    image: "img/BOHARAT/32.png",
+    available: true
+  },
+  {
+    id: 33,
+    name: "زعتر اخضر",
+    name_en: "Green Zaatar",
+    name_ka: "მწვანე ზაათარი",
+    description: "خلطة أعشاب طازجة تستخدم كتوابل أو مع زيت الزيتون كمقبلات",
+    description_en: "Blend of fresh herbs used as a spice or with olive oil as appetizers",
+    description_ka: "ახალი მწვანილების ნარევი, გამოიყენება როგორც სანელებელი ან ზეითუნის ზეთთან ერთად აპეტაიზერად",
+    price: 16.00,
+    image: "img/BOHARAT/33.png",
+    available: true
+  },
+  {
+    id: 34,
+    name: "زعتر بالسماق",
+    name_en: "Zaatar with Sumac",
+    name_ka: "ზაათარი სუმაქით",
+    description: "خلطة زعتر تقليدية مع إضافة السماق لنكهة حامضة مميزة",
+    description_en: "Traditional zaatar blend with added sumac for distinctive tangy flavor",
+    description_ka: "ტრადიციული ზაათარის ნარევი დამატებული სუმაქით განსაკუთრებული მჟავე გემოსთვის",
+    price: 18.00,
+    image: "img/BOHARAT/34.png",
+    available: true
+  },
+  {
+    id: 35,
+    name: "بصل مطحون",
+    name_en: "Ground Onion",
+    name_ka: "დაფქული ხახვი",
+    description: "بصل مجفف ومطحون، يستخدم كتوابل سريعة لإضافة نكهة البصل للأطباق",
+    description_en: "Dried and ground onion, used as a quick seasoning to add onion flavor to dishes",
+    description_ka: "გამხმარი და დაფქული ხახვი, გამოიყენება სწრაფ სანელებლად ხახვის გემოს კერძებისთვის მისაცემად",
+    price: 10.00,
+    image: "img/BOHARAT/35.png",
+    available: true
+  },
+  {
+    id: 36,
+    name: "ثوم مطحون",
+    name_en: "Ground Garlic",
+    name_ka: "დაფქული ნიორი",
+    description: "ثوم مجفف ومطحون، يستخدم كبديل سريع للثوم الطازج في الطبخ",
+    description_en: "Dried and ground garlic, used as a quick alternative to fresh garlic in cooking",
+    description_ka: "გამხმარი და დაფქული ნიორი, გამოიყენება როგორც ახალი ნიორის სწრაფი ალტერნატივა საჭმლის მომზადებისას",
+    price: 10.00,
+    image: "img/BOHARAT/36.png",
+    available: true
+  },
+  {
+    id: 37,
+    name: "يانسون ناعم",
+    name_en: "Ground Anise",
+    name_ka: "დაფქული ანისული",
+    description: "يانسون مطحون، يستخدم في المخبوزات والحلويات والمشروبات الساخنة",
+    description_en: "Ground anise, used in baked goods, desserts, and hot beverages",
+    description_ka: "დაფქული ანისული, გამოიყენება ცომეულში, დესერტებში და ცხელ სასმელებში",
+    price: 12.00,
+    image: "img/BOHARAT/37.png",
+    available: true
+  },
+  {
+    id: 38,
+    name: "فليفلة سوداء حلوة",
+    name_en: "Sweet Black Pepper",
+    name_ka: "ტკბილი შავი წიწაკა",
+    description: "فلفل أسود حلو المذاق يضيف نكهة مميزة للأطباق اللحمية والخضروات",
+    description_en: "Sweet-flavored black pepper adding distinctive flavor to meat dishes and vegetables",
+    description_ka: "ტკბილი გემოს შავი წიწაკა, რომელიც განსაკუთრებულ გემოს ანიჭებს ხორციან კერძებს და ბოსტნეულს",
+    price: 14.00,
+    image: "img/BOHARAT/38.png",
+    available: true
+  },
+  {
+    id: 39,
+    name: "بردقوش اوريغانو",
+    name_en: "Oregano",
+    name_ka: "ორეგანო",
+    description: "عشبة عطرية تستخدم في المطبخ المتوسطي والإيطالي خاصة مع البيتزا والمعكرونة",
+    description_en: "Aromatic herb used in Mediterranean and Italian cuisine, especially with pizza and pasta",
+    description_ka: "არომატული მცენარე, რომელიც გამოიყენება ხმელთაშუა ზღვის და იტალიურ სამზარეულოში, განსაკუთრებით პიცასა და პასტასთან",
+    price: 11.00,
+    image: "img/BOHARAT/39.png",
+    available: true
+  },
+  {
+    id: 40,
+    name: "شمرة ناعمة",
+    name_en: "Ground Fennel",
+    name_ka: "დაფქული კამა",
+    description: "بذور الشمر المطحونة، تستخدم في المخبوزات والأطباق الهندية والإيطالية",
+    description_en: "Ground fennel seeds, used in baked goods, Indian and Italian dishes",
+    description_ka: "დაფქული კამის თესლები, გამოიყენება ცომეულში, ინდურ და იტალიურ კერძებში",
+    price: 12.00,
+    image: "img/BOHARAT/40.png",
+    available: true
+  },
+  {
+    id: 41,
+    name: "قرفة ناعمة",
+    name_en: "Ground Cinnamon",
+    name_ka: "დაფქული დარიჩინი",
+    description: "قرفة مطحونة، تستخدم في الحلويات والمشروبات الساخنة والأطباق الشرقية",
+    description_en: "Ground cinnamon, used in desserts, hot beverages, and Middle Eastern dishes",
+    description_ka: "დაფქული დარიჩინი, გამოიყენება დესერტებში, ცხელ სასმელებში და ახლო აღმოსავლურ კერძებში",
+    price: 13.00,
+    image: "img/BOHARAT/41.png",
+    available: true
+  },
+  {
+    id: 42,
+    name: "محلب ناعم",
+    name_en: "Ground Mahleb",
+    name_ka: "დაფქული მაჰლები",
+    description: "بذور المحلب المطحونة، تستخدم في الحلويات والمخبوزات العربية التقليدية",
+    description_en: "Ground mahleb seeds, used in traditional Arabic sweets and baked goods",
+    description_ka: "დაფქული მაჰლების თესლები, გამოიყენება ტრადიციულ არაბულ ტკბილეულსა და ცომეულში",
+    price: 16.00,
+    image: "img/BOHARAT/42.png",
+    available: true
+  },
+  {
+    id: 43,
+    name: "سكر نبات",
+    name_en: "Rock Sugar",
+    name_ka: "შაქრის კრისტალები",
+    description: "بلورات سكر كبيرة، تستخدم في المشروبات الساخنة والحلويات الشرقية",
+    description_en: "Large sugar crystals, used in hot beverages and Middle Eastern sweets",
+    description_ka: "დიდი შაქრის კრისტალები, გამოიყენება ცხელ სასმელებში და ახლო აღმოსავლურ ტკბილეულში",
+    price: 9.00,
+    image: "img/BOHARAT/43.png",
+    available: true
+  },
+  {
+    id: 44,
+    name: "ملح",
+    name_en: "Salt",
+    name_ka: "მარილი",
+    description: "ملح طعام نقي، عنصر أساسي في كل مطبخ لتحسين نكهة الطعام",
+    description_en: "Pure table salt, an essential element in every kitchen to enhance food flavor",
+    description_ka: "სუფრის მარილი, აუცილებელი ელემენტი ყველა სამზარეულოში საკვების გემოს გასაუმჯობესებლად",
+    price: 5.00,
+    image: "img/BOHARAT/44.png",
+    available: true
+  },
+  {
+    id: 45,
+    name: "تبلة الكعك",
+    name_en: "Cookie Seasoning",
+    name_ka: "ნამცხვრის საკაზმი",
+    description: "خلطة توابل خاصة للكعك والبسكويت، تحتوي على القرفة والزنجبيل وجوزة الطيب",
+    description_en: "Special spice blend for cookies and biscuits, containing cinnamon, ginger, and nutmeg",
+    description_ka: "სპეციალური სანელებლების ნარევი ნამცხვრებისა და ბისკვიტებისთვის, შეიცავს დარიჩინს, კოჭას და ჯავზს",
+    price: 14.00,
+    image: "img/BOHARAT/45.png",
+    available: true
+  },
+  {
+    id: 46,
+    name: "نكهة باربكيو",
+    name_en: "BBQ Flavor",
+    name_ka: "ბარბექიუს არომატი",
+    description: "خلطة توابل بنكهة الشواء، تستخدم لتتبيل اللحوم والدجاج قبل الشوي",
+    description_en: "Barbecue-flavored spice blend, used to season meat and chicken before grilling",
+    description_ka: "ბარბექიუს გემოს სანელებლების ნარევი, გამოიყენება ხორცისა და ქათმის შესაკაზმად შეწვამდე",
+    price: 17.00,
+    image: "img/BOHARAT/46.png",
+    available: true
+  },
+  {
+    id: 47,
+    name: "نكهة بطاطا",
+    name_en: "Potato Flavor",
+    name_ka: "კარტოფილის არომატი",
+    description: "خلطة توابل خاصة للبطاطا المقلية والمخبوزة، تضفي نكهة غنية ومميزة",
+    description_en: "Special seasoning blend for fried and baked potatoes, adding rich and distinctive flavor",
+    description_ka: "სპეციალური სანელებლების ნარევი შემწვარი და გამომცხვარი კარტოფილისთვის, რომელიც ანიჭებს მდიდარ და განსაკუთრებულ გემოს",
+    price: 13.00,
+    image: "img/BOHARAT/47.png",
+    available: true
+  },
+  {
+    id: 48,
+    name: "فليفلة حلوة ناعمة",
+    name_en: "Ground Sweet Paprika",
+    name_ka: "დაფქული ტკბილი პაპრიკა",
+    description: "فلفل أحمر حلو مطحون، يضيف لون ونكهة لطيفة للأطباق",
+    description_en: "Ground sweet red pepper, adds color and mild flavor to dishes",
+    description_ka: "დაფქული ტკბილი წითელი წიწაკა, კერძებს ანიჭებს ფერსა და რბილ გემოს",
+    price: 12.00,
+    image: "img/BOHARAT/48.png",
+    available: true
+  },
+  {
+    id: 49,
+    name: "فليفلة حلوة",
+    name_en: "Sweet Paprika",
+    name_ka: "ტკბილი პაპრიკა",
+    description: "فلفل أحمر حلو خشن، يستخدم في تزيين الأطباق وإضافة نكهة معتدلة",
+    description_en: "Coarse sweet red pepper, used for dish decoration and adding moderate flavor",
+    description_ka: "უხეში ტკბილი წითელი წიწაკა, გამოიყენება კერძების მოსართავად და ზომიერი გემოს მისაცემად",
+    price: 12.00,
+    image: "img/BOHARAT/49.png",
+    available: true
+  },
+  {
+    id: 50,
+    name: "فليفلة حدة",
+    name_en: "Hot Paprika",
+    name_ka: "ცხარე პაპრიკა",
+    description: "فلفل أحمر حار خشن، يضيف حرارة ونكهة للأطباق المكسيكية والهندية",
+    description_en: "Coarse hot red pepper, adds heat and flavor to Mexican and Indian dishes",
+    description_ka: "უხეში ცხარე წითელი წიწაკა, ანიჭებს სიცხარეს და გემოს მექსიკურ და ინდურ კერძებს",
+    price: 13.00,
+    image: "img/BOHARAT/50.png",
+    available: true
+  },
+  {
+    id: 51,
+    name: "فليفلة حدة ناعمة",
+    name_en: "Ground Hot Paprika",
+    name_ka: "დაფქული ცხარე პაპრიკა",
+    description: "فلفل أحمر حار مطحون، يستخدم لإضافة الحرارة والنكهة للصلصات والمرق",
+    description_en: "Ground hot red pepper, used to add heat and flavor to sauces and broths",
+    description_ka: "დაფქული ცხარე წითელი წიწაკა, გამოიყენება სოუსებისა და ბულიონებისთვის სიცხარისა და გემოს მისაცემად",
+    price: 13.00,
+    image: "img/BOHARAT/51.png",
+    available: true
+  },
+  {
+    id: 52,
+    name: "قرنفل حب",
+    name_en: "Cloves",
+    name_ka: "მიხაკი",
+    description: "براعم القرنفل الكاملة، تستخدم في تتبيل اللحوم والأرز والمشروبات الدافئة",
+    description_en: "Whole clove buds, used in seasoning meat, rice, and warm beverages",
+    description_ka: "მთლიანი მიხაკის კოკრები, გამოიყენება ხორცის, ბრინჯის და თბილი სასმელების შესაკაზმად",
+    price: 18.00,
+    image: "img/BOHARAT/52.png",
+    available: true
+  },
+  {
+    id: 53,
+    name: "كركم حب",
+    name_en: "Turmeric Root",
+    name_ka: "ყვითელი კოჭას ფესვი",
+    description: "جذور الكركم الكاملة، تستخدم في المطبخ الهندي والآسيوي",
+    description_en: "Whole turmeric roots, used in Indian and Asian cuisine",
+    description_ka: "მთლიანი ყვითელი კოჭას ფესვები, გამოიყენება ინდურ და აზიურ სამზარეულოში",
+    price: 20.00,
+    image: "img/BOHARAT/53.png",
+    available: true
+  },
+  {
+    id: 54,
+    name: "سماق حب",
+    name_en: "Whole Sumac",
+    name_ka: "მთლიანი სუმაქი",
+    description: "حبوب السماق الكاملة، تستخدم في المطبخ الشرقي لإضافة نكهة حمضية",
+    description_en: "Whole sumac berries, used in Middle Eastern cuisine to add tangy flavor",
+    description_ka: "მთლიანი სუმაქის კენკრა, გამოიყენება ახლო აღმოსავლურ სამზარეულოში მჟავე გემოს მისაცემად",
+    price: 16.00,
+    image: "img/BOHARAT/54.png",
+    available: true
+  },
+  {
+    id: 55,
+    name: "عصفر شعري",
+    name_en: "Safflower",
+    name_ka: "ალისარჩული",
+    description: "زهور العصفر المجففة، تستخدم لإضافة لون ونكهة خفيفة للأرز واليخنات",
+    description_en: "Dried safflower blossoms, used to add color and mild flavor to rice and stews",
+    description_ka: "გამხმარი ალისარჩულის ყვავილები, გამოიყენება ბრინჯისა და რაგუსთვის ფერისა და რბილი გემოს მისაცემად",
+    price: 19.00,
+    image: "img/BOHARAT/55.png",
+    available: true
+  },
+  {
+    id: 56,
+    name: "محلب حب",
+    name_en: "Whole Mahleb",
+    name_ka: "მთლიანი მაჰლები",
+    description: "بذور المحلب الكاملة، تستخدم في المخبوزات والحلويات العربية التقليدية",
+    description_en: "Whole mahleb seeds, used in traditional Arabic pastries and sweets",
+    description_ka: "მთლიანი მაჰლების თესლები, გამოიყენება ტრადიციულ არაბულ ცომეულსა და ტკბილეულში",
+    price: 17.00,
+    image: "img/BOHARAT/56.png",
+    available: true
+  },
+  {
+    id: 57,
+    name: "يانسون حب",
+    name_en: "Whole Anise",
+    name_ka: "მთლიანი ანისული",
+    description: "بذور اليانسون الكاملة، تستخدم في الشاي والحلويات والمخبوزات",
+    description_en: "Whole anise seeds, used in tea, sweets, and baked goods",
+    description_ka: "მთლიანი ანისულის თესლები, გამოიყენება ჩაიში, ტკბილეულსა და ცომეულში",
+    price: 14.00,
+    image: "img/BOHARAT/57.png",
+    available: true
+  },
+  {
+    id: 58,
+    name: "جوز هند نصف دسم",
+    name_en: "Low-Fat Coconut",
+    name_ka: "დაბალცხიმიანი ქოქოსი",
+    description: "جوز هند مبشور منخفض الدسم، مثالي للحميات والوصفات الصحية",
+    description_en: "Low-fat shredded coconut, ideal for diets and healthy recipes",
+    description_ka: "დაბალცხიმიანი დაფქული ქოქოსი, იდეალურია დიეტებისა და ჯანსაღი რეცეპტებისთვის",
+    price: 20.00,
+    image: "img/BOHARAT/58.png",
+    available: true
+  },
+  {
+    id: 59,
+    name: "جوزة الطيب",
+    name_en: "Nutmeg",
+    name_ka: "ჯავზი",
+    description: "جوزة الطيب كاملة، تبشر حسب الحاجة لإضافة نكهة مميزة للأطباق والحلويات",
+    description_en: "Whole nutmeg, grated as needed to add distinctive flavor to dishes and desserts",
+    description_ka: "მთლიანი ჯავზი, იფხეკება საჭიროებისამებრ კერძებისა და დესერტებისთვის განსაკუთრებული გემოს მისაცემად",
+    price: 18.00,
+    image: "img/BOHARAT/59.png",
+    available: true
+  },
+  {
+    id: 60,
+    name: "لومي حب",
+    name_en: "Dried Lime",
+    name_ka: "გამხმარი ლაიმი",
+    description: "ليمون مجفف كامل، يستخدم في الأطباق الخليجية والشوربات لإضافة نكهة حامضة",
+    description_en: "Whole dried lime, used in Gulf dishes and soups to add sour flavor",
+    description_ka: "მთლიანი გამხმარი ლაიმი, გამოიყენება სპარსეთის ყურის კერძებში და წვნიანებში მჟავე გემოს მისაცემად",
+    price: 15.00,
+    image: "img/BOHARAT/60.png",
+    available: true
+  },
+  {
+    id: 61,
+    name: "كمون حب",
+    name_en: "Whole Cumin",
+    name_ka: "მთლიანი ზირა",
+    description: "بذور الكمون الكاملة، تستخدم في الكاري والأطباق الهندية والشرق أوسطية",
+    description_en: "Whole cumin seeds, used in curry, Indian, and Middle Eastern dishes",
+    description_ka: "მთლიანი ზირის თესლები, გამოიყენება ქარში, ინდურ და ახლო აღმოსავლურ კერძებში",
+    price: 12.00,
+    image: "img/BOHARAT/61.png",
+    available: true
+  },
+  {
+    id: 62,
+    name: "كزبرة حب",
+    name_en: "Whole Coriander",
+    name_ka: "მთლიანი ქინძის თესლი",
+    description: "بذور الكزبرة الكاملة، تستخدم في الكاري وتوابل الأطباق الآسيوية والشرقية",
+    description_en: "Whole coriander seeds, used in curry and seasoning Asian and Eastern dishes",
+    description_ka: "მთლიანი ქინძის თესლები, გამოიყენება ქარსა და აზიური და აღმოსავლური კერძების შესაკაზმად",
+    price: 11.00,
+    image: "img/BOHARAT/62.png",
+    available: true
+  },
+  {
+    id: 63,
+    name: "قرفة سيلاني",
+    name_en: "Ceylon Cinnamon",
+    name_ka: "ცეილონის დარიჩინი",
+    description: "قرفة سيلانية عالية الجودة، أكثر نعومة من القرفة العادية وبنكهة أرقى",
+    description_en: "High-quality Ceylon cinnamon, milder than regular cinnamon with a more refined flavor",
+    description_ka: "მაღალი ხარისხის ცეილონის დარიჩინი, ჩვეულებრივ დარიჩინზე უფრო რბილი და დახვეწილი გემოთი",
+    price: 22.00,
+    image: "img/BOHARAT/63.png",
+    available: true
+  },
+  {
+    id: 64,
+    name: "فلفل ابيض حب",
+    name_en: "Whole White Pepper",
+    name_ka: "მთლიანი თეთრი პილპილი",
+    description: "حبوب الفلفل الأبيض الكاملة، تستخدم في الصلصات الفاتحة والأطباق الأوروبية",
+    description_en: "Whole white peppercorns, used in light sauces and European dishes",
+    description_ka: "მთლიანი თეთრი პილპილის მარცვლები, გამოიყენება ღია სოუსებსა და ევროპულ კერძებში",
+    price: 14.00,
+    image: "img/BOHARAT/64.png",
+    available: true
+  },
+  {
+    id: 65,
+    name: "شمرة حب",
+    name_en: "Whole Fennel",
+    name_ka: "მთლიანი კამა",
+    description: "بذور الشمر الكاملة، تستخدم في أطباق المأكولات البحرية والمخبوزات الإيطالية",
+    description_en: "Whole fennel seeds, used in seafood dishes and Italian baked goods",
+    description_ka: "მთლიანი კამის თესლები, გამოიყენება ზღვის პროდუქტების კერძებსა და იტალიურ ცომეულში",
+    price: 13.00,
+    image: "img/BOHARAT/65.png",
+    available: true
+  },
+  {
+    id: 66,
+    name: "سمسم محمص",
+    name_en: "Roasted Sesame",
+    name_ka: "მოხალული სეზამი",
+    description: "بذور سمسم محمصة، تستخدم لتزيين المخبوزات وإضافة نكهة للسلطات والأطباق الآسيوية",
+    description_en: "Roasted sesame seeds, used to garnish baked goods and add flavor to salads and Asian dishes",
+    description_ka: "მოხალული სეზამის თესლები, გამოიყენება ცომეულის მოსართავად და სალათებისა და აზიური კერძების გემოს გასაუმჯობესებლად",
+    price: 12.00,
+    image: "img/BOHARAT/66.png",
+    available: true
+  },
+  {
+    id: 67,
+    name: "سمسم ذهبي",
+    name_en: "Golden Sesame",
+    name_ka: "ოქროსფერი სეზამი",
+    description: "بذور سمسم ذات لون ذهبي، تستخدم في المخبوزات والحلويات الشرقية",
+    description_en: "Golden-colored sesame seeds, used in baked goods and Eastern sweets",
+    description_ka: "ოქროსფერი სეზამის თესლები, გამოიყენება ცომეულსა და აღმოსავლურ ტკბილეულში",
+    price: 13.00,
+    image: "img/BOHARAT/67.png",
+    available: true
+  },
+  {
+    id: 68,
+    name: "سمسم ابيض",
+    name_en: "White Sesame",
+    name_ka: "თეთრი სეზამი",
+    description: "بذور سمسم بيضاء، تستخدم في المخبوزات والسلطات والأطباق الآسيوية",
+    description_en: "White sesame seeds, used in baked goods, salads, and Asian dishes",
+    description_ka: "თეთრი სეზამის თესლები, გამოიყენება ცომეულში, სალათებსა და აზიურ კერძებში",
+    price: 12.00,
+    image: "img/BOHARAT/68.png",
+    available: true
+  },
+  {
+    id: 69,
+    name: "نكهة جبنة",
+    name_en: "Cheese Flavor",
+    name_ka: "ყველის არომატი",
+    description: "توابل بنكهة الجبنة، تستخدم لتتبيل البطاطس والمقرمشات وإضافة نكهة الجبنة للأطباق",
+    description_en: "Cheese-flavored seasoning, used to season potatoes, crisps, and add cheese flavor to dishes",
+    description_ka: "ყველის გემოს სანელებელი, გამოიყენება კარტოფილის, ჩიფსების შესაკაზმად და კერძებისთვის ყველის გემოს მისაცემად",
+    price: 14.00,
+    image: "img/BOHARAT/69.png",
+    available: true
+  },
+  {
+    id: 70,
+    name: "فلفل اسود حب",
+    name_en: "Whole Black Pepper",
+    name_ka: "მთლიანი შავი პილპილი",
+    description: "حبوب الفلفل الأسود الكاملة، تستخدم في المخللات والمرق واليخنات",
+    description_en: "Whole black peppercorns, used in pickles, broths, and stews",
+    description_ka: "მთლიანი შავი პილპილის მარცვლები, გამოიყენება მწნილებში, ბულიონებსა და რაგუში",
+    price: 13.00,
+    image: "img/BOHARAT/70.png",
+    available: true
+  },
+  {
+  id: 71,
+  name: "زنجبيل ناعم",
+  name_en: "Ground Ginger",
+  name_ka: "დაფქული კოჭა",
+  description: "زنجبيل مطحون، يستخدم في المخبوزات والحلويات والمشروبات الساخنة والأطباق الآسيوية.",
+  description_en: "Ground ginger, used in baked goods, desserts, hot beverages, and Asian dishes.",
+  description_ka: "დაფქული კოჭა, გამოიყენება ცხობის ნაწარმში, დესერტებში, ცხელ სასმელებსა და აზიურ კერძებში.",
+  price: 17.00,
+  image: "img/BOHARAT/71.png",
+  available: true
+}
+]
+    // DOM Elements
+    const productsContainer = document.getElementById('productsContainer');
+    const adminLink = document.getElementById('adminLink');
+    const loginModal = document.getElementById('loginModal');
+    const closeModal = document.getElementById('closeModal');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+
+    // Current language
+    let currentLang = 'ar';
+
+    // UI text translations
+    const translations = {
+    ar: {
+        home: "الرئيسية",
+        products: "المنتجات",
+        about: "من نحن",  // نحتفظ بها للقائمة
+        contact: "اتصل بنا",
+        heroTitle: "بهارات وأعشاب",
+        discoverProducts: "اكتشف منتجاتنا",
+        contactUs: "تواصل معنا",
+        productsTitle: "منتجاتنا",
+        contactTitle: "اتصل بنا",
+        contactHeading: "نحن دائماً في خدمتكم",
+        contactIntro: "يمكنكم التواصل معنا من خلال القنوات التالية:",
+        address: "العنوان : جورجيا، تبليسي، روستافي القديمة، شارع 26، محل رقم 50",
+        phone: "الهاتف: +995 591 03 51 12",
+        hours: "ساعات العمل: يومياً من 8:00 صباحاً حتى 10:00 مساءً",
+        available: "متوفر",
+        unavailable: "غير متوفر",
+        orderNow: "اطلب الآن",
+        currency: "لاري",
+        loginTitle: "تسجيل الدخول للإدارة",
+        password: "كلمة المرور",
+        cancel: "إلغاء",
+        login: "دخول",
+        incorrectPassword: "كلمة المرور غير صحيحة",
+        sendOrder: "إرسال الطلب"
+    },
+    en: {
+        home: "Home",
+        products: "Products",
+        about: "About Us",
+        contact: "Contact",
+        heroTitle: "Spices and Herbs",
+        discoverProducts: "Discover Our Products",
+        contactUs: "Contact Us",
+        productsTitle: "Our Products",
+        contactTitle: "Contact Us",
+        contactHeading: "We Are Always At Your Service",
+        contactIntro: "You can contact us through the following channels:",
+        address: "Address: Georgia, Tbilisi, Old Rustavi, 26 Street, Shop No. 50",
+        phone: "Phone: +995 591 03 51 12",
+        hours: "Working Hours: Daily from 8:00 AM to 10:00 PM",
+        available: "Available",
+        unavailable: "Unavailable",
+        orderNow: "Order Now",
+        currency: "Larry",
+        loginTitle: "Admin Login",
+        password: "Password",
+        cancel: "Cancel",
+        login: "Login",
+        incorrectPassword: "Incorrect password",
+        sendOrder: "Send Order"
+    },
+    ka: {
+        home: "მთავარი",
+        products: "პროდუქტები",
+        about: "ჩვენ შესახებ",
+        contact: "კონტაქტი",
+        heroTitle: " სანელებლები და მწვანილი",
+        discoverProducts: "აღმოაჩინეთ ჩვენი პროდუქტები",
+        contactUs: "დაგვიკავშირდით",
+        productsTitle: "ჩვენი პროდუქტები",
+        contactTitle: "დაგვიკავშირდით",
+        contactHeading: "ჩვენ ყოველთვის თქვენს სამსახურში ვართ",
+        contactIntro: "შეგიძლიათ დაგვიკავშირდეთ შემდეგი არხების საშუალებით:",
+        address: "მისამართი: საქართველო, თბილისი, ძველი რუსთავი, ქუჩა 26, მაღაზია №50",
+        phone: "ტელეფონი: +995 591 03 51 12",
+        hours: "სამუშაო საათები: ყოველდღე 8:00-დან 22:00 საათამდე",
+        available: "ხელმისაწვდომია",
+        unavailable: "არ არის ხელმისაწვდომი",
+        orderNow: "შეუკვეთე ახლა",
+        currency: "ლარი",
+        loginTitle: "ადმინისტრატორის შესვლა",
+        password: "პაროლი",
+        cancel: "გაუქმება",
+        login: "შესვლა",
+        incorrectPassword: "არასწორი პაროლი",
+        sendOrder: "შეკვეთის გაგზავნა"
+    }
+};
+
+    // Load products based on language
+    function loadProducts() {
+        productsContainer.innerHTML = '';
+        products.forEach(product => {
+            const productName = product[`name${currentLang === 'ar' ? '' : '_' + currentLang}`];
+            const productDesc = product[`description${currentLang === 'ar' ? '' : '_' + currentLang}`];
+            
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${productName}" class="product-img">
+                <div class="product-details">
+                    <h3 class="product-title">${productName}</h3>
+                    <p class="product-description">${productDesc}</p>
+                    <div class="product-price">${product.price.toFixed(2)} ${translations[currentLang].currency}</div>
+                    <span class="product-available ${!product.available ? 'product-unavailable' : ''}">${product.available ? translations[currentLang].available : translations[currentLang].unavailable}</span>
+                    <button class="product-buy" ${!product.available ? 'disabled' : ''} onclick="orderNow(${product.id})">${translations[currentLang].orderNow}</button>
+                </div>
+            `;
+            productsContainer.appendChild(productCard);
+        });
+    }
+
+    // Update UI text based on current language
+    // Update UI text based on current language
+function updateUIText() {
+    // Update navigation links
+    document.querySelectorAll('.nav-link').forEach((link, index) => {
+        const keys = ['home', 'products', 'about', 'contact'];
+        link.textContent = translations[currentLang][keys[index]];
+    });
+
+    // Update hero section
+    let heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) heroTitle.textContent = translations[currentLang].heroTitle;
+    
+    let heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle && translations[currentLang].heroSubtitle) 
+        heroSubtitle.textContent = translations[currentLang].heroSubtitle;
+
+    // Update buttons
+    let heroButtons = document.querySelectorAll('.hero-content .btn');
+    if (heroButtons.length > 0) heroButtons[0].textContent = translations[currentLang].discoverProducts;
+    if (heroButtons.length > 1) heroButtons[1].textContent = translations[currentLang].contactUs;
+
+    // Update section titles - only update elements that exist
+    let sectionTitles = document.querySelectorAll('.section-title');
+    if (sectionTitles.length > 0) sectionTitles[0].textContent = translations[currentLang].productsTitle;
+    // Don't try to update "about" section title since we don't need it
+    // Check if contact section title exists
+    if (sectionTitles.length > 1) sectionTitles[1].textContent = translations[currentLang].contactTitle;
+
+    // Update contact section if it exists
+    let contactHeading = document.querySelector('#contact .about-text h3');
+    if (contactHeading) contactHeading.textContent = translations[currentLang].contactHeading;
+    
+    let contactParagraphs = document.querySelectorAll('#contact .about-text p');
+    if (contactParagraphs.length > 0) contactParagraphs[0].textContent = translations[currentLang].contactIntro;
+    if (contactParagraphs.length > 1) contactParagraphs[1].textContent = translations[currentLang].address;
+    if (contactParagraphs.length > 2) contactParagraphs[2].textContent = translations[currentLang].phone;
+    if (contactParagraphs.length > 3 && translations[currentLang].email) 
+        contactParagraphs[3].textContent = translations[currentLang].email;
+    if (contactParagraphs.length > 4) contactParagraphs[4].textContent = translations[currentLang].hours;
+
+    // Update admin link if it exists
+    let adminLink = document.querySelector('.admin-link');
+    if (adminLink && translations[currentLang].adminPage) 
+        adminLink.textContent = translations[currentLang].adminPage;
+
+    // Update login modal
+    let loginTitle = document.querySelector('.login-form h3');
+    if (loginTitle) loginTitle.textContent = translations[currentLang].loginTitle;
+    
+    let passwordLabel = document.querySelector('.form-group label');
+    if (passwordLabel) passwordLabel.textContent = translations[currentLang].password;
+    
+    let closeModal = document.querySelector('.close-modal');
+    if (closeModal) closeModal.textContent = translations[currentLang].cancel;
+    
+    let loginButtons = document.querySelectorAll('.form-actions .btn');
+    if (loginButtons.length > 0) loginButtons[0].textContent = translations[currentLang].login;
+
+    // Update language display
+    let currentLangElement = document.querySelector('.current-lang');
+    if (currentLangElement) {
+        currentLangElement.innerHTML = 
+            currentLang === 'ar' ? 'العربية <span>▾</span>' :
+            currentLang === 'en' ? 'English <span>▾</span>' : 'ქართული <span>▾</span>';
+    }
+
+    // Reload products with updated language
+    loadProducts();
+}
+
+    // Order now function (WhatsApp redirect)
+// Order now function (WhatsApp redirect with confirmation button)
+function orderNow(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product && product.available) {
+        // Show product image in a popup with send order button
+        showProductPopup(product);
+    }
+}
+
+function showProductPopup(product) {
+    // Create popup elements
+    const popup = document.createElement('div');
+    popup.className = 'product-popup';
+    
+    const productName = product[`name${currentLang === 'ar' ? '' : '_' + currentLang}`];
+    
+    // Prepare WhatsApp message
+    const productPrice = product.price.toFixed(2);
+    let message;
+    if (currentLang === 'ar') {
+        message = `أود طلب: ${productName} (رقم المنتج: ${product.id}) - السعر: ${productPrice} ${translations[currentLang].currency}`;
+    } else if (currentLang === 'en') {
+        message = `I would like to order: ${productName} (Product ID: ${product.id}) - Price: ${productPrice} ${translations[currentLang].currency}`;
+    } else {
+        message = `მსურს შეკვეთა: ${productName} (პროდუქტის ID: ${product.id}) - ფასი: ${productPrice} ${translations[currentLang].currency}`;
+    }
+    
+    // Popup HTML structure with send order button
+    popup.innerHTML = `
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>${productName}</h3>
+                <span class="close-popup">&times;</span>
+            </div>
+            <div class="popup-body">
+                <img src="${product.image}" alt="${productName}">
+                <p class="popup-price">${product.price.toFixed(2)} ${translations[currentLang].currency}</p>
+            </div>
+            <div class="popup-footer">
+                <button id="send-order-btn" class="send-order-btn">
+                    ${translations[currentLang].sendOrder || 'إرسال الطلب'}
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Add popup to the document
+    document.body.appendChild(popup);
+    
+    // Add CSS for the popup
+    const style = document.createElement('style');
+    style.textContent = `
+        .product-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .popup-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};
+        }
+        
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+        
+        .popup-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .close-popup {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .popup-body {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .popup-body img {
+            max-width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .popup-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 10px 0;
+        }
+        
+        .popup-footer {
+            padding: 15px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        
+        .send-order-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .send-order-btn:hover {
+            background-color: var(--accent-dark, #c25e00);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    `;
+    
+    document.head.appendChild(style);
+    
+    // Event listeners
+    // Close button
+    const closeBtn = popup.querySelector('.close-popup');
+    closeBtn.addEventListener('click', function() {
+        document.body.removeChild(popup);
+        document.head.removeChild(style);
+    });
+    
+    // Send order button (WhatsApp redirect)
+    const sendOrderBtn = popup.querySelector('#send-order-btn');
+    sendOrderBtn.addEventListener('click', function() {
+        // Open WhatsApp with the prepared message
+        const whatsappUrl = `https://wa.me/995591035112?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+    
+    // Close when clicking outside the popup content
+    popup.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            document.body.removeChild(popup);
+            document.head.removeChild(style);
+        }
+    });
+}
+
+    // Toggle language dropdown
+    function toggleLangDropdown() {
+        const langDropdown = document.getElementById('langDropdown');
+        langDropdown.classList.toggle('show');
+    }
+
+    // Change language function
+    function changeLang(lang) {
+        if (lang === currentLang) {
+            document.getElementById('langDropdown').classList.remove('show');
+            return;
+        }
+        
+        // Update document direction and language
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        
+        // Update current language
+        currentLang = lang;
+        
+        // Close dropdown
+        document.getElementById('langDropdown').classList.remove('show');
+        
+        // Update UI text
+        updateUIText();
+    }
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === loginModal) {
+            loginModal.classList.remove('show');
+        }
+    });
+
+    // Add floating coffee beans animation
+    function addCoffeeBeans() {
+        const hero = document.querySelector('.hero');
+        for (let i = 0; i < 15; i++) {
+            const bean = document.createElement('div');
+            bean.className = 'coffee-bean';
+            bean.style.left = `${Math.random() * 100}%`;
+            bean.style.animationDelay = `${Math.random() * 15}s`;
+            bean.style.opacity = Math.random() * 0.6 + 0.2;
+            bean.style.transform = `scale(${Math.random() * 0.6 + 0.5}) rotate(${Math.random() * 360}deg)`;
+            hero.appendChild(bean);
+        }
+    }
+
+    // Scroll animation for header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Close language dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLang = document.querySelector('.current-lang');
+        
+        if (e.target !== currentLang && !currentLang.contains(e.target) && 
+            e.target !== langDropdown && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('show');
+        }
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        loadProducts();
+        addCoffeeBeans();
+        updateUIText();
+    });
+    </script>
+</body>
+</html>

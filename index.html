@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Line - الصفحة الرئيسية</title>
+    <link rel="icon" href="Products/img/logo.ico" sizes="192x192">
+    <style>
+        :root {
+            --primary: #FFE100;
+            --dark: #000000;
+            --light: #FFFFFF;
+            --accent: #C87D55;
+            --secondary: #8B4513;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+        .created {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+}
+
+.created::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.created:hover {
+    color: var(--accent);
+}
+
+.created:hover::after {
+    width: 100%;
+}
+
+.created::before {
+    content: '✦ ';
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-5px);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.created:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: #ffffff00;
+            border-radius: 50%;
+            margin-left: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-right: 25px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .current-lang {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .current-lang span {
+            margin-left: 5px;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark);
+            border-radius: 4px;
+            padding: 10px 0;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 10;
+        }
+
+        .lang-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lang-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .lang-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-available {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .product-unavailable {
+            background-color: #f44336;
+        }
+
+        .product-buy {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-buy:hover {
+            background-color: #f0d500;
+        }
+
+        .about-section {
+            background-color: #f9f9f9;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .admin-link {
+            display: block;
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .admin-link:hover {
+            background-color: #222;
+        }
+
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .login-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .login-modal.show .login-form {
+            transform: translateY(0);
+        }
+
+        .login-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .close-modal {
+            padding: 10px 15px;
+            background-color: #f2f2f2;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: #e5e5e5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .coffee-bean {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            z-index: 2;
+            opacity: 0.8;
+            animation: float 15s infinite linear;
+        }
+
+        .coffee-bean::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-800px) rotate(405deg);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="Products/img/logo.png" alt="شعار الخط الساخن" width="90" height="90">
+                                </div>
+                <div class="brand-name"></div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">اتصل بنا</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <div class="current-lang" onclick="toggleLangDropdown()">
+                    العربية <span>▾</span>
+                </div>
+                <div class="lang-dropdown" id="langDropdown">
+                    <div class="lang-option" onclick="changeLang('ar')">العربية</div>
+                    <div class="lang-option" onclick="changeLang('en')">English</div>
+                    <div class="lang-option" onclick="changeLang('ka')">ქართული</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.lenovo.com/content/dam/lenovo/site-design/smarter-2-0/global/en/industries/supply-chain/strauss/gallery-images/strauss-gallery-image-2-d.jpg') center/cover no-repeat;">
+        <div id="particles"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">محمصة القهوة المميزة</h1>
+            <p class="hero-subtitle">نقدم أجود أنواع البن المحمص بالطرق التقليدية لمذاق فريد ورائحة لا تقاوم</p>    
+            <div>
+                <a href="#products" class="btn btn-outline">اكتشف منتجاتنا</a>
+                <a href="#contact" class="btn">تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">من نحن</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>قصة محمصتنا</h3>
+                    <p>تأسست محمصتنا منذ أكثر من   بهدف تقديم أجود أنواع البن المحمص بالطرق التقليدية. نحرص على اختيار أفضل أنواع البن من مختلف دول العالم ونحمصها بعناية فائقة للحفاظ على نكهتها الفريدة ورائحتها .</p>
+                    <p>نتميز بخبرة طويلة في مجال تحميص القهوة ونقدم مجموعة متنوعة من النكهات التي تناسب جميع الأذواق. تعتمد طريقتنا على الحرفية والاهتمام بأدق التفاصيل لضمان تقديم منتج عالي الجودة يرضي عملائنا.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=b57f8ffafdca2a397ce2284df4722bf2ae1f4b29-11031910-images-thumbs&n=13" alt="محمصة القهوة">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>نحن دائماً في خدمتكم</h3>
+                    <p>يمكنكم التواصل معنا من خلال القنوات التالية:</p>
+                    <p><strong>العنوان:</strong> المدينة، الشارع الرئيسي، بناية رقم 42</p>
+                    <p><strong>الهاتف:</strong> +123 456 7890</p>
+                    <p><strong>البريد الإلكتروني:</strong> info@coffee-roastery.com</p>
+                    <p><strong>ساعات العمل:</strong> يومياً من 8:00 صباحاً حتى 10:00 مساءً</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://fastly.4sqi.net/img/general/600x600/75858739_-9tP5RgA8acBafX5rQlc2OXjFgjgGdAPHAm9lJ1Na9U.jpg" alt="تواصل معنا">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>من نحن</h4>
+                    <p>نحن شركة متخصصة في تجارة وتوزيع المنتجات العربية داخل جورجيا، وتحديدًا في قلب العاصمة تبليسي. انطلقنا برؤية واضحة تهدف إلى تلبية احتياجات الجالية العربية، وتوفير المنتجات الأصيلة التي تعكس نكهة وثقافة الوطن.</p>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>t</i></a>
+                        <a href="#"><i>i</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>روابط مهمة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>ساعات العمل</h4>
+                    <p>يومياً من 8:00 صباحاً حتى 10:00 مساءً</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 الخط الساخن. جميع الحقوق محفوظة.</p>
+                <p>Created py <a class="created" href="https://www.facebook.com/profile.php?id=61553690433032&locale=ar_AR">mohammed Abo rajap</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-form">
+            <h3>تسجيل الدخول للإدارة</h3>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="close-modal" id="closeModal">إلغاء</button>
+                    <button type="submit" class="btn">دخول</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+const products = [
+    {
+        id: 1,
+        name: "قهوه بأنواعها",
+        name_en: "Coffee (all types)",
+        name_ka: "ყველანაირი ყავა",
+        image: "https://i.ytimg.com/vi/zippNi5JdI0/maxresdefault.jpg",
+        page: "Products/coffee.html"
+    },
+    {
+        id: 2,
+        name: "مكسرات بأنواعها",
+        name_en: "Nuts (all types)",
+        name_ka: "თხილი (ყველა სახეობა)",
+        image: "https://i.pinimg.com/originals/f7/95/42/f79542013f14ac827cfe487cdb0e4e1d.jpg",
+        page: "Products/Nuts.html"
+    },
+    {
+        id: 3,
+        name: "بقوليات",
+        name_en: "Legumes",
+        name_ka: "პარკოსნები",
+        image: "https://cdn.forie.com/storage/images/products/6ea85f0d-b7f7-4821-9009-ab1e80e29f21.jpg",
+        page: "Products/Legumes.html"
+    },
+    {
+        id: 4,
+        name: "بهارات وأعشاب",
+        name_en: "Spices and herbs",
+        name_ka: "სანელებლები და ბალახები",
+        image: "https://i.ytimg.com/vi/IoHvNs6c18Y/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGH8gISgTMA8=&rs=AOn4CLBhXLmkfekCLyrUdhgtF9wn9u_d3g",
+        page: "Products/Spices-and-herbs.html"
+    },
+    {
+        id: 5,
+        name: "منتجات عربية",
+        name_en: "Arabic products",
+        name_ka: "არაბული პროდუქტები",
+        image: "https://images.hub.ldpr.ru/display?path=media/images/sevastopol/451651df702f7b0309078cd0dec91bdf094d5d8081b46aad1a7df8661815483b.jpg&op=resize&h=600",
+        page: "Products/Arabic-products.html"
+    },
+    {
+        id: 6,
+        name: "نثريات",
+        name_en: "Miscellaneous items",
+        name_ka: "სხვადასხვა ნივთები",
+        image: "https://images-na.ssl-images-amazon.com/images/S/mediaservice.woot.com/31d6aeb5-5c16-412b-80dc-1e8d1f81e541._AC_SR882,441_.jpg",
+        page: "Products/Sundries.html"
+    }
+];
+    // DOM Elements
+    const productsContainer = document.getElementById('productsContainer');
+    const adminLink = document.getElementById('adminLink');
+    const loginModal = document.getElementById('loginModal');
+    const closeModal = document.getElementById('closeModal');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+
+    // Current language
+    let currentLang = 'ar';
+
+    // UI text translations
+    const translations = {
+        ar: {
+            home: "",
+            products: "المنتجات",
+            about: "من نحن",
+            contact: "اتصل بنا",
+            heroTitle: "الخط الساخن",
+            heroSubtitle: "لتجاره المنتجات العربيه في جورجيا",
+            discoverProducts: "اكتشف منتجاتنا",
+            contactUs: "تواصل معنا",
+            productsTitle: "منتجاتنا",
+            aboutTitle: "من نحن",
+            aboutHeading: "قصة شركتنا",
+            aboutParagraph1: "تأسست محمصتنا منذ أكثر من 20 عاماً بهدف تقديم أجود أنواع البن المحمص بالطرق التقليدية. نحرص على اختيار أفضل أنواع البن من مختلف دول العالم ونحمصها بعناية فائقة للحفاظ على نكهتها الفريدة ورائحتها المميزة.",
+            aboutParagraph2: "نتميز بخبرة طويلة في مجال تحميص القهوة ونقدم مجموعة متنوعة من النكهات التي تناسب جميع الأذواق. تعتمد طريقتنا على الحرفية والاهتمام بأدق التفاصيل لضمان تقديم منتج عالي الجودة يرضي عملائنا.",
+            contactTitle: "اتصل بنا",
+            contactHeading: "نحن دائماً في خدمتكم",
+            contactIntro: "يمكنكم التواصل معنا من خلال القنوات التالية:",
+            address: "العنوان : جورجيا، تبليسي، روستافي القديمة، شارع 26، محل رقم 50",
+            phone: "الهاتف: +995 591 03 51 12",
+            hours: "ساعات العمل: يومياً من 8:00 صباحاً حتى 10:00 مساءً",
+            available: "متوفر",
+            unavailable: "غير متوفر",
+            orderNow: "اكتشف المنتجات",
+            currency: "ريال",
+            loginTitle: "تسجيل الدخول للإدارة",
+            password: "كلمة المرور",
+            cancel: "إلغاء",
+            login: "دخول",
+            incorrectPassword: "كلمة المرور غير صحيحة"
+        },
+        en: {
+            home: "",
+            products: "Products",
+            about: "About Us",
+            contact: "Contact",
+            heroTitle: "Hotline",
+            heroSubtitle: "For Trading Arabic Products in Georgia",
+            discoverProducts: "Discover Our Products",
+            contactUs: "Contact Us",
+            productsTitle: "Our Products",
+            aboutTitle: "About Us",
+            aboutHeading: "Our company story",
+            aboutParagraph1: "Our roastery was established more than 20 years ago with the aim of providing the finest traditionally roasted coffee beans. We carefully select the best coffee beans from different countries around the world and roast them with extreme care to preserve their unique flavor and distinctive aroma.",
+            aboutParagraph2: "We are distinguished by our long experience in the field of coffee roasting and offer a variety of flavors to suit all tastes. Our method is based on craftsmanship and attention to the finest details to ensure a high-quality product that satisfies our customers.",
+            contactTitle: "Contact Us",
+            contactHeading: "We Are Always At Your Service",
+            contactIntro: "You can contact us through the following channels:",
+            address: "Address: Georgia, Tbilisi, Old Rustavi, 26 Street, Shop No. 50",
+            phone: "Phone: +995 591 03 51 12",
+            hours: "Working Hours: Daily from 8:00 AM to 10:00 PM",
+            available: "Available",
+            unavailable: "Unavailable",
+            orderNow: "Discover the products",
+            currency: "Larry",
+            loginTitle: "Admin Login",
+            password: "Password",
+            cancel: "Cancel",
+            login: "Login",
+            incorrectPassword: "Incorrect password"
+        },
+        ka: {
+            home: "",
+            products: "პროდუქტები",
+            about: "ჩვენ შესახებ",
+            contact: "კონტაქტი",
+            heroTitle: "ცხელი ხაზი",
+            heroSubtitle: "არაბული პროდუქტების ვაჭრობა საქართველოში",
+            discoverProducts: "აღმოაჩინეთ ჩვენი პროდუქტები",
+            contactUs: "დაგვიკავშირდით",
+            productsTitle: "ჩვენი პროდუქტები",
+            aboutTitle: "ჩვენ შესახებ",
+            aboutHeading: "ჩვენი კომპანიის ისტორია",
+            aboutParagraph1: "ჩვენი ყავის სახლი დაარსდა 20 წელზე მეტი ხნის წინ საუკეთესო ტრადიციულად მოხალული ყავის მარცვლების მიწოდების მიზნით. ჩვენ ყურადღებით ვარჩევთ საუკეთესო ყავის მარცვლებს მსოფლიოს სხვადასხვა ქვეყნიდან და ვხალავთ მათ განსაკუთრებული სიფრთხილით, რათა შევინარჩუნოთ მათი უნიკალური გემო და გამორჩეული არომატი.",
+            aboutParagraph2: "ჩვენ გამოვირჩევით ყავის მოხალვის სფეროში ხანგრძლივი გამოცდილებით და გთავაზობთ სხვადასხვა გემოს, რომელიც შეესაბამება ყველა გემოვნებას. ჩვენი მეთოდი ეფუძნება ოსტატობას და ყურადღებას უმცირეს დეტალებზე, რათა უზრუნველყოფილი იყოს მაღალი ხარისხის პროდუქტი, რომელიც აკმაყოფილებს ჩვენს მომხმარებლებს.",
+            contactTitle: "დაგვიკავშირდით",
+            contactHeading: "ჩვენ ყოველთვის თქვენს სამსახურში ვართ",
+            contactIntro: "შეგიძლიათ დაგვიკავშირდეთ შემდეგი არხების საშუალებით:",
+            address: "მისამართი: საქართველო, თბილისი, ძველი რუსთავი, ქუჩა 26, მაღაზია №50",
+            phone: "ტელეფონი: +995 591 03 51 12",
+            hours: "სამუშაო საათები: ყოველდღე 8:00-დან 22:00 საათამდე",
+            available: "ხელმისაწვდომია",
+            unavailable: "არ არის ხელმისაწვდომი",
+            orderNow: "აღმოაჩინეთ პროდუქტები",
+            currency: "ლარი",
+            loginTitle: "ადმინისტრატორის შესვლა",
+            password: "პაროლი",
+            cancel: "გაუქმება",
+            login: "შესვლა",
+            incorrectPassword: "არასწორი პაროლი"
+        }
+    };
+
+
+// Load products based on language
+    function loadProducts() {
+    productsContainer.innerHTML = '';
+    products.forEach(product => {
+        // اختيار اسم المنتج حسب اللغة الحالية
+        let productName = product.name; // الافتراضي بالعربية
+        
+        if (currentLang === 'en') {
+            productName = product.name_en;
+        } else if (currentLang === 'ka') {
+            productName = product.name_ka;
+        }
+        
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${productName}" class="product-img">
+            <div class="product-details">
+                <h3 class="product-title">${productName}</h3>
+                <button class="product-buy" onclick="orderNow(${product.id})">${translations[currentLang].orderNow}</button>
+            </div>
+        `;
+        productsContainer.appendChild(productCard);
+    });
+}
+
+    // Update UI text based on current language
+    function updateUIText() {
+    // تحديث روابط التنقل
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (navLinks.length > 0) {
+        navLinks.forEach((link, index) => {
+            const keys = ['home', 'products', 'about', 'contact'];
+            if (index < keys.length) {
+                link.textContent = translations[currentLang][keys[index]];
+            }
+        });
+    }
+
+    // تحديث قسم البطل
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) heroTitle.textContent = translations[currentLang].heroTitle;
+    
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle) heroSubtitle.textContent = translations[currentLang].heroSubtitle;
+    
+    const heroButtons = document.querySelectorAll('.hero-content .btn');
+    if (heroButtons.length >= 2) {
+        heroButtons[0].textContent = translations[currentLang].discoverProducts;
+        heroButtons[1].textContent = translations[currentLang].contactUs;
+    }
+
+    // تحديث عناوين الأقسام
+    const sectionTitles = document.querySelectorAll('.section-title');
+    if (sectionTitles.length >= 1) sectionTitles[0].textContent = translations[currentLang].productsTitle;
+    if (sectionTitles.length >= 2) sectionTitles[1].textContent = translations[currentLang].aboutTitle;
+    if (sectionTitles.length >= 3) sectionTitles[2].textContent = translations[currentLang].contactTitle;
+
+    // تحديث قسم "من نحن"
+    const aboutTextH3 = document.querySelector('.about-text h3');
+    if (aboutTextH3) aboutTextH3.textContent = translations[currentLang].aboutHeading;
+    
+    const aboutTextPs = document.querySelectorAll('.about-text p');
+    if (aboutTextPs.length >= 1) aboutTextPs[0].textContent = translations[currentLang].aboutParagraph1;
+    if (aboutTextPs.length >= 2) aboutTextPs[1].textContent = translations[currentLang].aboutParagraph2;
+
+    // تحديث قسم الاتصال
+    const aboutTextH3s = document.querySelectorAll('.about-text h3');
+    if (aboutTextH3s.length >= 2) aboutTextH3s[1].textContent = translations[currentLang].contactHeading;
+    
+    const contactTextPs = document.querySelectorAll('#contact .about-text p');
+    if (contactTextPs.length >= 1) contactTextPs[0].textContent = translations[currentLang].contactIntro;
+    if (contactTextPs.length >= 2) contactTextPs[1].textContent = translations[currentLang].address;
+    if (contactTextPs.length >= 3) contactTextPs[2].textContent = translations[currentLang].phone;
+    if (contactTextPs.length >= 4) contactTextPs[3].textContent = translations[currentLang].email;
+    if (contactTextPs.length >= 5) contactTextPs[4].textContent = translations[currentLang].hours;
+
+    // تحديث رابط الإدارة
+    const adminLink = document.querySelector('.admin-link');
+    if (adminLink) adminLink.textContent = translations[currentLang].adminPage;
+
+    // تحديث نافذة تسجيل الدخول
+    const loginFormH3 = document.querySelector('.login-form h3');
+    if (loginFormH3) loginFormH3.textContent = translations[currentLang].loginTitle;
+    
+    const formGroupLabel = document.querySelector('.form-group label');
+    if (formGroupLabel) formGroupLabel.textContent = translations[currentLang].password;
+    
+    const closeModal = document.querySelector('.close-modal');
+    if (closeModal) closeModal.textContent = translations[currentLang].cancel;
+    
+    const formActionsBtn = document.querySelectorAll('.form-actions .btn');
+    if (formActionsBtn.length >= 1) formActionsBtn[0].textContent = translations[currentLang].login;
+
+    // تحديث عرض اللغة
+    const currentLangElement = document.querySelector('.current-lang');
+    if (currentLangElement) {
+        currentLangElement.innerHTML = 
+            currentLang === 'ar' ? 'العربية <span>▾</span>' :
+            currentLang === 'en' ? 'English <span>▾</span>' : 'ქართული <span>▾</span>';
+    }
+
+    // إعادة تحميل المنتجات باللغة المحدثة
+    loadProducts();
+}
+    // Order now function (WhatsApp redirect)
+    function orderNow(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        // استخدام مسار الصفحة المحدد لكل منتج
+        window.location.href = product.page;
+    }
+}
+
+    // Toggle language dropdown
+    function toggleLangDropdown() {
+        const langDropdown = document.getElementById('langDropdown');
+        langDropdown.classList.toggle('show');
+    }
+
+    // Change language function
+    function changeLang(lang) {
+    if (lang === currentLang) {
+        document.getElementById('langDropdown').classList.remove('show');
+        return;
+    }
+        
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    // تحديث اللغة الحالية
+    currentLang = lang;
+        
+        // Close dropdown
+        document.getElementById('langDropdown').classList.remove('show');
+        
+        // Update UI text
+        updateUIText();
+        loadProducts();
+    
+    console.log('تم تغيير اللغة إلى: ' + lang); // للتتبع/التصحيح
+    }
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === loginModal) {
+            loginModal.classList.remove('show');
+        }
+    });
+
+    // Add floating coffee beans animation
+    function addCoffeeBeans() {
+        const hero = document.querySelector('.hero');
+        for (let i = 0; i < 15; i++) {
+            const bean = document.createElement('div');
+            bean.className = 'coffee-bean';
+            bean.style.left = `${Math.random() * 100}%`;
+            bean.style.animationDelay = `${Math.random() * 15}s`;
+            bean.style.opacity = Math.random() * 0.6 + 0.2;
+            bean.style.transform = `scale(${Math.random() * 0.6 + 0.5}) rotate(${Math.random() * 360}deg)`;
+            hero.appendChild(bean);
+        }
+    }
+
+    // Scroll animation for header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Close language dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLang = document.querySelector('.current-lang');
+        
+        if (e.target !== currentLang && !currentLang.contains(e.target) && 
+            e.target !== langDropdown && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('show');
+        }
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+    try {
+        // قم بتحميل المنتجات أولاً
+        loadProducts();
+        // ثم أضف حبوب القهوة
+        addCoffeeBeans();
+        // بعد ذلك، قم بتحديث نصوص واجهة المستخدم
+        updateUIText();
+    } catch (error) {
+        console.error('حدث خطأ أثناء التهيئة:', error);
+    }
+});
+    </script>
+</body>
+</html>

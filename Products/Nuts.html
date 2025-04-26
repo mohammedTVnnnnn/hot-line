@@ -1,0 +1,2998 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Line -  مكسرات بأنواعها</title>
+    <link rel="icon" href="img/logo.ico" sizes="192x192">
+    <style>
+        :root {
+            --primary: #FFE100;
+            --dark: #000000;
+            --light: #FFFFFF;
+            --accent: #C87D55;
+            --secondary: #8B4513;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;
+        }
+        .created {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+}
+
+.created::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.created:hover {
+    color: var(--accent);
+}
+
+.created:hover::after {
+    width: 100%;
+}
+
+.created::before {
+    content: '✦ ';
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-5px);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.created:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: #ffffff00;
+            border-radius: 50%;
+            margin-left: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-right: 25px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .current-lang {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .current-lang span {
+            margin-left: 5px;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dark);
+            border-radius: 4px;
+            padding: 10px 0;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 10;
+        }
+
+        .lang-dropdown.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lang-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .lang-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .product-details {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .product-available {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .product-unavailable {
+            background-color: #f44336;
+        }
+
+        .product-buy {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-buy:hover {
+            background-color: #f0d500;
+        }
+
+        .about-section {
+            background-color: #f9f9f9;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .admin-link {
+            display: block;
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .admin-link:hover {
+            background-color: #222;
+        }
+
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .login-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .login-modal.show .login-form {
+            transform: translateY(0);
+        }
+
+        .login-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .close-modal {
+            padding: 10px 15px;
+            background-color: #f2f2f2;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background-color: #e5e5e5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .coffee-bean {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            z-index: 2;
+            opacity: 0.8;
+            animation: float 15s infinite linear;
+        }
+
+        .coffee-bean::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-800px) rotate(405deg);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    <img src="img/logo.png" alt="شعار الخط الساخن" width="90" height="90">
+                                </div>
+                <div class="brand-name"></div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link active">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#products" class="nav-link">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">اتصل بنا</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="language-selector">
+                <div class="current-lang" onclick="toggleLangDropdown()">
+                    العربية <span>▾</span>
+                </div>
+                <div class="lang-dropdown" id="langDropdown">
+                    <div class="lang-option" onclick="changeLang('ar')">العربية</div>
+                    <div class="lang-option" onclick="changeLang('en')">English</div>
+                    <div class="lang-option" onclick="changeLang('ka')">ქართული</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://avatars.mds.yandex.net/i?id=6697d6b3abd420350fadb00e311faa695ef37413-4602519-images-thumbs&n=13') center/cover no-repeat;">
+        <div id="particles"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">محمصة القهوة المميزة</h1>
+            <p class="hero-subtitle"></p>    
+            <div>
+                <a href="#products" class="btn btn-outline">اكتشف منتجاتنا</a>
+                <a href="#contact" class="btn">تواصل معنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">منتجاتنا</h2>
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بنا</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>نحن دائماً في خدمتكم</h3>
+                    <p>يمكنكم التواصل معنا من خلال القنوات التالية:</p>
+                    <p><strong>العنوان:</strong> المدينة، الشارع الرئيسي، بناية رقم 42</p>
+                    <p><strong>الهاتف:</strong> +123 456 7890</p>
+                    <p><strong>البريد الإلكتروني:</strong> info@coffee-roastery.com</p>
+                    <p><strong>ساعات العمل:</strong> يومياً من 8:00 صباحاً حتى 10:00 مساءً</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://avatars.mds.yandex.net/i?id=f2e990c3e648fa0c3f090fea1abd165f895c2cc6-4556685-images-thumbs&n=13" alt="تواصل معنا">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>من نحن</h4>
+                    <p>نحن شركة متخصصة في تجارة وتوزيع المنتجات العربية داخل جورجيا، وتحديدًا في قلب العاصمة تبليسي. انطلقنا برؤية واضحة تهدف إلى تلبية احتياجات الجالية العربية، وتوفير المنتجات الأصيلة التي تعكس نكهة وثقافة الوطن.</p>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>t</i></a>
+                        <a href="#"><i>i</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>روابط مهمة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>ساعات العمل</h4>
+                    <p>الاثنين - الجمعة: 8:00 ص - 10:00 م</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 الخط الساخن. جميع الحقوق محفوظة.</p>
+                <p>Created py <a class="created" href="https://www.facebook.com/profile.php?id=61553690433032&locale=ar_AR">mohammed Abo rajap</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-form">
+            <h3>تسجيل الدخول للإدارة</h3>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="close-modal" id="closeModal">إلغاء</button>
+                    <button type="submit" class="btn">دخول</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+
+const products = [
+{
+    id: 1,
+    name: "مكسرات فاخرة رباعية ٣ كيلو",
+    name_en: "Luxury Quad Nuts Mix 3kg",
+    name_ka: "ძვირფასი ოთხმაგი თხილეულის ნარევი 3კგ",
+    description: "مزيج فاخر من أربعة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، كاجو، وبندق، بوزن ٣ كيلو في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of four high-quality nuts: almonds, pistachios, cashews, and hazelnuts, 3kg in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი ოთხი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა, კეშიუ და თხილი, 3კგ ძვირფას დალუქულ შეფუთვაში",
+    price: 450.00,
+    image: "img/MKSRAT-MAWALEH/1.png",
+    available: true
+  },
+  {
+    id: 2,
+    name: "مكسرات فاخرة رباعية ١ كيلو",
+    name_en: "Luxury Quad Nuts Mix 1kg",
+    name_ka: "ძვირფასი ოთხმაგი თხილეულის ნარევი 1კგ",
+    description: "مزيج فاخر من أربعة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، كاجو، وبندق، بوزن ١ كيلو في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of four high-quality nuts: almonds, pistachios, cashews, and hazelnuts, 1kg in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი ოთხი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა, კეშიუ და თხილი, 1კგ ძვირფას დალუქულ შეფუთვაში",
+    price: 160.00,
+    image: "img/MKSRAT-MAWALEH/2.png",
+    available: true
+  },
+  {
+    id: 3,
+    name: "مكسرات فاخرة رباعية ٥٠٠ جم",
+    name_en: "Luxury Quad Nuts Mix 500g",
+    name_ka: "ძვირფასი ოთხმაგი თხილეულის ნარევი 500გ",
+    description: "مزيج فاخر من أربعة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، كاجو، وبندق، بوزن ٥٠٠ جرام في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of four high-quality nuts: almonds, pistachios, cashews, and hazelnuts, 500g in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი ოთხი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა, კეშიუ და თხილი, 500გ ძვირფას დალუქულ შეფუთვაში",
+    price: 85.00,
+    image: "img/MKSRAT-MAWALEH/3.png",
+    available: true
+  },
+  {
+    id: 4,
+    name: "مكسرات فاخرة رباعية ١٥٠ جم",
+    name_en: "Luxury Quad Nuts Mix 150g",
+    name_ka: "ძვირფასი ოთხმაგი თხილეულის ნარევი 150გ",
+    description: "مزيج فاخر من أربعة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، كاجو، وبندق، بوزن ١٥٠ جرام في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of four high-quality nuts: almonds, pistachios, cashews, and hazelnuts, 150g in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი ოთხი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა, კეშიუ და თხილი, 150გ ძვირფას დალუქულ შეფუთვაში",
+    price: 28.00,
+    image: "img/MKSRAT-MAWALEH/4.png",
+    available: true
+  },
+  {
+    id: 5,
+    name: "مكسرات فاخرة رباعية ٥٠ جم",
+    name_en: "Luxury Quad Nuts Mix 50g",
+    name_ka: "ძვირფასი ოთხმაგი თხილეულის ნარევი 50გ",
+    description: "مزيج فاخر من أربعة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، كاجو، وبندق، بوزن ٥٠ جرام في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of four high-quality nuts: almonds, pistachios, cashews, and hazelnuts, 50g in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი ოთხი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა, კეშიუ და თხილი, 50გ ძვირფას დალუქულ შეფუთვაში",
+    price: 12.00,
+    image: "img/MKSRAT-MAWALEH/5.png",
+    available: true
+  },
+  {
+    id: 6,
+    name: "مكسرات فاخرة ثلاثية ٣ كيلو",
+    name_en: "Luxury Triple Nuts Mix 3kg",
+    name_ka: "ძვირფასი სამმაგი თხილეულის ნარევი 3კგ",
+    description: "مزيج فاخر من ثلاثة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، وكاجو، بوزن ٣ كيلو في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of three high-quality nuts: almonds, pistachios, and cashews, 3kg in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი სამი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა და კეშიუ, 3კგ ძვირფას დალუქულ შეფუთვაში",
+    price: 420.00,
+    image: "img/MKSRAT-MAWALEH/6.png",
+    available: true
+  },
+  {
+    id: 7,
+    name: "مكسرات فاخرة ثلاثية ١ كيلو",
+    name_en: "Luxury Triple Nuts Mix 1kg",
+    name_ka: "ძვირფასი სამმაგი თხილეულის ნარევი 1კგ",
+    description: "مزيج فاخر من ثلاثة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، وكاجو، بوزن ١ كيلو في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of three high-quality nuts: almonds, pistachios, and cashews, 1kg in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი სამი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა და კეშიუ, 1კგ ძვირფას დალუქულ შეფუთვაში",
+    price: 145.00,
+    image: "img/MKSRAT-MAWALEH/7.png",
+    available: true
+  },
+  {
+    id: 8,
+    name: "مكسرات فاخرة ثلاثية ٥٠٠ جم",
+    name_en: "Luxury Triple Nuts Mix 500g",
+    name_ka: "ძვირფასი სამმაგი თხილეულის ნარევი 500გ",
+    description: "مزيج فاخر من ثلاثة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، وكاجو، بوزن ٥٠٠ جرام في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of three high-quality nuts: almonds, pistachios, and cashews, 500g in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი სამი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა და კეშიუ, 500გ ძვირფას დალუქულ შეფუთვაში",
+    price: 75.00,
+    image: "img/MKSRAT-MAWALEH/8.png",
+    available: true
+  },
+  {
+    id: 9,
+    name: "مكسرات فاخرة ثلاثية ١٥٠ جم",
+    name_en: "Luxury Triple Nuts Mix 150g",
+    name_ka: "ძვირფასი სამმაგი თხილეულის ნარევი 150გ",
+    description: "مزيج فاخر من ثلاثة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، وكاجو، بوزن ١٥٠ جرام في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of three high-quality nuts: almonds, pistachios, and cashews, 150g in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი სამი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა და კეშიუ, 150გ ძვირფას დალუქულ შეფუთვაში",
+    price: 25.00,
+    image: "img/MKSRAT-MAWALEH/9.png",
+    available: true
+  },
+  {
+    id: 10,
+    name: "مكسرات فاخرة ثلاثية ٥٠ جم",
+    name_en: "Luxury Triple Nuts Mix 50g",
+    name_ka: "ძვირფასი სამმაგი თხილეულის ნარევი 50გ",
+    description: "مزيج فاخر من ثلاثة أنواع مكسرات عالية الجودة: لوز، فستق حلبي، وكاجو، بوزن ٥٠ جرام في عبوة فاخرة محكمة الإغلاق",
+    description_en: "Premium mix of three high-quality nuts: almonds, pistachios, and cashews, 50g in a luxury sealed package",
+    description_ka: "პრემიუმ ნარევი სამი მაღალი ხარისხის თხილეულისგან: ნუში, ფსტა და კეშიუ, 50გ ძვირფას დალუქულ შეფუთვაში",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/10.png",
+    available: true
+  },
+  {
+    id: 11,
+    name: "لوز ٣ كيلو",
+    name_en: "Almonds 3kg",
+    name_ka: "ნუში 3კგ",
+    description: "لوز فاخر منتقى بعناية، محمص بشكل مثالي، غني بالعناصر الغذائية، بوزن ٣ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Premium hand-selected almonds, perfectly roasted, rich in nutrients, 3kg in a sealed package",
+    description_ka: "პრემიუმ ხელით შერჩეული ნუში, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით, 3კგ დალუქულ შეფუთვაში",
+    price: 380.00,
+    image: "img/MKSRAT-MAWALEH/11.png",
+    available: true
+  },
+  {
+    id: 12,
+    name: "لوز ١ كيلو",
+    name_en: "Almonds 1kg",
+    name_ka: "ნუში 1კგ",
+    description: "لوز فاخر منتقى بعناية، محمص بشكل مثالي، غني بالعناصر الغذائية، بوزن ١ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Premium hand-selected almonds, perfectly roasted, rich in nutrients, 1kg in a sealed package",
+    description_ka: "პრემიუმ ხელით შერჩეული ნუში, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით, 1კგ დალუქულ შეფუთვაში",
+    price: 130.00,
+    image: "img/MKSRAT-MAWALEH/12.png",
+    available: true
+  },
+  {
+    id: 13,
+    name: "لوز ٥٠٠ جم",
+    name_en: "Almonds 500g",
+    name_ka: "ნუში 500გ",
+    description: "لوز فاخر منتقى بعناية، محمص بشكل مثالي، غني بالعناصر الغذائية، بوزن ٥٠٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Premium hand-selected almonds, perfectly roasted, rich in nutrients, 500g in a sealed package",
+    description_ka: "პრემიუმ ხელით შერჩეული ნუში, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით, 500გ დალუქულ შეფუთვაში",
+    price: 68.00,
+    image: "img/MKSRAT-MAWALEH/13.png",
+    available: true
+  },
+  {
+    id: 14,
+    name: "لوز ١٥٠ جم",
+    name_en: "Almonds 150g",
+    name_ka: "ნუში 150გ",
+    description: "لوز فاخر منتقى بعناية، محمص بشكل مثالي، غني بالعناصر الغذائية، بوزن ١٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Premium hand-selected almonds, perfectly roasted, rich in nutrients, 150g in a sealed package",
+    description_ka: "პრემიუმ ხელით შერჩეული ნუში, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით, 150გ დალუქულ შეფუთვაში",
+    price: 22.00,
+    image: "img/MKSRAT-MAWALEH/14.png",
+    available: true
+  },
+  {
+    id: 15,
+    name: "لوز ٥٠ جم",
+    name_en: "Almonds 50g",
+    name_ka: "ნუში 50გ",
+    description: "لوز فاخر منتقى بعناية، محمص بشكل مثالي، غني بالعناصر الغذائية، بوزن ٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Premium hand-selected almonds, perfectly roasted, rich in nutrients, 50g in a sealed package",
+    description_ka: "პრემიუმ ხელით შერჩეული ნუში, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით, 50გ დალუქულ შეფუთვაში",
+    price: 8.00,
+    image: "img/MKSRAT-MAWALEH/15.png",
+    available: true
+  },
+  {
+    id: 16,
+    name: "فستق حلبي ٣ كيلو",
+    name_en: "Pistachios 3kg",
+    name_ka: "ფსტა 3კგ",
+    description: "فستق حلبي فاخر طازج، نكهة مميزة ولون أخضر زاهي، بوزن ٣ كيلو في عبوة محكمة الإغلاق للحفاظ على النكهة والطزاجة",
+    description_en: "Premium fresh pistachios with a distinctive flavor and bright green color, 3kg in a sealed package to preserve flavor and freshness",
+    description_ka: "პრემიუმ ახალი ფსტა განსაკუთრებული გემოთი და მკვეთრი მწვანე ფერით, 3კგ დალუქულ შეფუთვაში გემოსა და სიახლის შესანარჩუნებლად",
+    price: 450.00,
+    image: "img/MKSRAT-MAWALEH/16.png",
+    available: true
+  },
+  {
+    id: 17,
+    name: "فستق حلبي ١ كيلو",
+    name_en: "Pistachios 1kg",
+    name_ka: "ფსტა 1კგ",
+    description: "فستق حلبي فاخر طازج، نكهة مميزة ولون أخضر زاهي، بوزن ١ كيلو في عبوة محكمة الإغلاق للحفاظ على النكهة والطزاجة",
+    description_en: "Premium fresh pistachios with a distinctive flavor and bright green color, 1kg in a sealed package to preserve flavor and freshness",
+    description_ka: "პრემიუმ ახალი ფსტა განსაკუთრებული გემოთი და მკვეთრი მწვანე ფერით, 1კგ დალუქულ შეფუთვაში გემოსა და სიახლის შესანარჩუნებლად",
+    price: 155.00,
+    image: "img/MKSRAT-MAWALEH/16.png",
+    available: true
+  },
+  {
+    id: 18,
+    name: "فستق حلبي ٥٠٠ جم",
+    name_en: "Pistachios 500g",
+    name_ka: "ფსტა 500გ",
+    description: "فستق حلبي فاخر طازج، نكهة مميزة ولون أخضر زاهي، بوزن ٥٠٠ جرام في عبوة محكمة الإغلاق للحفاظ على النكهة والطزاجة",
+    description_en: "Premium fresh pistachios with a distinctive flavor and bright green color, 500g in a sealed package to preserve flavor and freshness",
+    description_ka: "პრემიუმ ახალი ფსტა განსაკუთრებული გემოთი და მკვეთრი მწვანე ფერით, 500გ დალუქულ შეფუთვაში გემოსა და სიახლის შესანარჩუნებლად",
+    price: 80.00,
+    image: "img/MKSRAT-MAWALEH/17.png",
+    available: true
+  },
+  {
+    id: 19,
+    name: "فستق حلبي ١٥٠ جم",
+    name_en: "Pistachios 150g",
+    name_ka: "ფსტა 150გ",
+    description: "فستق حلبي فاخر طازج، نكهة مميزة ولون أخضر زاهي، بوزن ١٥٠ جرام في عبوة محكمة الإغلاق للحفاظ على النكهة والطزاجة",
+    description_en: "Premium fresh pistachios with a distinctive flavor and bright green color, 150g in a sealed package to preserve flavor and freshness",
+    description_ka: "პრემიუმ ახალი ფსტა განსაკუთრებული გემოთი და მკვეთრი მწვანე ფერით, 150გ დალუქულ შეფუთვაში გემოსა და სიახლის შესანარჩუნებლად",
+    price: 28.00,
+    image: "img/MKSRAT-MAWALEH/18.png",
+    available: true
+  },
+  {
+    id: 20,
+    name: "فستق حلبي ٥٠ جم",
+    name_en: "Pistachios 50g",
+    name_ka: "ფსტა 50გ",
+    description: "فستق حلبي فاخر طازج، نكهة مميزة ولون أخضر زاهي، بوزن ٥٠ جرام في عبوة محكمة الإغلاق للحفاظ على النكهة والطزاجة",
+    description_en: "Premium fresh pistachios with a distinctive flavor and bright green color, 50g in a sealed package to preserve flavor and freshness",
+    description_ka: "პრემიუმ ახალი ფსტა განსაკუთრებული გემოთი და მკვეთრი მწვანე ფერით, 50გ დალუქულ შეფუთვაში გემოსა და სიახლის შესანარჩუნებლად",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/19.png",
+    available: true
+  },
+  {
+    id: 21,
+    name: "بذر جبس اصفر ٣ كيلو",
+    name_en: "Yellow Pumpkin Seeds 3kg",
+    name_ka: "ყვითელი გოგრის თესლი 3კგ",
+    description: "بذر جبس اصفر ذهبي محمص بشكل مثالي، غني بالمغذيات والمعادن، مقرمش ولذيذ، بوزن ٣ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Golden yellow pumpkin seeds, perfectly roasted, rich in nutrients and minerals, crispy and delicious, 3kg in a sealed package",
+    description_ka: "ოქროსფერი ყვითელი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით და მინერალებით, ხრაშუნა და გემრიელი, 3კგ დალუქულ შეფუთვაში",
+    price: 240.00,
+    image: "img/MKSRAT-MAWALEH/20.png",
+    available: true
+  },
+  {
+    id: 22,
+    name: "بذر جبس اصفر ١ كيلو",
+    name_en: "Yellow Pumpkin Seeds 1kg",
+    name_ka: "ყვითელი გოგრის თესლი 1კგ",
+    description: "بذر جبس اصفر ذهبي محمص بشكل مثالي، غني بالمغذيات والمعادن، مقرمش ولذيذ، بوزن ١ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Golden yellow pumpkin seeds, perfectly roasted, rich in nutrients and minerals, crispy and delicious, 1kg in a sealed package",
+    description_ka: "ოქროსფერი ყვითელი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით და მინერალებით, ხრაშუნა და გემრიელი, 1კგ დალუქულ შეფუთვაში",
+    price: 85.00,
+    image: "img/MKSRAT-MAWALEH/21.png",
+    available: true
+  },
+  {
+    id: 23,
+    name: "بذر جبس اصفر ٥٠٠ جم",
+    name_en: "Yellow Pumpkin Seeds 500g",
+    name_ka: "ყვითელი გოგრის თესლი 500გ",
+    description: "بذر جبس اصفر ذهبي محمص بشكل مثالي، غني بالمغذيات والمعادن، مقرمش ولذيذ، بوزن ٥٠٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Golden yellow pumpkin seeds, perfectly roasted, rich in nutrients and minerals, crispy and delicious, 500g in a sealed package",
+    description_ka: "ოქროსფერი ყვითელი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით და მინერალებით, ხრაშუნა და გემრიელი, 500გ დალუქულ შეფუთვაში",
+    price: 45.00,
+    image: "img/MKSRAT-MAWALEH/22.png",
+    available: true
+  },
+  {
+    id: 24,
+    name: "بذر جبس اصفر ١٥٠ جم",
+    name_en: "Yellow Pumpkin Seeds 150g",
+    name_ka: "ყვითელი გოგრის თესლი 150გ",
+    description: "بذر جبس اصفر ذهبي محمص بشكل مثالي، غني بالمغذيات والمعادن، مقرمش ولذيذ، بوزن ١٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Golden yellow pumpkin seeds, perfectly roasted, rich in nutrients and minerals, crispy and delicious, 150g in a sealed package",
+    description_ka: "ოქროსფერი ყვითელი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით და მინერალებით, ხრაშუნა და გემრიელი, 150გ დალუქულ შეფუთვაში",
+    price: 16.00,
+    image: "img/MKSRAT-MAWALEH/23.png",
+    available: true
+  },
+  {
+    id: 25,
+    name: "بذر جبس اصفر ٥٠ جم",
+    name_en: "Yellow Pumpkin Seeds 50g",
+    name_ka: "ყვითელი გოგრის თესლი 50გ",
+    description: "بذر جبس اصفر ذهبي محمص بشكل مثالي، غني بالمغذيات والمعادن، مقرمش ولذيذ، بوزن ٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Golden yellow pumpkin seeds, perfectly roasted, rich in nutrients and minerals, crispy and delicious, 50g in a sealed package",
+    description_ka: "ოქროსფერი ყვითელი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი საკვები ნივთიერებებით და მინერალებით, ხრაშუნა და გემრიელი, 50გ დალუქულ შეფუთვაში",
+    price: 6.00,
+    image: "img/MKSRAT-MAWALEH/24.png",
+    available: true
+  },
+  {
+    id: 26,
+    name: "بذر قرع ٣ كيلو",
+    name_en: "Pumpkin Seeds 3kg",
+    name_ka: "გოგრის თესლი 3კგ",
+    description: "بذر قرع طبيعي محمص بشكل مثالي، غني بالأوميجا 3 والمعادن الأساسية، مقرمش ولذيذ، بوزن ٣ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Natural pumpkin seeds, perfectly roasted, rich in omega-3 and essential minerals, crispy and delicious, 3kg in a sealed package",
+    description_ka: "ბუნებრივი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი ომეგა-3-ით და აუცილებელი მინერალებით, ხრაშუნა და გემრიელი, 3კგ დალუქულ შეფუთვაში",
+    price: 225.00,
+    image: "img/MKSRAT-MAWALEH/25.png",
+    available: true
+  },
+  {
+    id: 27,
+    name: "بذر قرع ١ كيلو",
+    name_en: "Pumpkin Seeds 1kg",
+    name_ka: "გოგრის თესლი 1კგ",
+    description: "بذر قرع طبيعي محمص بشكل مثالي، غني بالأوميجا 3 والمعادن الأساسية، مقرمش ولذيذ، بوزن ١ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Natural pumpkin seeds, perfectly roasted, rich in omega-3 and essential minerals, crispy and delicious, 1kg in a sealed package",
+    description_ka: "ბუნებრივი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი ომეგა-3-ით და აუცილებელი მინერალებით, ხრაშუნა და გემრიელი, 1კგ დალუქულ შეფუთვაში",
+    price: 80.00,
+    image: "img/MKSRAT-MAWALEH/26.png",
+    available: true
+  },
+  {
+    id: 28,
+    name: "بذر قرع ٥٠٠ جم",
+    name_en: "Pumpkin Seeds 500g",
+    name_ka: "გოგრის თესლი 500გ",
+    description: "بذر قرع طبيعي محمص بشكل مثالي، غني بالأوميجا 3 والمعادن الأساسية، مقرمش ولذيذ، بوزن ٥٠٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Natural pumpkin seeds, perfectly roasted, rich in omega-3 and essential minerals, crispy and delicious, 500g in a sealed package",
+    description_ka: "ბუნებრივი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი ომეგა-3-ით და აუცილებელი მინერალებით, ხრაშუნა და გემრიელი, 500გ დალუქულ შეფუთვაში",
+    price: 42.00,
+    image: "img/MKSRAT-MAWALEH/27.png",
+    available: true
+  },
+  {
+    id: 29,
+    name: "بذر قرع ١٥٠ جم",
+    name_en: "Pumpkin Seeds 150g",
+    name_ka: "გოგრის თესლი 150გ",
+    description: "بذر قرع طبيعي محمص بشكل مثالي، غني بالأوميجا 3 والمعادن الأساسية، مقرمش ولذيذ، بوزن ١٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Natural pumpkin seeds, perfectly roasted, rich in omega-3 and essential minerals, crispy and delicious, 150g in a sealed package",
+    description_ka: "ბუნებრივი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი ომეგა-3-ით და აუცილებელი მინერალებით, ხრაშუნა და გემრიელი, 150გ დალუქულ შეფუთვაში",
+    price: 15.00,
+    image: "img/MKSRAT-MAWALEH/28.png",
+    available: true
+  },
+  {
+    id: 30,
+    name: "بذر قرع ٥٠ جم",
+    name_en: "Pumpkin Seeds 50g",
+    name_ka: "გოგრის თესლი 50გ",
+    description: "بذر قرع طبيعي محمص بشكل مثالي، غني بالأوميجا 3 والمعادن الأساسية، مقرمش ولذيذ، بوزن ٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Natural pumpkin seeds, perfectly roasted, rich in omega-3 and essential minerals, crispy and delicious, 50g in a sealed package",
+    description_ka: "ბუნებრივი გოგრის თესლი, სრულყოფილად მოხალული, მდიდარი ომეგა-3-ით და აუცილებელი მინერალებით, ხრაშუნა და გემრიელი, 50გ დალუქულ შეფუთვაში",
+    price: 6.00,
+    image: "img/MKSRAT-MAWALEH/29.png",
+    available: true
+  },
+  {
+    id: 31,
+    name: "بذر شمس ابيض ٣ كيلو",
+    name_en: "White Sunflower Seeds 3kg",
+    name_ka: "თეთრი მზესუმზირის თესლი 3კგ",
+    description: "بذر شمس أبيض منتقى، محمص بشكل مثالي، غني بفيتامين E والألياف، بوزن ٣ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Selected white sunflower seeds, perfectly roasted, rich in vitamin E and fiber, 3kg in a sealed package",
+    description_ka: "შერჩეული თეთრი მზესუმზირის თესლი, სრულყოფილად მოხალული, მდიდარი ვიტამინი E-თი და ბოჭკოებით, 3კგ დალუქულ შეფუთვაში",
+    price: 210.00,
+    image: "img/MKSRAT-MAWALEH/30.png",
+    available: true
+  },
+  {
+    id: 32,
+    name: "بذر شمس ابيض ١ كيلو",
+    name_en: "White Sunflower Seeds 1kg",
+    name_ka: "თეთრი მზესუმზირის თესლი 1კგ",
+    description: "بذر شمس أبيض منتقى، محمص بشكل مثالي، غني بفيتامين E والألياف، بوزن ١ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Selected white sunflower seeds, perfectly roasted, rich in vitamin E and fiber, 1kg in a sealed package",
+    description_ka: "შერჩეული თეთრი მზესუმზირის თესლი, სრულყოფილად მოხალული, მდიდარი ვიტამინი E-თი და ბოჭკოებით, 1კგ დალუქულ შეფუთვაში",
+    price: 75.00,
+    image: "img/MKSRAT-MAWALEH/31.png",
+    available: true
+  },
+  {
+    id: 33,
+    name: "بذر شمس ابيض ٥٠٠ جم",
+    name_en: "White Sunflower Seeds 500g",
+    name_ka: "თეთრი მზესუმზირის თესლი 500გ",
+    description: "بذر شمس أبيض منتقى، محمص بشكل مثالي، غني بفيتامين E والألياف، بوزن ٥٠٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Selected white sunflower seeds, perfectly roasted, rich in vitamin E and fiber, 500g in a sealed package",
+    description_ka: "შერჩეული თეთრი მზესუმზირის თესლი, სრულყოფილად მოხალული, მდიდარი ვიტამინი E-თი და ბოჭკოებით, 500გ დალუქულ შეფუთვაში",
+    price: 40.00,
+    image: "img/MKSRAT-MAWALEH/32.png",
+    available: true
+  },
+  {
+    id: 34,
+    name: "بذر شمس ابيض ١٥٠ جم",
+    name_en: "White Sunflower Seeds 150g",
+    name_ka: "თეთრი მზესუმზირის თესლი 150გ",
+    description: "بذر شمس أبيض منتقى، محمص بشكل مثالي، غني بفيتامين E والألياف، بوزن ١٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Selected white sunflower seeds, perfectly roasted, rich in vitamin E and fiber, 150g in a sealed package",
+    description_ka: "შერჩეული თეთრი მზესუმზირის თესლი, სრულყოფილად მოხალული, მდიდარი ვიტამინი E-თი და ბოჭკოებით, 150გ დალუქულ შეფუთვაში",
+    price: 14.00,
+    image: "img/MKSRAT-MAWALEH/33.png",
+    available: true
+  },
+  {
+    id: 35,
+    name: "بذر شمس ابيض ٥٠ جم",
+    name_en: "White Sunflower Seeds 50g",
+    name_ka: "თეთრი მზესუმზირის თესლი 50გ",
+    description: "بذر شمس أبيض منتقى، محمص بشكل مثالي، غني بفيتامين E والألياف، بوزن ٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Selected white sunflower seeds, perfectly roasted, rich in vitamin E and fiber, 50g in a sealed package",
+    description_ka: "შერჩეული თეთრი მზესუმზირის თესლი, სრულყოფილად მოხალული, მდიდარი ვიტამინი E-თი და ბოჭკოებით, 50გ დალუქულ შეფუთვაში",
+    price: 5.00,
+    image: "img/MKSRAT-MAWALEH/34.png",
+    available: true
+  },
+  {
+    id: 36,
+    name: "بذر شمس ٣ كيلو",
+    name_en: "Sunflower Seeds 3kg",
+    name_ka: "მზესუმზირის თესლი 3კგ",
+    description: "بذر شمس طبيعي محمص بشكل مثالي، مملح بشكل خفيف، غني بالبروتين والمعادن، بوزن ٣ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Natural sunflower seeds, perfectly roasted, lightly salted, rich in protein and minerals, 3kg in a sealed package",
+    description_ka: "ბუნებრივი მზესუმზირის თესლი, სრულყოფილად მოხალული, მსუბუქად დამარილებული, მდიდარი ცილებით და მინერალებით, 3კგ დალუქულ შეფუთვაში",
+    price: 195.00,
+    image: "img/MKSRAT-MAWALEH/35.png",
+    available: true
+  },
+  {
+    id: 37,
+    name: "بذر شمس ١ كيلو",
+    name_en: "Sunflower Seeds 1kg",
+    name_ka: "მზესუმზირის თესლი 1კგ",
+    description: "بذر شمس طبيعي محمص بشكل مثالي، مملح بشكل خفيف، غني بالبروتين والمعادن، بوزن ١ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Natural sunflower seeds, perfectly roasted, lightly salted, rich in protein and minerals, 1kg in a sealed package",
+    description_ka: "ბუნებრივი მზესუმზირის თესლი, სრულყოფილად მოხალული, მსუბუქად დამარილებული, მდიდარი ცილებით და მინერალებით, 1კგ დალუქულ შეფუთვაში",
+    price: 70.00,
+    image: "img/MKSRAT-MAWALEH/36.png",
+    available: true
+  },
+  {
+    id: 38,
+    name: "بذر شمس ٥٠٠ جم",
+    name_en: "Sunflower Seeds 500g",
+    name_ka: "მზესუმზირის თესლი 500გ",
+    description: "بذر شمس طبيعي محمص بشكل مثالي، مملح بشكل خفيف، غني بالبروتين والمعادن، بوزن ٥٠٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Natural sunflower seeds, perfectly roasted, lightly salted, rich in protein and minerals, 500g in a sealed package",
+    description_ka: "ბუნებრივი მზესუმზირის თესლი, სრულყოფილად მოხალული, მსუბუქად დამარილებული, მდიდარი ცილებით და მინერალებით, 500გ დალუქულ შეფუთვაში",
+    price: 38.00,
+    image: "img/MKSRAT-MAWALEH/37.png",
+    available: true
+  },
+  {
+    id: 39,
+    name: "بذر شمس ١٥٠ جم",
+    name_en: "Sunflower Seeds 150g",
+    name_ka: "მზესუმზირის თესლი 150გ",
+    description: "بذر شمس طبيعي محمص بشكل مثالي، مملح بشكل خفيف، غني بالبروتين والمعادن، بوزن ١٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Natural sunflower seeds, perfectly roasted, lightly salted, rich in protein and minerals, 150g in a sealed package",
+    description_ka: "ბუნებრივი მზესუმზირის თესლი, სრულყოფილად მოხალული, მსუბუქად დამარილებული, მდიდარი ცილებით და მინერალებით, 150გ დალუქულ შეფუთვაში",
+    price: 13.00,
+    image: "img/MKSRAT-MAWALEH/38.png",
+    available: true
+  },
+  {
+    id: 40,
+    name: "بذر شمس ٥٠ جم",
+    name_en: "Sunflower Seeds 50g",
+    name_ka: "მზესუმზირის თესლი 50გ",
+    description: "بذر شمس طبيعي محمص بشكل مثالي، مملح بشكل خفيف، غني بالبروتين والمعادن، بوزن ٥٠ جرام في عبوة محكمة الإغلاق",
+    description_en: "Natural sunflower seeds, perfectly roasted, lightly salted, rich in protein and minerals, 50g in a sealed package",
+    description_ka: "ბუნებრივი მზესუმზირის თესლი, სრულყოფილად მოხალული, მსუბუქად დამარილებული, მდიდარი ცილებით და მინერალებით, 50გ დალუქულ შეფუთვაში",
+    price: 5.00,
+    image: "img/MKSRAT-MAWALEH/39.png",
+    available: true
+  },
+  {
+    id: 41,
+    name: "كاجو مدخن ٣ كيلو",
+    name_en: "Smoked Cashews 3kg",
+    name_ka: "შებოლილი კეშიუ 3კგ",
+    description: "كاجو مدخن بنكهة خاصة، محمص بشكل مثالي، غني بالدهون الصحية والبروتين، بوزن ٣ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Specially flavored smoked cashews, perfectly roasted, rich in healthy fats and protein, 3kg in a sealed package",
+    description_ka: "სპეციალური არომატით შებოლილი კეშიუ, სრულყოფილად მოხალული, მდიდარი ჯანსაღი ცხიმებით და ცილებით, 3კგ დალუქულ შეფუთვაში",
+    price: 520.00,
+    image: "img/MKSRAT-MAWALEH/40.png",
+    available: true
+  },
+  {
+    id: 42,
+    name: "كاجو مدخن ١ كيلو",
+    name_en: "Smoked Cashews 1kg",
+    name_ka: "შებოლილი კეშიუ 1კგ",
+    description: "كاجو مدخن بنكهة خاصة، محمص بشكل مثالي، غني بالدهون الصحية والبروتين، بوزن ١ كيلو في عبوة محكمة الإغلاق",
+    description_en: "Specially flavored smoked cashews, perfectly roasted, rich in healthy fats and protein, 1kg in a sealed package",
+    description_ka: "სპეციალური არომატით შებოლილი კეშიუ, სრულყოფილად მოხალული, მდიდარი ჯანსაღი ცხიმებით და ცილებით, 1კგ დალუქულ შეფუთვაში",
+    price: 180.00,
+    image: "img/MKSRAT-MAWALEH/41.png",
+    available: true
+  },
+  {
+    id: 43,
+    name: "كاجو مدخن ٥٠٠ جم",
+    name_en: "Smoked Cashews 500g",
+    name_ka: "შებოლილი კეშიუ 500გ",
+    description: "كاجو مدخن عالي الجودة محمص بطريقة تقليدية، مملح باعتدال، مثالي للضيافة والمناسبات",
+    description_en: "High-quality smoked cashews, traditionally roasted with moderate salt, perfect for hospitality and gatherings",
+    description_ka: "მაღალი ხარისხის შებოლილი კეშიუ, ტრადიციულად მოხალული ზომიერი მარილით, იდეალურია სტუმრებისთვის და შეკრებებისთვის",
+    price: 70.00,
+    image: "img/MKSRAT-MAWALEH/42.png",
+    available: true
+  },
+  {
+    id: 44,
+    name: "كاجو مدخن ١٥٠ جم",
+    name_en: "Smoked Cashews 150g",
+    name_ka: "შებოლილი კეშიუ 150გ",
+    description: "كاجو مدخن عالي الجودة بعبوة صغيرة مناسبة للاستهلاك الشخصي، بنكهة مميزة",
+    description_en: "High-quality smoked cashews in a small package suitable for personal consumption, with distinctive flavor",
+    description_ka: "მაღალი ხარისხის შებოლილი კეშიუ პატარა შეფუთვაში პირადი მოხმარებისთვის, გამორჩეული გემოთი",
+    price: 25.00,
+    image: "img/MKSRAT-MAWALEH/43.png",
+    available: true
+  },
+  {
+    id: 45,
+    name: "كاجو مدخن ٥٠ جم",
+    name_en: "Smoked Cashews 50g",
+    name_ka: "შებოლილი კეშიუ 50გ",
+    description: "كاجو مدخن بعبوة صغيرة الحجم مثالية للتذوق والوجبات الخفيفة خارج المنزل",
+    description_en: "Smoked cashews in a small-sized package ideal for tasting and snacking on the go",
+    description_ka: "შებოლილი კეშიუ პატარა ზომის შეფუთვაში, იდეალურია დაგემოვნებისთვის და სახლს გარეთ წასახემსებლად",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/45.png",
+    available: true
+  },
+  {
+    id: 46,
+    name: "بندق مدخن ٣ كيلو",
+    name_en: "Smoked Hazelnuts 3kg",
+    name_ka: "შებოლილი თხილი 3კგ",
+    description: "بندق مدخن بعبوة عائلية كبيرة، محمص بعناية مع نكهة الدخان الطبيعية، مثالي للمطاعم والفنادق",
+    description_en: "Smoked hazelnuts in a large family package, carefully roasted with natural smoke flavor, perfect for restaurants and hotels",
+    description_ka: "შებოლილი თხილი დიდ საოჯახო შეფუთვაში, გულდასმით მოხალული ბუნებრივი კვამლის არომატით, იდეალურია რესტორნებისა და სასტუმროებისთვის",
+    price: 350.00,
+    image: "img/MKSRAT-MAWALEH/46.png",
+    available: true
+  },
+  {
+    id: 47,
+    name: "بندق مدخن ١ كيلو",
+    name_en: "Smoked Hazelnuts 1kg",
+    name_ka: "შებოლილი თხილი 1კგ",
+    description: "بندق مدخن بعبوة متوسطة الحجم، مع نكهة الدخان الطبيعية ومذاق غني",
+    description_en: "Smoked hazelnuts in a medium-sized package, with natural smoke flavor and rich taste",
+    description_ka: "შებოლილი თხილი საშუალო ზომის შეფუთვაში, ბუნებრივი კვამლის არომატით და მდიდარი გემოთი",
+    price: 120.00,
+    image: "img/MKSRAT-MAWALEH/47.png",
+    available: true
+  },
+  {
+    id: 48,
+    name: "بندق مدخن ٥٠٠ جم",
+    name_en: "Smoked Hazelnuts 500g",
+    name_ka: "შებოლილი თხილი 500გ",
+    description: "بندق مدخن عالي الجودة بعبوة متوسطة، محمص بعناية باستخدام تقنيات تدخين خاصة",
+    description_en: "High-quality smoked hazelnuts in a medium package, carefully roasted using special smoking techniques",
+    description_ka: "მაღალი ხარისხის შებოლილი თხილი საშუალო შეფუთვაში, გულდასმით მოხალული სპეციალური შებოლვის ტექნიკით",
+    price: 65.00,
+    image: "img/MKSRAT-MAWALEH/48.png",
+    available: true
+  },
+  {
+    id: 49,
+    name: "بندق مدخن ١٥٠ جم",
+    name_en: "Smoked Hazelnuts 150g",
+    name_ka: "შებოლილი თხილი 150გ",
+    description: "بندق مدخن بعبوة صغيرة مناسبة للاستهلاك الشخصي، محمص بطريقة تعزز النكهة الطبيعية",
+    description_en: "Smoked hazelnuts in a small package suitable for personal consumption, roasted in a way that enhances the natural flavor",
+    description_ka: "შებოლილი თხილი პატარა შეფუთვაში პირადი მოხმარებისთვის, მოხალული ისე, რომ აძლიერებს ბუნებრივ გემოს",
+    price: 22.00,
+    image: "img/MKSRAT-MAWALEH/49.png",
+    available: true
+  },
+  {
+    id: 50,
+    name: "بندق مدخن ٥٠ جم",
+    name_en: "Smoked Hazelnuts 50g",
+    name_ka: "შებოლილი თხილი 50გ",
+    description: "بندق مدخن بعبوة صغيرة مثالية للتذوق واكتشاف النكهة المميزة، مناسبة للرحلات",
+    description_en: "Smoked hazelnuts in a small package ideal for tasting and discovering the distinctive flavor, suitable for trips",
+    description_ka: "შებოლილი თხილი პატარა შეფუთვაში, იდეალურია დაგემოვნებისა და გამორჩეული გემოს აღმოსაჩენად, შესაფერისია მოგზაურობისთვის",
+    price: 8.00,
+    image: "img/MKSRAT-MAWALEH/50.png",
+    available: true
+  },
+  {
+    id: 51,
+    name: "فستق حلبي مدخن ٣ كيلو",
+    name_en: "Smoked Pistachios 3kg",
+    name_ka: "შებოლილი ფისტები 3კგ",
+    description: "فستق حلبي مدخن بعبوة عائلية كبيرة، ذو نكهة مميزة، مثالي للمناسبات الكبيرة والمطاعم",
+    description_en: "Smoked pistachios in a large family package, with distinctive flavor, perfect for large occasions and restaurants",
+    description_ka: "შებოლილი ფისტა დიდ საოჯახო შეფუთვაში, გამორჩეული გემოთი, იდეალურია დიდი ღონისძიებებისა და რესტორნებისთვის",
+    price: 450.00,
+    image: "img/MKSRAT-MAWALEH/51.png",
+    available: true
+  },
+  {
+    id: 52,
+    name: "فستق حلبي مدخن ١كيلو",
+    name_en: "Smoked Pistachios 1kg",
+    name_ka: "შებოლილი ფისტები 1კგ",
+    description: "فستق حلبي مدخن بعبوة متوسطة الحجم، مناسب للاستهلاك المنزلي والضيافة",
+    description_en: "Smoked pistachios in a medium-sized package, suitable for home consumption and hospitality",
+    description_ka: "შებოლილი ფისტა საშუალო ზომის შეფუთვაში, შესაფერისია სახლში მოხმარებისა და სტუმრებისთვის",
+    price: 150.00,
+    image: "img/MKSRAT-MAWALEH/52.png",
+    available: true
+  },
+  {
+    id: 53,
+    name: "فستق حلبي مدخن ٥٠٠ جم",
+    name_en: "Smoked Pistachios 500g",
+    name_ka: "შებოლილი ფისტები 500გ",
+    description: "فستق حلبي مدخن بعبوة مناسبة للعائلة الصغيرة، محمص بعناية مع نكهة دخان لذيذة",
+    description_en: "Smoked pistachios in a package suitable for small families, carefully roasted with a delicious smoke flavor",
+    description_ka: "შებოლილი ფისტა შეფუთვაში, რომელიც შესაფერისია პატარა ოჯახებისთვის, გულდასმით მოხალული გემრიელი კვამლის არომატით",
+    price: 80.00,
+    image: "img/MKSRAT-MAWALEH/53.png",
+    available: true
+  },
+  {
+    id: 54,
+    name: "فستق حلبي مدخن ١٥٠ جم",
+    name_en: "Smoked Pistachios 150g",
+    name_ka: "შებოლილი ფისტები 150გ",
+    description: "فستق حلبي مدخن بعبوة صغيرة مثالية للاستمتاع الشخصي، بنكهة مدخنة متوازنة",
+    description_en: "Smoked pistachios in a small package ideal for personal enjoyment, with balanced smoked flavor",
+    description_ka: "შებოლილი ფისტა პატარა შეფუთვაში, იდეალურია პირადი სიამოვნებისთვის, დაბალანსებული შებოლილი არომატით",
+    price: 28.00,
+    image: "img/MKSRAT-MAWALEH/54.png",
+    available: true
+  },
+  {
+    id: 55,
+    name: "فستق حلبي مدخن ٥٠ جم",
+    name_en: "Smoked Pistachios 50g",
+    name_ka: "შებოლილი ფისტები 50გ",
+    description: "فستق حلبي مدخن بعبوة صغيرة للتذوق، مثالي للهدايا الصغيرة والرحلات",
+    description_en: "Smoked pistachios in a small package for tasting, perfect for small gifts and trips",
+    description_ka: "შებოლილი ფისტა პატარა შეფუთვაში დასაგემოვნებლად, იდეალურია პატარა საჩუქრებისა და მოგზაურობისთვის",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/55.png",
+    available: true
+  },
+  {
+    id: 56,
+    name: "لوز مدخن ٣ ك",
+    name_en: "Smoked Almonds 3kg",
+    name_ka: "შებოლილი ნუში 3კგ",
+    description: "لوز مدخن بعبوة كبيرة للمناسبات، محمص بتقنية خاصة تحافظ على الطعم والقرمشة",
+    description_en: "Smoked almonds in a large package for occasions, roasted with a special technique that preserves taste and crunch",
+    description_ka: "შებოლილი ნუში დიდ შეფუთვაში ღონისძიებებისთვის, მოხალული სპეციალური ტექნიკით, რომელიც ინარჩუნებს გემოსა და სიხრუსტუნეს",
+    price: 320.00,
+    image: "img/MKSRAT-MAWALEH/56.png",
+    available: true
+  },
+  {
+    id: 57,
+    name: "لوز مدخن ١ ك",
+    name_en: "Smoked Almonds 1kg",
+    name_ka: "შებოლილი ნუში 1კგ",
+    description: "لوز مدخن بعبوة متوسطة، مناسب للاستهلاك المنزلي والضيافة العائلية",
+    description_en: "Smoked almonds in a medium package, suitable for home consumption and family hospitality",
+    description_ka: "შებოლილი ნუში საშუალო შეფუთვაში, შესაფერისია სახლში მოხმარებისა და ოჯახური სტუმრებისთვის",
+    price: 110.00,
+    image: "img/MKSRAT-MAWALEH/57.png",
+    available: true
+  },
+  // المزيد من المنتجات حسب القائمة
+
+  // اللوز المدخن المتبقي
+  {
+    id: 58,
+    name: "لوز مدخن ٥٠٠ جم",
+    name_en: "Smoked Almonds 500g",
+    name_ka: "შებოლილი ნუში 500გ",
+    description: "لوز مدخن بعبوة متوسطة الحجم، بنكهة دخانية متوازنة تعزز الطعم الطبيعي للوز",
+    description_en: "Smoked almonds in a medium-sized package, with balanced smoky flavor that enhances the natural almond taste",
+    description_ka: "შებოლილი ნუში საშუალო ზომის შეფუთვაში, დაბალანსებული კვამლის არომატით, რომელიც აძლიერებს ნუშის ბუნებრივ გემოს",
+    price: 60.00,
+    image: "img/MKSRAT-MAWALEH/58.png",
+    available: true
+  },
+  {
+    id: 59,
+    name: "لوز مدخن ١٥٠ جم",
+    name_en: "Smoked Almonds 150g",
+    name_ka: "შებოლილი ნუში 150გ",
+    description: "لوز مدخن بعبوة صغيرة مثالية للمكتب أو الرحلات القصيرة، مقرمش ولذيذ",
+    description_en: "Smoked almonds in a small package ideal for office or short trips, crispy and delicious",
+    description_ka: "შებოლილი ნუში პატარა შეფუთვაში, იდეალურია ოფისისთვის ან მოკლე მოგზაურობისთვის, ხრაშუნა და გემრიელი",
+    price: 20.00,
+    image: "img/MKSRAT-MAWALEH/59.png",
+    available: true
+  },
+  {
+    id: 60,
+    name: "لوز مدخن ٥٠ جم",
+    name_en: "Smoked Almonds 50g",
+    name_ka: "შებოლილი ნუში 50გ",
+    description: "لوز مدخن بعبوة صغيرة مناسبة للتذوق والوجبات الخفيفة الفردية",
+    description_en: "Smoked almonds in a small package suitable for tasting and individual snacks",
+    description_ka: "შებოლილი ნუში პატარა შეფუთვაში, შესაფერისია დასაგემოვნებლად და ინდივიდუალური წასახემსებლად",
+    price: 8.00,
+    image: "img/MKSRAT-MAWALEH/60.png",
+    available: true
+  },
+  
+  // البندق العادي
+  {
+    id: 61,
+    name: "بندق ٣ كيلو",
+    name_en: "Hazelnuts 3kg",
+    name_ka: "თხილი 3კგ",
+    description: "بندق طبيعي عالي الجودة بعبوة كبيرة، محمص بدون إضافات، مثالي للمطاعم والفنادق",
+    description_en: "High-quality natural hazelnuts in a large package, roasted without additives, perfect for restaurants and hotels",
+    description_ka: "მაღალი ხარისხის ბუნებრივი თხილი დიდ შეფუთვაში, მოხალული დანამატების გარეშე, იდეალურია რესტორნებისა და სასტუმროებისთვის",
+    price: 300.00,
+    image: "img/MKSRAT-MAWALEH/61.png",
+    available: true
+  },
+  {
+    id: 62,
+    name: "بندق ١ كيلو",
+    name_en: "Hazelnuts 1kg",
+    name_ka: "თხილი 1კგ",
+    description: "بندق طبيعي محمص بعبوة عائلية، غني بالنكهة والقيمة الغذائية",
+    description_en: "Natural roasted hazelnuts in a family-sized package, rich in flavor and nutritional value",
+    description_ka: "ბუნებრივი მოხალული თხილი საოჯახო ზომის შეფუთვაში, მდიდარი გემოთი და საკვები ღირებულებით",
+    price: 100.00,
+    image: "img/MKSRAT-MAWALEH/62.png",
+    available: true
+  },
+  {
+    id: 63,
+    name: "بندق ٥٠٠ جم",
+    name_en: "Hazelnuts 500g",
+    name_ka: "თხილი 500გ",
+    description: "بندق طبيعي محمص بعبوة متوسطة، مقرمش ومناسب للوجبات الخفيفة اليومية",
+    description_en: "Natural roasted hazelnuts in a medium package, crispy and suitable for daily snacks",
+    description_ka: "ბუნებრივი მოხალული თხილი საშუალო შეფუთვაში, ხრაშუნა და შესაფერისი ყოველდღიური წასახემსებლად",
+    price: 55.00,
+    image: "img/MKSRAT-MAWALEH/63.png",
+    available: true
+  },
+  {
+    id: 64,
+    name: "بندق ١٥٠ جم",
+    name_en: "Hazelnuts 150g",
+    name_ka: "თხილი 150გ",
+    description: "بندق طبيعي بعبوة صغيرة مناسبة للاستهلاك الشخصي، مقرمش وغني بالفيتامينات",
+    description_en: "Natural hazelnuts in a small package suitable for personal consumption, crispy and rich in vitamins",
+    description_ka: "ბუნებრივი თხილი პატარა შეფუთვაში, შესაფერისი პირადი მოხმარებისთვის, ხრაშუნა და მდიდარი ვიტამინებით",
+    price: 18.00,
+    image: "img/MKSRAT-MAWALEH/64.png",
+    available: true
+  },
+  {
+    id: 65,
+    name: "بندق ٥٠ جم",
+    name_en: "Hazelnuts 50g",
+    name_ka: "თხილი 50გ",
+    description: "بندق طبيعي بعبوة صغيرة مثالية للتذوق والوجبات السريعة خارج المنزل",
+    description_en: "Natural hazelnuts in a small package ideal for tasting and quick snacks outside the home",
+    description_ka: "ბუნებრივი თხილი პატარა შეფუთვაში, იდეალურია დასაგემოვნებლად და სწრაფი წასახემსებლად სახლს გარეთ",
+    price: 7.00,
+    image: "img/MKSRAT-MAWALEH/65.png",
+    available: true
+  },
+  
+  // الكاجو العادي
+  {
+    id: 66,
+    name: "كاجو ٣ كيلو",
+    name_en: "Cashews 3kg",
+    name_ka: "კეშიუ 3კგ",
+    description: "كاجو طبيعي عالي الجودة بعبوة اقتصادية كبيرة، مناسب للمطاعم والاستهلاك التجاري",
+    description_en: "High-quality natural cashews in a large economy package, suitable for restaurants and commercial consumption",
+    description_ka: "მაღალი ხარისხის ბუნებრივი კეშიუ დიდ ეკონომიურ შეფუთვაში, შესაფერისია რესტორნებისა და კომერციული მოხმარებისთვის",
+    price: 330.00,
+    image: "img/MKSRAT-MAWALEH/66.png",
+    available: true
+  },
+  {
+    id: 67,
+    name: "كاجو ١ كيلو",
+    name_en: "Cashews 1kg",
+    name_ka: "კეშიუ 1კგ",
+    description: "كاجو طبيعي محمص بعبوة عائلية، مملح باعتدال، مناسب للضيافة والاستهلاك المنزلي",
+    description_en: "Natural roasted cashews in a family package, moderately salted, suitable for hospitality and home consumption",
+    description_ka: "ბუნებრივი მოხალული კეშიუ საოჯახო შეფუთვაში, ზომიერად დამარილებული, შესაფერისია სტუმრებისთვის და სახლში მოხმარებისთვის",
+    price: 115.00,
+    image: "img/MKSRAT-MAWALEH/67.png",
+    available: true
+  },
+  {
+    id: 68,
+    name: "كاجو ٥٠٠ جم",
+    name_en: "Cashews 500g",
+    name_ka: "კეშიუ 500გ",
+    description: "كاجو طبيعي بعبوة متوسطة الحجم، مقرمش ولذيذ، مصدر ممتاز للبروتين والدهون الصحية",
+    description_en: "Natural cashews in a medium-sized package, crispy and delicious, excellent source of protein and healthy fats",
+    description_ka: "ბუნებრივი კეშიუ საშუალო ზომის შეფუთვაში, ხრაშუნა და გემრიელი, პროტეინისა და ჯანსაღი ცხიმების შესანიშნავი წყარო",
+    price: 60.00,
+    image: "img/MKSRAT-MAWALEH/68.png",
+    available: true
+  },
+  {
+    id: 69,
+    name: "كاجو ١٥٠ جم",
+    name_en: "Cashews 150g",
+    name_ka: "კეშიუ 150გ",
+    description: "كاجو طبيعي بعبوة صغيرة مناسبة للاستهلاك اليومي، محمص ومملح بإتقان",
+    description_en: "Natural cashews in a small package suitable for daily consumption, expertly roasted and salted",
+    description_ka: "ბუნებრივი კეშიუ პატარა შეფუთვაში, შესაფერისი ყოველდღიური მოხმარებისთვის, ოსტატურად მოხალული და დამარილებული",
+    price: 22.00,
+    image: "img/MKSRAT-MAWALEH/69.png",
+    available: true
+  },
+  {
+    id: 70,
+    name: "كاجو ٥٠ جم",
+    name_en: "Cashews 50g",
+    name_ka: "კეშიუ 50გ",
+    description: "كاجو طبيعي بعبوة صغيرة جداً مناسبة للوجبات الخفيفة، مثالي للتنقل والسفر",
+    description_en: "Natural cashews in a very small package suitable for snacks, ideal for travel and on-the-go",
+    description_ka: "ბუნებრივი კეშიუ ძალიან პატარა შეფუთვაში, შესაფერისი წასახემსებლად, იდეალურია მოგზაურობისა და გზაში მოხმარებისთვის",
+    price: 9.00,
+    image: "img/MKSRAT-MAWALEH/70.png",
+    available: true
+  },
+  
+  // مكسرات فاخرة رباعية مدخنة
+  {
+    id: 71,
+    name: "مكسرات فاخرة رباعية مدخنة ٣ كيلو",
+    name_en: "Premium Smoked Mixed Nuts (4 types) 3kg",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (4 სახეობა) 3კგ",
+    description: "تشكيلة فاخرة من 4 أنواع مكسرات مدخنة بعبوة اقتصادية كبيرة، مثالية للمناسبات الكبيرة",
+    description_en: "Premium assortment of 4 types of smoked nuts in a large economy package, ideal for big occasions",
+    description_ka: "პრემიუმ ასორტიმენტი 4 სახეობის შებოლილი თხილეულის დიდ ეკონომიურ შეფუთვაში, იდეალურია დიდი ღონისძიებებისთვის",
+    price: 390.00,
+    image: "img/MKSRAT-MAWALEH/71.png",
+    available: true
+  },
+  {
+    id: 72,
+    name: "مكسرات فاخرة رباعية مدخنة ١ كيلو",
+    name_en: "Premium Smoked Mixed Nuts (4 types) 1kg",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (4 სახეობა) 1კგ",
+    description: "تشكيلة فاخرة من 4 أنواع مكسرات مدخنة بعبوة عائلية، مناسبة للضيافة والهدايا",
+    description_en: "Premium assortment of 4 types of smoked nuts in a family package, suitable for hospitality and gifts",
+    description_ka: "პრემიუმ ასორტიმენტი 4 სახეობის შებოლილი თხილეულის საოჯახო შეფუთვაში, შესაფერისია სტუმრებისთვის და საჩუქრებისთვის",
+    price: 135.00,
+    image: "img/MKSRAT-MAWALEH/72.png",
+    available: true
+  },
+  {
+    id: 73,
+    name: "مكسرات فاخرة رباعية مدخنة ٥٠٠ جم",
+    name_en: "Premium Smoked Mixed Nuts (4 types) 500g",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (4 სახეობა) 500გ",
+    description: "تشكيلة فاخرة من 4 أنواع مكسرات مدخنة بعبوة متوسطة، محمصة بعناية ومدخنة بطريقة تقليدية",
+    description_en: "Premium assortment of 4 types of smoked nuts in a medium package, carefully roasted and traditionally smoked",
+    description_ka: "პრემიუმ ასორტიმენტი 4 სახეობის შებოლილი თხილეულის საშუალო შეფუთვაში, გულდასმით მოხალული და ტრადიციულად შებოლილი",
+    price: 70.00,
+    image: "img/MKSRAT-MAWALEH/73.png",
+    available: true
+  },
+  {
+    id: 74,
+    name: "مكسرات فاخرة رباعية مدخنة ١٥٠ جم",
+    name_en: "Premium Smoked Mixed Nuts (4 types) 150g",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (4 სახეობა) 150გ",
+    description: "تشكيلة فاخرة من 4 أنواع مكسرات مدخنة بعبوة صغيرة، مثالية كهدية أو للتذوق",
+    description_en: "Premium assortment of 4 types of smoked nuts in a small package, perfect as a gift or for tasting",
+    description_ka: "პრემიუმ ასორტიმენტი 4 სახეობის შებოლილი თხილეულის პატარა შეფუთვაში, იდეალურია საჩუქრად ან დასაგემოვნებლად",
+    price: 25.00,
+    image: "img/MKSRAT-MAWALEH/74.png",
+    available: true
+  },
+  {
+    id: 75,
+    name: "مكسرات فاخرة رباعية مدخنة ٥٠ جم",
+    name_en: "Premium Smoked Mixed Nuts (4 types) 50g",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (4 სახეობა) 50გ",
+    description: "تشكيلة فاخرة من 4 أنواع مكسرات مدخنة بعبوة فردية صغيرة، مناسبة للتنقل والتذوق",
+    description_en: "Premium assortment of 4 types of smoked nuts in a small individual package, suitable for on-the-go and tasting",
+    description_ka: "პრემიუმ ასორტიმენტი 4 სახეობის შებოლილი თხილეულის პატარა ინდივიდუალურ შეფუთვაში, შესაფერისია გზაში და დასაგემოვნებლად",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/75.png",
+    available: true
+  },
+  
+  // مكسرات فاخرة ثلاثية مدخنة
+  {
+    id: 76,
+    name: "مكسرات فاخرة ثلاثية مدخنة ٣ كيلو",
+    name_en: "Premium Smoked Mixed Nuts (3 types) 3kg",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (3 სახეობა) 3კგ",
+    description: "تشكيلة فاخرة من 3 أنواع مكسرات مدخنة بعبوة اقتصادية كبيرة، مثالية للمطاعم والفنادق",
+    description_en: "Premium assortment of 3 types of smoked nuts in a large economy package, ideal for restaurants and hotels",
+    description_ka: "პრემიუმ ასორტიმენტი 3 სახეობის შებოლილი თხილეულის დიდ ეკონომიურ შეფუთვაში, იდეალურია რესტორნებისა და სასტუმროებისთვის",
+    price: 360.00,
+    image: "img/MKSRAT-MAWALEH/76.png",
+    available: true
+  },
+  {
+    id: 77,
+    name: "مكسرات فاخرة ثلاثية مدخنة ١ كيلو",
+    name_en: "Premium Smoked Mixed Nuts (3 types) 1kg",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (3 სახეობა) 1კგ",
+    description: "تشكيلة فاخرة من 3 أنواع مكسرات مدخنة بعبوة عائلية، مقرمشة بنكهة الدخان الطبيعي",
+    description_en: "Premium assortment of 3 types of smoked nuts in a family package, crispy with natural smoke flavor",
+    description_ka: "პრემიუმ ასორტიმენტი 3 სახეობის შებოლილი თხილეულის საოჯახო შეფუთვაში, ხრაშუნა ბუნებრივი კვამლის არომატით",
+    price: 125.00,
+    image: "img/MKSRAT-MAWALEH/77.png",
+    available: true
+  },
+  {
+    id: 78,
+    name: "مكسرات فاخرة ثلاثية مدخنة ٥٠٠ جم",
+    name_en: "Premium Smoked Mixed Nuts (3 types) 500g",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (3 სახეობა) 500გ",
+    description: "تشكيلة فاخرة من 3 أنواع مكسرات مدخنة بعبوة متوسطة، مثالية للضيافة والمناسبات الصغيرة",
+    description_en: "Premium assortment of 3 types of smoked nuts in a medium package, perfect for hospitality and small occasions",
+    description_ka: "პრემიუმ ასორტიმენტი 3 სახეობის შებოლილი თხილეულის საშუალო შეფუთვაში, იდეალურია სტუმრებისთვის და პატარა ღონისძიებებისთვის",
+    price: 65.00,
+    image: "img/MKSRAT-MAWALEH/78.png",
+    available: true
+  },
+  {
+    id: 79,
+    name: "مكسرات فاخرة ثلاثية مدخنة ١٥٠ جم",
+    name_en: "Premium Smoked Mixed Nuts (3 types) 150g",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (3 სახეობა) 150გ",
+    description: "تشكيلة فاخرة من 3 أنواع مكسرات مدخنة بعبوة صغيرة، مثالية للهدايا والاستهلاك الشخصي",
+    description_en: "Premium assortment of 3 types of smoked nuts in a small package, perfect for gifts and personal consumption",
+    description_ka: "პრემიუმ ასორტიმენტი 3 სახეობის შებოლილი თხილეულის პატარა შეფუთვაში, იდეალურია საჩუქრებისა და პირადი მოხმარებისთვის",
+    price: 22.00,
+    image: "img/MKSRAT-MAWALEH/79.png",
+    available: true
+  },
+  {
+    id: 80,
+    name: "مكسرات فاخرة ثلاثية مدخنة ٥٠ جم",
+    name_en: "Premium Smoked Mixed Nuts (3 types) 50g",
+    name_ka: "პრემიუმ შებოლილი შერეული თხილეული (3 სახეობა) 50გ",
+    description: "تشكيلة فاخرة من 3 أنواع مكسرات مدخنة بعبوة فردية، مناسبة للرحلات والتنقل",
+    description_en: "Premium assortment of 3 types of smoked nuts in an individual package, suitable for trips and on-the-go",
+    description_ka: "პრემიუმ ასორტიმენტი 3 სახეობის შებოლილი თხილეულის ინდივიდუალურ შეფუთვაში, შესაფერისია მოგზაურობისა და გზაში მოხმარებისთვის",
+    price: 9.00,
+    image: "img/MKSRAT-MAWALEH/80.png",
+    available: true
+  },
+  
+  // قضامة بسكر
+  {
+    id: 81,
+    name: "قضامة بسكر ٣ كيلو",
+    name_en: "Sweet Sunflower Seeds 3kg",
+    name_ka: "ტკბილი მზესუმზირა 3კგ",
+    description: "بذور عباد الشمس محمصة مع السكر بعبوة اقتصادية كبيرة، مثالية للمناسبات",
+    description_en: "Roasted sunflower seeds with sugar in a large economy package, ideal for occasions",
+    description_ka: "მოხალული მზესუმზირა შაქრით დიდ ეკონომიურ შეფუთვაში, იდეალურია ღონისძიებებისთვის",
+    price: 100.00,
+    image: "img/MKSRAT-MAWALEH/81.png",
+    available: true
+  },
+  {
+    id: 82,
+    name: "قضامة بسكر ١ كيلو",
+    name_en: "Sweet Sunflower Seeds 1kg",
+    name_ka: "ტკბილი მზესუმზირა 1კგ",
+    description: "بذور عباد الشمس محمصة مع السكر بعبوة عائلية، بنكهة حلوة مميزة",
+    description_en: "Roasted sunflower seeds with sugar in a family package, with distinctive sweet flavor",
+    description_ka: "მოხალული მზესუმზირა შაქრით საოჯახო შეფუთვაში, გამორჩეული ტკბილი გემოთი",
+    price: 35.00,
+    image: "img/MKSRAT-MAWALEH/82.png",
+    available: true
+  },
+  {
+    id: 83,
+    name: "قضامة بسكر ٥٠٠ جم",
+    name_en: "Sweet Sunflower Seeds 500g",
+    name_ka: "ტკბილი მზესუმზირა 500გ",
+    description: "بذور عباد الشمس محمصة مع السكر بعبوة متوسطة، وجبة خفيفة مثالية للمشاهدة والتسلية",
+    description_en: "Roasted sunflower seeds with sugar in a medium package, perfect snack for watching and entertainment",
+    description_ka: "მოხალული მზესუმზირა შაქრით საშუალო შეფუთვაში, შესანიშნავი წასახემსებელი ყურებისა და გართობისთვის",
+    price: 18.00,
+    image: "img/MKSRAT-MAWALEH/83.png",
+    available: true
+  },
+  {
+    id: 84,
+    name: "قضامة بسكر ١٥٠ جم",
+    name_en: "Sweet Sunflower Seeds 150g",
+    name_ka: "ტკბილი მზესუმზირა 150გ",
+    description: "بذور عباد الشمس محمصة مع السكر بعبوة صغيرة، مناسبة للاستهلاك الشخصي",
+    description_en: "Roasted sunflower seeds with sugar in a small package, suitable for personal consumption",
+    description_ka: "მოხალული მზესუმზირა შაქრით პატარა შეფუთვაში, შესაფერისი პირადი მოხმარებისთვის",
+    price: 7.00,
+    image: "img/MKSRAT-MAWALEH/84.png",
+    available: true
+  },
+  {
+    id: 85,
+    name: "قضامة بسكر ٥٠ جم",
+    name_en: "Sweet Sunflower Seeds 50g",
+    name_ka: "ტკბილი მზესუმზირა 50გ",
+    description: "بذور عباد الشمس محمصة مع السكر بعبوة فردية، مثالية للتنقل والوجبات الخفيفة السريعة",
+    description_en: "Roasted sunflower seeds with sugar in an individual package, perfect for on-the-go and quick snacks",
+    description_ka: "მოხალული მზესუმზირა შაქრით ინდივიდუალურ შეფუთვაში, იდეალურია გზაში და სწრაფი წასახემსებლისთვის",
+    price: 3.00,
+    image: "img/MKSRAT-MAWALEH/84.png",
+    available: true
+  },
+  
+  // قضامة مالحة
+  {
+    id: 86,
+    name: "قضامة مالحة ٣ كيلو",
+    name_en: "Salted Sunflower Seeds 3kg",
+    name_ka: "დამარილებული მზესუმზირა 3კგ",
+    description: "بذور عباد الشمس محمصة ومملحة بعبوة اقتصادية كبيرة، مثالية للمناسبات الكبيرة",
+    description_en: "Roasted and salted sunflower seeds in a large economy package, ideal for big occasions",
+    description_ka: "მოხალული და დამარილებული მზესუმზირა დიდ ეკონომიურ შეფუთვაში, იდეალურია დიდი ღონისძიებებისთვის",
+    price: 95.00,
+    image: "img/MKSRAT-MAWALEH/85.png",
+    available: true
+  },
+  {
+    id: 87,
+    name: "قضامة مالحة ١ كيلو",
+    name_en: "Salted Sunflower Seeds 1kg",
+    name_ka: "დამარილებული მზესუმზირა 1კგ",
+    description: "بذور عباد الشمس محمصة ومملحة بعبوة عائلية، مملحة بإتقان لمذاق مثالي",
+    description_en: "Roasted and salted sunflower seeds in a family package, expertly salted for perfect taste",
+    description_ka: "მოხალული და დამარილებული მზესუმზირა საოჯახო შეფუთვაში, ოსტატურად დამარილებული იდეალური გემოსთვის",
+    price: 33.00,
+    image: "img/MKSRAT-MAWALEH/86.png",
+    available: true
+  },
+  {
+    id: 88,
+    name: "قضامة مالحة ٥٠٠ جم",
+    name_en: "Salted Sunflower Seeds 500g",
+    name_ka: "დამარილებული მზესუმზირა 500გ",
+    description: "بذور عباد الشمس محمصة ومملحة بعبوة متوسطة، وجبة خفيفة مثالية للتسلية",
+    description_en: "Roasted and salted sunflower seeds in a medium package, perfect snack for entertainment",
+    description_ka: "მოხალული და დამარილებული მზესუმზირა საშუალო შეფუთვაში, შესანიშნავი წასახემსებელი გართობისთვის",
+    price: 17.00,
+    image: "img/MKSRAT-MAWALEH/87.png",
+    available: true
+  },
+  {
+    id: 89,
+    name: "قضامة مالحة ١٥٠ جم",
+    name_en: "Salted Sunflower Seeds 150g",
+    name_ka: "დამარილებული მზესუმზირა 150გ",
+    description: "بذور عباد الشمس محمصة ومملحة بعبوة صغيرة، مناسبة للمشاهدة والتسلية",
+    description_en: "Roasted and salted sunflower seeds in a small package, suitable for watching and entertainment",
+    description_ka: "მოხალული და დამარილებული მზესუმზირა პატარა შეფუთვაში, შესაფერისი ყურებისა და გართობისთვის",
+    price: 6.50,
+    image: "img/MKSRAT-MAWALEH/88.png",
+    available: true
+  },
+  {
+    id: 90,
+    name: "قضامة مالحة ٥٠ جم",
+    name_en: "Salted Sunflower Seeds 50g",
+    name_ka: "დამარილებული მზესუმზირა 50გ",
+    description: "بذور عباد الشمس محمصة ومملحة بعبوة فردية صغيرة، مثالية للتنقل",
+    description_en: "Roasted and salted sunflower seeds in a small individual package, perfect for on-the-go",
+    description_ka: "მოხალული და დამარილებული მზესუმზირა პატარა ინდივიდუალურ შეფუთვაში, იდეალურია გზაში მოხმარებისთვის",
+    price: 2.50,
+    image: "img/MKSRAT-MAWALEH/89.png",
+    available: true
+  },
+  {
+    id: 91,
+    name: "تخليطة صينية ٣ كيلو",
+    name_en: "Chinese Mix 3kg",
+    name_ka: "ჩინური ნარევი 3კგ",
+    description: "تخليطة صينية فاخرة 3 كيلو من المكسرات والبذور المحمصة بنكهات متنوعة، مثالية للحفلات والمناسبات الكبيرة",
+    description_en: "Premium 3kg Chinese snack mix of roasted nuts and seeds with various flavors, perfect for parties and large gatherings",
+    description_ka: "პრემიუმ 3კგ ჩინური სასუსნავი ნარევი მოხალული თხილეულით და თესლით სხვადასხვა არომატით, იდეალურია წვეულებებისთვის",
+    price: 250.00,
+    image: "img/MKSRAT-MAWALEH/90.png",
+    available: true
+  },
+  {
+    id: 92,
+    name: "تخليطة صينية ١ كيلو",
+    name_en: "Chinese Mix 1kg",
+    name_ka: "ჩინური ნარევი 1კგ",
+    description: "تخليطة صينية متكاملة 1 كيلو من المكسرات والبذور المحمصة بتوابل خاصة، مناسبة للعائلة",
+    description_en: "Complete 1kg Chinese mix of roasted nuts and seeds with special spices, suitable for family consumption",
+    description_ka: "სრული 1კგ ჩინური ნარევი მოხალული თხილეულით და თესლით სპეციალური სანელებლებით, შესაფერისია ოჯახისთვის",
+    price: 90.00,
+    image: "img/MKSRAT-MAWALEH/91.png",
+    available: true
+  },
+  {
+    id: 93,
+    name: "تخليطة صينية ٥٠٠ جم",
+    name_en: "Chinese Mix 500g",
+    name_ka: "ჩინური ნარევი 500გ",
+    description: "تخليطة صينية 500 جرام منتقاة من أجود أنواع المكسرات والبذور بنكهات لذيذة ومميزة",
+    description_en: "Selected 500g Chinese mix of premium nuts and seeds with delicious and distinctive flavors",
+    description_ka: "შერჩეული 500გ ჩინური ნარევი პრემიუმ თხილეულით და თესლით გემრიელი და გამორჩეული არომატებით",
+    price: 50.00,
+    image: "img/MKSRAT-MAWALEH/92.png",
+    available: true
+  },
+  {
+    id: 94,
+    name: "تخليطة صينية ١٥٠ جم",
+    name_en: "Chinese Mix 150g",
+    name_ka: "ჩინური ნარევი 150გ",
+    description: "تخليطة صينية 150 جرام محمصة طازجة، مناسبة للوجبات الخفيفة اليومية والرحلات القصيرة",
+    description_en: "Freshly roasted 150g Chinese mix, ideal for daily snacks and short trips",
+    description_ka: "ახლად მოხალული 150გ ჩინური ნარევი, იდეალურია ყოველდღიური წასახემსებლად და მოკლე მოგზაურობისთვის",
+    price: 18.00,
+    image: "img/MKSRAT-MAWALEH/93.png",
+    available: true
+  },
+  {
+    id: 95,
+    name: "تخليطة صينية ٥٠ جم",
+    name_en: "Chinese Mix 50g",
+    name_ka: "ჩინური ნარევი 50გ",
+    description: "تخليطة صينية 50 جرام في عبوة مناسبة للاستهلاك الفردي، مثالية للوجبات السريعة",
+    description_en: "50g Chinese mix in a single-serving package, perfect for quick snacks",
+    description_ka: "50გ ჩინური ნარევი ერთჯერად შეფუთვაში, იდეალურია სწრაფი წასახემსებლად",
+    price: 7.00,
+    image: "img/MKSRAT-MAWALEH/94.png",
+    available: true
+  },
+  {
+    id: 96,
+    name: "كناكر منكهة ٣ كيلو",
+    name_en: "Flavored Crackers 3kg",
+    name_ka: "არომატიზებული კრეკერები 3კგ",
+    description: "كناكر منكهة 3 كيلو هشة ومقرمشة بنكهات متعددة، مثالية للحفلات والتجمعات العائلية الكبيرة",
+    description_en: "Crispy 3kg flavored crackers with multiple seasonings, ideal for parties and large family gatherings",
+    description_ka: "ხრაშუნა 3კგ არომატიზებული კრეკერები მრავალფეროვანი სანელებლებით, იდეალურია წვეულებებისა და დიდი ოჯახური შეკრებებისთვის",
+    price: 180.00,
+    image: "img/MKSRAT-MAWALEH/95.png",
+    available: true
+  },
+  {
+    id: 97,
+    name: "كناكر منكهة ١ كيلو",
+    name_en: "Flavored Crackers 1kg",
+    name_ka: "არომატიზებული კრეკერები 1კგ",
+    description: "كناكر منكهة 1 كيلو مقرمشة ولذيذة محضرة من أجود أنواع الدقيق وتوابل خاصة",
+    description_en: "Crunchy and delicious 1kg flavored crackers made from premium flour and special spices",
+    description_ka: "ხრაშუნა და გემრიელი 1კგ არომატიზებული კრეკერები დამზადებული პრემიუმ ფქვილისა და სპეციალური სანელებლებისგან",
+    price: 65.00,
+    image: "img/MKSRAT-MAWALEH/96.png",
+    available: true
+  },
+  {
+    id: 98,
+    name: "كناكر منكهة ٥٠٠ جم",
+    name_en: "Flavored Crackers 500g",
+    name_ka: "არომატიზებული კრეკერები 500გ",
+    description: "كناكر منكهة 500 جرام خفيفة ومقرمشة، محمصة بإتقان مع توابل متنوعة ومميزة",
+    description_en: "Light and crispy 500g flavored crackers, expertly roasted with diverse and distinctive spices",
+    description_ka: "მსუბუქი და ხრაშუნა 500გ არომატიზებული კრეკერები, ოსტატურად მოხალული მრავალფეროვანი და გამორჩეული სანელებლებით",
+    price: 35.00,
+    image: "img/MKSRAT-MAWALEH/97.png",
+    available: true
+  },
+  {
+    id: 99,
+    name: "كناكر منكهة ١٥٠ جم",
+    name_en: "Flavored Crackers 150g",
+    name_ka: "არომატიზებული კრეკერები 150გ",
+    description: "كناكر منكهة 150 جرام مقرمشة وطازجة، مثالية كوجبة خفيفة أو مع المشروبات",
+    description_en: "Crispy and fresh 150g flavored crackers, perfect as a snack or with beverages",
+    description_ka: "ხრაშუნა და ახალი 150გ არომატიზებული კრეკერები, იდეალურია წასახემსებლად ან სასმელთან ერთად",
+    price: 12.00,
+    image: "img/MKSRAT-MAWALEH/98.png",
+    available: true
+  },
+  {
+    id: 100,
+    name: "كناكر منكهة ٥٠ جم",
+    name_en: "Flavored Crackers 50g",
+    name_ka: "არომატიზებული კრეკერები 50გ",
+    description: "كناكر منكهة 50 جرام في عبوة صغيرة مناسبة للاستهلاك الفردي، مثالية للمدرسة والعمل",
+    description_en: "50g flavored crackers in a small package suitable for individual consumption, ideal for school and work",
+    description_ka: "50გ არომატიზებული კრეკერები პატარა შეფუთვაში ინდივიდუალური მოხმარებისთვის, იდეალურია სკოლისა და სამსახურისთვის",
+    price: 5.00,
+    image: "img/MKSRAT-MAWALEH/99.png",
+    available: true
+  },
+  {
+    id: 101,
+    name: "فستق عبيد مدخن ٣ كيلو",
+    name_en: "Smoked Peanuts 3kg",
+    name_ka: "შებოლილი არაქისი 3კგ",
+    description: "فستق عبيد مدخن 3 كيلو محمص بطريقة تقليدية، ذو نكهة مدخنة غنية ومميزة",
+    description_en: "3kg peanuts smoked in traditional way, with rich and distinctive smoky flavor",
+    description_ka: "3კგ არაქისი შებოლილი ტრადიციული მეთოდით, მდიდარი და გამორჩეული კვამლის არომატით",
+    price: 220.00,
+    image: "img/MKSRAT-MAWALEH/100.png",
+    available: true
+  },
+  {
+    id: 102,
+    name: "فستق عبيد مدخن ١ كيلو",
+    name_en: "Smoked Peanuts 1kg",
+    name_ka: "შებოლილი არაქისი 1კგ",
+    description: "فستق عبيد مدخن 1 كيلو من أجود أنواع الفول السوداني المحمص بتقنية التدخين الطبيعي",
+    description_en: "1kg premium peanuts roasted with natural smoking technique",
+    description_ka: "1კგ პრემიუმ არაქისი მოხალული ბუნებრივი შებოლვის ტექნიკით",
+    price: 80.00,
+    image: "img/MKSRAT-MAWALEH/101.png",
+    available: true
+  },
+  {
+    id: 103,
+    name: "فستق عبيد مدخن ٥٠٠ جم",
+    name_en: "Smoked Peanuts 500g",
+    name_ka: "შებოლილი არაქისი 500გ",
+    description: "فستق عبيد مدخن 500 جرام محمص بعناية فائقة، غني بالبروتين والنكهة المدخنة المميزة",
+    description_en: "Carefully roasted 500g smoked peanuts, rich in protein with distinctive smoky flavor",
+    description_ka: "გულდასმით მოხალული 500გ შებოლილი არაქისი, მდიდარი ცილებით და გამორჩეული კვამლის არომატით",
+    price: 45.00,
+    image: "img/MKSRAT-MAWALEH/102.png",
+    available: true
+  },
+  {
+    id: 104,
+    name: "فستق عبيد مدخن ١٥٠ جم",
+    name_en: "Smoked Peanuts 150g",
+    name_ka: "შებოლილი არაქისი 150გ",
+    description: "فستق عبيد مدخن 150 جرام في عبوة عملية، وجبة خفيفة لذيذة ومغذية",
+    description_en: "150g smoked peanuts in a practical package, a delicious and nutritious snack",
+    description_ka: "150გ შებოლილი არაქისი პრაქტიკულ შეფუთვაში, გემრიელი და საკვები ნივთიერებებით მდიდარი სასუსნავი",
+    price: 15.00,
+    image: "img/MKSRAT-MAWALEH/103.png",
+    available: true
+  },
+  {
+    id: 105,
+    name: "فستق عبيد مدخن ٥٠ جم",
+    name_en: "Smoked Peanuts 50g",
+    name_ka: "შებოლილი არაქისი 50გ",
+    description: "فستق عبيد مدخن 50 جرام محمص بنكهة مميزة، مثالي كوجبة خفيفة سريعة",
+    description_en: "50g distinctively flavored smoked peanuts, ideal as a quick snack",
+    description_ka: "50გ გამორჩეული არომატის შებოლილი არაქისი, იდეალურია სწრაფ წასახემსებლად",
+    price: 6.00,
+    image: "img/MKSRAT-MAWALEH/104.png",
+    available: true
+  },
+  {
+    id: 106,
+    name: "فستق عبيد مالح ٣ كيلو",
+    name_en: "Salted Peanuts 3kg",
+    name_ka: "დამარილებული არაქისი 3კგ",
+    description: "فستق عبيد مالح 3 كيلو محمص بطريقة تقليدية مع إضافة الملح البحري النقي",
+    description_en: "3kg peanuts roasted in traditional way with pure sea salt",
+    description_ka: "3კგ არაქისი მოხალული ტრადიციული მეთოდით სუფთა ზღვის მარილით",
+    price: 200.00,
+    image: "img/MKSRAT-MAWALEH/105.png",
+    available: true
+  },
+  {
+    id: 107,
+    name: "فستق عبيد مالح ١ كيلو",
+    name_en: "Salted Peanuts 1kg",
+    name_ka: "დამარილებული არაქისი 1კგ",
+    description: "فستق عبيد مالح 1 كيلو محمص ومملح بكمية معتدلة من الملح البحري الفاخر",
+    description_en: "1kg peanuts roasted and seasoned with a moderate amount of premium sea salt",
+    description_ka: "1კგ არაქისი მოხალული და შეკაზმული ზომიერი რაოდენობის პრემიუმ ზღვის მარილით",
+    price: 70.00,
+    image: "img/MKSRAT-MAWALEH/107.png",
+    available: true
+  },
+  {
+    id: 108,
+    name: "فستق عبيد مالح ٥٠٠ جم",
+    name_en: "Salted Peanuts 500g",
+    name_ka: "დამარილებული არაქისი 500გ",
+    description: "فستق عبيد مالح 500 جرام محمص بإتقان، مملح بشكل متوازن ومثالي للوجبات الخفيفة",
+    description_en: "Expertly roasted 500g salted peanuts, balanced salting and perfect for snacking",
+    description_ka: "ოსტატურად მოხალული 500გ დამარილებული არაქისი, დაბალანსებული მარილით და შესანიშნავია წასახემსებლად",
+    price: 40.00,
+    image: "img/MKSRAT-MAWALEH/80.png",
+    available: true
+  },
+  {
+    id: 109,
+    name: "فستق عبيد مالح ١٥٠ جم",
+    name_en: "Salted Peanuts 150g",
+    name_ka: "დამარილებული არაქისი 150გ",
+    description: "فستق عبيد مالح 150 جرام محمص طازج، مناسب للاستمتاع به في أي وقت",
+    description_en: "Fresh roasted 150g salted peanuts, suitable to enjoy at any time",
+    description_ka: "ახლად მოხალული 150გ დამარილებული არაქისი, შესაფერისია ნებისმიერ დროს სასიამოვნოდ",
+    price: 13.00,
+    image: "img/MKSRAT-MAWALEH/109.png",
+    available: true
+  },
+  {
+    id: 110,
+    name: "فستق عبيد مالح ٥٠ جم",
+    name_en: "Salted Peanuts 50g",
+    name_ka: "დამარილებული არაქისი 50გ",
+    description: "فستق عبيد مالح 50 جرام في عبوة صغيرة مناسبة للاستهلاك الفردي والرحلات",
+    description_en: "50g salted peanuts in a small package suitable for individual consumption and trips",
+    description_ka: "50გ დამარილებული არაქისი პატარა შეფუთვაში ინდივიდუალური მოხმარებისთვის და მოგზაურობისთვის",
+    price: 5.00,
+    image: "img/MKSRAT-MAWALEH/110.png",
+    available: true
+  },
+  {
+    id: 111,
+    name: "فستق عبيد بقشره ٣ كيلو",
+    name_en: "Peanuts in Shell 3kg",
+    name_ka: "არაქისი ნაჭუჭით 3კგ",
+    description: "فستق عبيد بقشره 3 كيلو طازج ومحمص بطريقة تقليدية مع الحفاظ على القشرة الطبيعية",
+    description_en: "Fresh 3kg peanuts in shell, traditionally roasted while preserving the natural shell",
+    description_ka: "ახალი 3კგ არაქისი ნაჭუჭით, ტრადიციულად მოხალული ბუნებრივი ნაჭუჭის შენარჩუნებით",
+    price: 170.00,
+    image: "img/MKSRAT-MAWALEH/111.png",
+    available: true
+  },
+  {
+    id: 112,
+    name: "فستق عبيد بقشره ١ كيلو",
+    name_en: "Peanuts in Shell 1kg",
+    name_ka: "არაქისი ნაჭუჭით 1კგ",
+    description: "فستق عبيد بقشره 1 كيلو محمص بإتقان، يحافظ على النكهة الطبيعية والطعم المميز",
+    description_en: "Expertly roasted 1kg peanuts in shell, preserving the natural flavor and distinctive taste",
+    description_ka: "ოსტატურად მოხალული 1კგ არაქისი ნაჭუჭით, ბუნებრივი არომატისა და გამორჩეული გემოს შენარჩუნებით",
+    price: 60.00,
+    image: "112",
+    available: true
+  },
+  {
+    id: 113,
+    name: "فستق عبيد بقشره ٥٠٠ جم",
+    name_en: "Peanuts in Shell 500g",
+    name_ka: "არაქისი ნაჭუჭით 500გ",
+    description: "فستق عبيد بقشره 500 جرام محمص طبيعيًا، مثالي للتسلية والوجبات الخفيفة",
+    description_en: "Naturally roasted 500g peanuts in shell, ideal for entertainment and snacking",
+    description_ka: "ბუნებრივად მოხალული 500გ არაქისი ნაჭუჭით, იდეალურია გართობისა და წასახემსებლად",
+    price: 35.00,
+    image: "113",
+    available: true
+  },
+  {
+    id: 114,
+    name: "فستق عبيد بقشره ١٥٠ جم",
+    name_en: "Peanuts in Shell 150g",
+    name_ka: "არაქისი ნაჭუჭით 150გ",
+    description: "فستق عبيد بقشره 150 جرام طازج، متعة تقشير وتناول الفستق المحمص الطبيعي",
+    description_en: "Fresh 150g peanuts in shell, enjoy the pleasure of peeling and eating natural roasted peanuts",
+    description_ka: "ახალი 150გ არაქისი ნაჭუჭით, დატკბით ბუნებრივად მოხალული არაქისის გარჩევითა და ჭამით",
+    price: 12.00,
+    image: "114",
+    available: true
+  },
+  {
+    id: 115,
+    name: "فستق عبيد بقشره ٥٠ جم",
+    name_en: "Peanuts in Shell 50g",
+    name_ka: "არაქისი ნაჭუჭით 50გ",
+    description: "فستق عبيد بقشره 50 جرام في عبوة صغيرة، تسلية مثالية للأطفال والكبار",
+    description_en: "50g peanuts in shell in a small package, perfect entertainment for children and adults",
+    description_ka: "50გ არაქისი ნაჭუჭით პატარა შეფუთვაში, იდეალური გართობა ბავშვებისა და უფროსებისთვის",
+    price: 5.00,
+    image: "img/MKSRAT-MAWALEH/115.png",
+    available: true
+  },
+  {
+    id: 116,
+    name: "فستق عبيد نايله ٣ كيلو",
+    name_en: "Raw Peanuts 3kg",
+    name_ka: "ნედლი არაქისი 3კგ",
+    description: "فستق عبيد نايله 3 كيلو غير محمص، مثالي للطبخ والتحميص المنزلي",
+    description_en: "3kg raw peanuts, ideal for cooking and home roasting",
+    description_ka: "3კგ ნედლი არაქისი, იდეალურია საჭმლის მომზადებისა და სახლში მოსახალავად",
+    price: 150.00,
+    image: "img/MKSRAT-MAWALEH/116.png",
+    available: true
+  },
+  {
+    id: 117,
+    name: "فستق عبيد نايله ١ كيلو",
+    name_en: "Raw Peanuts 1kg",
+    name_ka: "ნედლი არაქისი 1კგ",
+    description: "فستق عبيد نايله 1 كيلو خام، مناسب للاستخدامات المتعددة في المطبخ",
+    description_en: "1kg raw peanuts, suitable for multiple kitchen uses",
+    description_ka: "1კგ ნედლი არაქისი, შესაფერისია სამზარეულოში მრავალმხრივი გამოყენებისთვის",
+    price: 55.00,
+    image: "img/MKSRAT-MAWALEH/117.png",
+    available: true
+  },
+  {
+    id: 118,
+    name: "فستق عبيد نايله ٥٠٠ جم",
+    name_en: "Raw Peanuts 500g",
+    name_ka: "ნედლი არაქისი 500გ",
+    description: "فستق عبيد نايله 500 جرام خام ونظيف، جاهز للتحميص أو الاستخدام في الوصفات المختلفة",
+    description_en: "Clean 500g raw peanuts, ready for roasting or use in various recipes",
+    description_ka: "სუფთა 500გ ნედლი არაქისი, მზად მოსახალავად ან სხვადასხვა რეცეპტებში გამოსაყენებლად",
+    price: 30.00,
+    image: "img/MKSRAT-MAWALEH/118.png",
+    available: true
+  },
+  {
+    id: 119,
+    name: "فستق عبيد نايله ١٥٠ جم",
+    name_en: "Raw Peanuts 150g",
+    name_ka: "ნედლი არაქისი 150გ",
+    description: "فستق عبيد نايله 150 جرام طازج وغير معالج، مثالي للتجارب الطبخية المنزلية",
+    description_en: "Fresh 150g unprocessed raw peanuts, ideal for home cooking experiments",
+    description_ka: "ახალი 150გ დაუმუშავებელი ნედლი არაქისი, იდეალურია სახლში სამზარეულო ექსპერიმენტებისთვის",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/119.png",
+    available: true
+  },
+  {
+    id: 120,
+    name: "فستق عبيد نايله ٥٠ جم",
+    name_en: "Raw Peanuts 50g",
+    name_ka: "ნედლი არაქისი 50გ",
+    description: "فستق عبيد نايله 50 جرام خام في عبوة صغيرة، مناسب للتذوق والاستخدامات الصغيرة",
+    description_en: "50g raw peanuts in a small package, suitable for tasting and small uses",
+    description_ka: "50გ ნედლი არაქისი პატარა შეფუთვაში, შესაფერისია დასაგემოვნებლად და მცირე გამოყენებისთვის",
+    price: 4.00,
+    image: "img/MKSRAT-MAWALEH/120.png",
+    available: true
+  },
+  {
+    id: 121,
+    name: "ذرة منكهة ٣ كيلو",
+    name_en: "Flavored Corn 3kg",
+    name_ka: "სურნელოვანი სიმინდი 3კგ",
+    description: "ذرة مقرمشة بنكهات لذيذة، حجم عائلي",
+    description_en: "Crunchy flavored corn, family size",
+    description_ka: "ქრაჭუნა სურნელოვანი სიმინდი, საოჯახო ზომა",
+    price: 45.00,
+    image: "img/MKSRAT-MAWALEH/121.png",
+    available: true
+  },
+  {
+    id: 122,
+    name: "ذرة منكهة ١ كيلو",
+    name_en: "Flavored Corn 1kg",
+    name_ka: "სურნელოვანი სიმინდი 1კგ",
+    description: "ذرة خفيفة ولذيذة، مثالية للضيافة",
+    description_en: "Light and tasty corn, perfect for guests",
+    description_ka: "მსუბუქი და გემრიელი სიმინდი სტუმრებისთვის",
+    price: 18.00,
+    image: "img/MKSRAT-MAWALEH/122.png",
+    available: true
+  },
+  {
+    id: 123,
+    name: "ذرة منكهة ٥٠٠ جم",
+    name_en: "Flavored Corn 500g",
+    name_ka: "სურნელოვანი სიმინდი 500გ",
+    description: "ذرة طازجة بنكهة رائعة",
+    description_en: "Fresh corn with great flavor",
+    description_ka: "თამამი არომატული სიმინდი",
+    price: 10.00,
+    image: "img/MKSRAT-MAWALEH/123.png",
+    available: true
+  },
+  {
+    id: 124,
+    name: "ذرة منكهة ١٥٠ جم",
+    name_en: "Flavored Corn 150g",
+    name_ka: "სურნელოვანი სიმინდი 150გ",
+    description: "ذرة خفيفة للوجبات السريعة",
+    description_en: "Light corn for quick snacks",
+    description_ka: "მსუბუქი სიმინდი სწრაფი საჭმლისთვის",
+    price: 4.00,
+    image: "img/MKSRAT-MAWALEH/124.png",
+    available: true
+  },
+  {
+    id: 125,
+    name: "ذرة منكهة ٥٠ جم",
+    name_en: "Flavored Corn 50g",
+    name_ka: "სურნელოვანი სიმინდი 50გ",
+    description: "ذرة صغيرة للتمتع السريع",
+    description_en: "Small corn pack for quick enjoyment",
+    description_ka: "პატარა სიმინდის პაკეტი სწრაფი სიამოვნებისთვის",
+    price: 2.00,
+    image: "img/MKSRAT-MAWALEH/125.png",
+    available: true
+  },
+  {
+    id: 126,
+    name: "بذر جبس احمر ٣ كيلو",
+    name_en: "Red Gypsum Seeds 3kg",
+    name_ka: "წითელი თაბაშირის თესლი 3კგ",
+    description: "بذر غني بالنكهة، حجم كبير",
+    description_en: "Rich-flavored seeds, large size",
+    description_ka: "არომატული თესლი, დიდი ზომა",
+    price: 40.00,
+    image: "img/MKSRAT-MAWALEH/126.png",
+    available: true
+  },
+  {
+    id: 127,
+    name: "بذر جبس احمر ١ كيلو",
+    name_en: "Red Gypsum Seeds 1kg",
+    name_ka: "წითელი თაბაშირის თესლი 1კგ",
+    description: "بذر مقرمش ولذيذ",
+    description_en: "Crispy and tasty seeds",
+    description_ka: "ქრაჭუნა და გემრიელი თესლი",
+    price: 15.00,
+    image: "img/MKSRAT-MAWALEH/127.png",
+    available: true
+  },
+  {
+    id: 128,
+    name: "بذر جبس احمر ٥٠٠ جم",
+    name_en: "Red Gypsum Seeds 500g",
+    name_ka: "წითელი თაბაშირის თესლი 500გ",
+    description: "بذر متوسط للطاقة الخفيفة",
+    description_en: "Medium pack for light snacking",
+    description_ka: "საშუალო პაკეტი მსუბუქი საჭმლისთვის",
+    price: 8.00,
+    image: "img/MKSRAT-MAWALEH/128.png",
+    available: true
+  },
+  {
+    id: 129,
+    name: "بذر جبس احمر ١٥٠ جم",
+    name_en: "Red Gypsum Seeds 150g",
+    name_ka: "წითელი თაბაშირის თესლი 150გ",
+    description: "وجبة خفيفة سريعة",
+    description_en: "Quick light snack",
+    description_ka: "სწრაფი მსუბუქი საჭმელი",
+    price: 3.00,
+    image: "img/MKSRAT-MAWALEH/129.png",
+    available: true
+  },
+  {
+    id: 130,
+    name: "بذر جبس احمر ٥٠ جم",
+    name_en: "Red Gypsum Seeds 50g",
+    name_ka: "წითელი თაბაშირის თესლი 50გ",
+    description: "علبة صغيرة للطاقة",
+    description_en: "Small energy pack",
+    description_ka: "პატარა ენერგეტიკული პაკეტი",
+    price: 1.50,
+    image: "img/MKSRAT-MAWALEH/130.png",
+    available: true
+  },
+  {
+    id: 131,
+    name: "بذر جبس ٣ كيلو",
+    name_en: "Gypsum Seeds 3kg",
+    name_ka: "თაბაშირის თესლი 3კგ",
+    description: "بذر طبيعي ومغذي",
+    description_en: "Natural and nutritious seeds",
+    description_ka: "ბუნებრივი და ნოყიერი თესლი",
+    price: 38.00,
+    image: "img/MKSRAT-MAWALEH/131.png",
+    available: true
+  },
+  {
+    id: 132,
+    name: "بذر جبس ١ كيلو",
+    name_en: "Gypsum Seeds 1kg",
+    name_ka: "თაბაშირის თესლი 1კგ",
+    description: "بذر صحي وخفيف",
+    description_en: "Healthy and light seeds",
+    description_ka: "ჯანსაღი და მსუბუქი თესლი",
+    price: 14.00,
+    image: "img/MKSRAT-MAWALEH/132.png",
+    available: true
+  },
+  {
+    id: 133,
+    name: "بذر جبس ٥٠٠ جم",
+    name_en: "Gypsum Seeds 500g",
+    name_ka: "თაბაშირის თესლი 500გ",
+    description: "بذر بطعم أصيل",
+    description_en: "Seeds with authentic taste",
+    description_ka: "ნამდვილი გემოს თესლი",
+    price: 7.00,
+    image: "img/MKSRAT-MAWALEH/133.png",
+    available: true
+  },
+  {
+    id: 134,
+    name: "بذر جبس ١٥٠ جم",
+    name_en: "Gypsum Seeds 150g",
+    name_ka: "თაბაშირის თესლი 150გ",
+    description: "وجبة خفيفة طبيعية",
+    description_en: "Natural light snack",
+    description_ka: "ბუნებრივი მსუბუქი საჭმელი",
+    price: 2.50,
+    image: "img/MKSRAT-MAWALEH/134.png",
+    available: true
+  },
+  {
+    id: 135,
+    name: "بذر جبس ٥٠ جم",
+    name_en: "Gypsum Seeds 50g",
+    name_ka: "თაბაშირის თესლი 50გ",
+    description: "عبوة صغيرة صحية",
+    description_en: "Small healthy pack",
+    description_ka: "პატარა ჯანსაღი პაკეტი",
+    price: 1.20,
+    image: "img/MKSRAT-MAWALEH/135.png",
+    available: true
+  },
+  {
+    id: 136,
+    name: "بذر كوسا ٣ كيلو",
+    name_en: "Zucchini Seeds 3kg",
+    name_ka: "სუფრის თესლი 3კგ",
+    description: "بذر كوسا مميز وكبير",
+    description_en: "Premium zucchini seeds, large size",
+    description_ka: "პრემიუმ ხარისხის სუფრის თესლი, დიდი ზომა",
+    price: 55.00,
+    image: "img/MKSRAT-MAWALEH/136.png",
+    available: true
+  },
+  {
+    id: 137,
+    name: "بذر كوسا ١ كيلو",
+    name_en: "Zucchini Seeds 1kg",
+    name_ka: "სუფრის თესლი 1კგ",
+    description: "بذر عالي الجودة",
+    description_en: "High-quality seeds",
+    description_ka: "მაღალი ხარისხის თესლი",
+    price: 22.00,
+    image: "img/MKSRAT-MAWALEH/137.png",
+    available: true
+  },
+  {
+    id: 138,
+    name: "بذر كوسا ٥٠٠ جم",
+    name_en: "Zucchini Seeds 500g",
+    name_ka: "სუფრის თესლი 500გ",
+    description: "نواة كوسا لزراعة ناجحة",
+    description_en: "Zucchini seeds for successful planting",
+    description_ka: "სუფრის თესლი წარმატებული დარგვისთვის",
+    price: 12.00,
+    image: "img/MKSRAT-MAWALEH/138.png",
+    available: true
+  },
+  {
+    id: 139,
+    name: "بذر كوسا ١٥٠ جم",
+    name_en: "Zucchini Seeds 150g",
+    name_ka: "სუფრის თესლი 150გ",
+    description: "عبوة صغيرة للزراعة",
+    description_en: "Small pack for planting",
+    description_ka: "პატარა პაკეტი დარგვისთვის",
+    price: 5.00,
+    image: "img/MKSRAT-MAWALEH/139.png",
+    available: true
+  },
+  {
+    id: 140,
+    name: "بذر كوسا ٥٠ جم",
+    name_en: "Zucchini Seeds 50g",
+    name_ka: "სუფრის თესლი 50გ",
+    description: "بذور سهلة الزراعة",
+    description_en: "Easy to plant seeds",
+    description_ka: "ადვილად დასარგავი თესლი",
+    price: 2.50,
+    image: "img/MKSRAT-MAWALEH/140.png",
+    available: true
+  }
+]
+    // DOM Elements
+    const productsContainer = document.getElementById('productsContainer');
+    const adminLink = document.getElementById('adminLink');
+    const loginModal = document.getElementById('loginModal');
+    const closeModal = document.getElementById('closeModal');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+
+    // Current language
+    let currentLang = 'ar';
+
+    // UI text translations
+    const translations = {
+    ar: {
+        home: "الرئيسية",
+        products: "المنتجات",
+        about: "من نحن",  // نحتفظ بها للقائمة
+        contact: "اتصل بنا",
+        heroTitle: "مكسرات بأنواعها",
+        discoverProducts: "اكتشف منتجاتنا",
+        contactUs: "تواصل معنا",
+        productsTitle: "منتجاتنا",
+        contactTitle: "اتصل بنا",
+        contactHeading: "نحن دائماً في خدمتكم",
+        contactIntro: "يمكنكم التواصل معنا من خلال القنوات التالية:",
+        address: "العنوان : جورجيا، تبليسي، روستافي القديمة، شارع 26، محل رقم 50",
+        phone: "الهاتف: +995 591 03 51 12",
+        hours: "ساعات العمل: يومياً من 8:00 صباحاً حتى 10:00 مساءً",
+        available: "متوفر",
+        unavailable: "غير متوفر",
+        orderNow: "اطلب الآن",
+        currency: "لاري",
+        loginTitle: "تسجيل الدخول للإدارة",
+        password: "كلمة المرور",
+        cancel: "إلغاء",
+        login: "دخول",
+        incorrectPassword: "كلمة المرور غير صحيحة",
+        sendOrder: "إرسال الطلب"
+    },
+    en: {
+        home: "Home",
+        products: "Products",
+        about: "About Us",
+        contact: "Contact",
+        heroTitle: "Mixed Nuts Variety",
+        discoverProducts: "Discover Our Products",
+        contactUs: "Contact Us",
+        productsTitle: "Our Products",
+        contactTitle: "Contact Us",
+        contactHeading: "We Are Always At Your Service",
+        contactIntro: "You can contact us through the following channels:",
+        address: "Address: Georgia, Tbilisi, Old Rustavi, 26 Street, Shop No. 50",
+        phone: "Phone: +995 591 03 51 12",
+        hours: "Working Hours: Daily from 8:00 AM to 10:00 PM",
+        available: "Available",
+        unavailable: "Unavailable",
+        orderNow: "Order Now",
+        currency: "Larry",
+        loginTitle: "Admin Login",
+        password: "Password",
+        cancel: "Cancel",
+        login: "Login",
+        incorrectPassword: "Incorrect password",
+        sendOrder: "Send Order"
+    },
+    ka: {
+        home: "მთავარი",
+        products: "პროდუქტები",
+        about: "ჩვენ შესახებ",
+        contact: "კონტაქტი",
+        heroTitle: " თხილების სხვადასხვა სახეობა",
+        discoverProducts: "აღმოაჩინეთ ჩვენი პროდუქტები",
+        contactUs: "დაგვიკავშირდით",
+        productsTitle: "ჩვენი პროდუქტები",
+        contactTitle: "დაგვიკავშირდით",
+        contactHeading: "ჩვენ ყოველთვის თქვენს სამსახურში ვართ",
+        contactIntro: "შეგიძლიათ დაგვიკავშირდეთ შემდეგი არხების საშუალებით:",
+        address: "მისამართი: საქართველო, თბილისი, ძველი რუსთავი, ქუჩა 26, მაღაზია №50",
+        phone: "ტელეფონი: +995 591 03 51 12",
+        hours: "სამუშაო საათები: ყოველდღე 8:00-დან 22:00 საათამდე",
+        available: "ხელმისაწვდომია",
+        unavailable: "არ არის ხელმისაწვდომი",
+        orderNow: "შეუკვეთე ახლა",
+        currency: "ლარი",
+        loginTitle: "ადმინისტრატორის შესვლა",
+        password: "პაროლი",
+        cancel: "გაუქმება",
+        login: "შესვლა",
+        incorrectPassword: "არასწორი პაროლი",
+        sendOrder: "შეკვეთის გაგზავნა"
+    }
+};
+
+    // Load products based on language
+    function loadProducts() {
+        productsContainer.innerHTML = '';
+        products.forEach(product => {
+            const productName = product[`name${currentLang === 'ar' ? '' : '_' + currentLang}`];
+            const productDesc = product[`description${currentLang === 'ar' ? '' : '_' + currentLang}`];
+            
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${productName}" class="product-img">
+                <div class="product-details">
+                    <h3 class="product-title">${productName}</h3>
+                    <p class="product-description">${productDesc}</p>
+                    <div class="product-price">${product.price.toFixed(2)} ${translations[currentLang].currency}</div>
+                    <span class="product-available ${!product.available ? 'product-unavailable' : ''}">${product.available ? translations[currentLang].available : translations[currentLang].unavailable}</span>
+                    <button class="product-buy" ${!product.available ? 'disabled' : ''} onclick="orderNow(${product.id})">${translations[currentLang].orderNow}</button>
+                </div>
+            `;
+            productsContainer.appendChild(productCard);
+        });
+    }
+
+    // Update UI text based on current language
+    // Update UI text based on current language
+function updateUIText() {
+    // Update navigation links
+    document.querySelectorAll('.nav-link').forEach((link, index) => {
+        const keys = ['home', 'products', 'about', 'contact'];
+        link.textContent = translations[currentLang][keys[index]];
+    });
+
+    // Update hero section
+    let heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) heroTitle.textContent = translations[currentLang].heroTitle;
+    
+    let heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle && translations[currentLang].heroSubtitle) 
+        heroSubtitle.textContent = translations[currentLang].heroSubtitle;
+
+    // Update buttons
+    let heroButtons = document.querySelectorAll('.hero-content .btn');
+    if (heroButtons.length > 0) heroButtons[0].textContent = translations[currentLang].discoverProducts;
+    if (heroButtons.length > 1) heroButtons[1].textContent = translations[currentLang].contactUs;
+
+    // Update section titles - only update elements that exist
+    let sectionTitles = document.querySelectorAll('.section-title');
+    if (sectionTitles.length > 0) sectionTitles[0].textContent = translations[currentLang].productsTitle;
+    // Don't try to update "about" section title since we don't need it
+    // Check if contact section title exists
+    if (sectionTitles.length > 1) sectionTitles[1].textContent = translations[currentLang].contactTitle;
+
+    // Update contact section if it exists
+    let contactHeading = document.querySelector('#contact .about-text h3');
+    if (contactHeading) contactHeading.textContent = translations[currentLang].contactHeading;
+    
+    let contactParagraphs = document.querySelectorAll('#contact .about-text p');
+    if (contactParagraphs.length > 0) contactParagraphs[0].textContent = translations[currentLang].contactIntro;
+    if (contactParagraphs.length > 1) contactParagraphs[1].textContent = translations[currentLang].address;
+    if (contactParagraphs.length > 2) contactParagraphs[2].textContent = translations[currentLang].phone;
+    if (contactParagraphs.length > 3 && translations[currentLang].email) 
+        contactParagraphs[3].textContent = translations[currentLang].email;
+    if (contactParagraphs.length > 4) contactParagraphs[4].textContent = translations[currentLang].hours;
+
+    // Update admin link if it exists
+    let adminLink = document.querySelector('.admin-link');
+    if (adminLink && translations[currentLang].adminPage) 
+        adminLink.textContent = translations[currentLang].adminPage;
+
+    // Update login modal
+    let loginTitle = document.querySelector('.login-form h3');
+    if (loginTitle) loginTitle.textContent = translations[currentLang].loginTitle;
+    
+    let passwordLabel = document.querySelector('.form-group label');
+    if (passwordLabel) passwordLabel.textContent = translations[currentLang].password;
+    
+    let closeModal = document.querySelector('.close-modal');
+    if (closeModal) closeModal.textContent = translations[currentLang].cancel;
+    
+    let loginButtons = document.querySelectorAll('.form-actions .btn');
+    if (loginButtons.length > 0) loginButtons[0].textContent = translations[currentLang].login;
+
+    // Update language display
+    let currentLangElement = document.querySelector('.current-lang');
+    if (currentLangElement) {
+        currentLangElement.innerHTML = 
+            currentLang === 'ar' ? 'العربية <span>▾</span>' :
+            currentLang === 'en' ? 'English <span>▾</span>' : 'ქართული <span>▾</span>';
+    }
+
+    // Reload products with updated language
+    loadProducts();
+}
+
+    // Order now function (WhatsApp redirect)
+// Order now function (WhatsApp redirect with confirmation button)
+function orderNow(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product && product.available) {
+        // Show product image in a popup with send order button
+        showProductPopup(product);
+    }
+}
+
+function showProductPopup(product) {
+    // Create popup elements
+    const popup = document.createElement('div');
+    popup.className = 'product-popup';
+    
+    const productName = product[`name${currentLang === 'ar' ? '' : '_' + currentLang}`];
+    
+    // Prepare WhatsApp message
+    const productPrice = product.price.toFixed(2);
+    let message;
+    if (currentLang === 'ar') {
+        message = `أود طلب: ${productName} (رقم المنتج: ${product.id}) - السعر: ${productPrice} ${translations[currentLang].currency}`;
+    } else if (currentLang === 'en') {
+        message = `I would like to order: ${productName} (Product ID: ${product.id}) - Price: ${productPrice} ${translations[currentLang].currency}`;
+    } else {
+        message = `მსურს შეკვეთა: ${productName} (პროდუქტის ID: ${product.id}) - ფასი: ${productPrice} ${translations[currentLang].currency}`;
+    }
+    
+    // Popup HTML structure with send order button
+    popup.innerHTML = `
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>${productName}</h3>
+                <span class="close-popup">&times;</span>
+            </div>
+            <div class="popup-body">
+                <img src="${product.image}" alt="${productName}">
+                <p class="popup-price">${product.price.toFixed(2)} ${translations[currentLang].currency}</p>
+            </div>
+            <div class="popup-footer">
+                <button id="send-order-btn" class="send-order-btn">
+                    ${translations[currentLang].sendOrder || 'إرسال الطلب'}
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Add popup to the document
+    document.body.appendChild(popup);
+    
+    // Add CSS for the popup
+    const style = document.createElement('style');
+    style.textContent = `
+        .product-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .popup-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};
+        }
+        
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+        
+        .popup-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .close-popup {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .popup-body {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .popup-body img {
+            max-width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .popup-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 10px 0;
+        }
+        
+        .popup-footer {
+            padding: 15px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        
+        .send-order-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .send-order-btn:hover {
+            background-color: var(--accent-dark, #c25e00);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    `;
+    
+    document.head.appendChild(style);
+    
+    // Event listeners
+    // Close button
+    const closeBtn = popup.querySelector('.close-popup');
+    closeBtn.addEventListener('click', function() {
+        document.body.removeChild(popup);
+        document.head.removeChild(style);
+    });
+    
+    // Send order button (WhatsApp redirect)
+    const sendOrderBtn = popup.querySelector('#send-order-btn');
+    sendOrderBtn.addEventListener('click', function() {
+        // Open WhatsApp with the prepared message
+        const whatsappUrl = `https://wa.me/995591035112?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+    
+    // Close when clicking outside the popup content
+    popup.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            document.body.removeChild(popup);
+            document.head.removeChild(style);
+        }
+    });
+}
+
+    // Toggle language dropdown
+    function toggleLangDropdown() {
+        const langDropdown = document.getElementById('langDropdown');
+        langDropdown.classList.toggle('show');
+    }
+
+    // Change language function
+    function changeLang(lang) {
+        if (lang === currentLang) {
+            document.getElementById('langDropdown').classList.remove('show');
+            return;
+        }
+        
+        // Update document direction and language
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        
+        // Update current language
+        currentLang = lang;
+        
+        // Close dropdown
+        document.getElementById('langDropdown').classList.remove('show');
+        
+        // Update UI text
+        updateUIText();
+    }
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === loginModal) {
+            loginModal.classList.remove('show');
+        }
+    });
+
+    // Add floating coffee beans animation
+    function addCoffeeBeans() {
+        const hero = document.querySelector('.hero');
+        for (let i = 0; i < 15; i++) {
+            const bean = document.createElement('div');
+            bean.className = 'coffee-bean';
+            bean.style.left = `${Math.random() * 100}%`;
+            bean.style.animationDelay = `${Math.random() * 15}s`;
+            bean.style.opacity = Math.random() * 0.6 + 0.2;
+            bean.style.transform = `scale(${Math.random() * 0.6 + 0.5}) rotate(${Math.random() * 360}deg)`;
+            hero.appendChild(bean);
+        }
+    }
+
+    // Scroll animation for header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Close language dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+        const langDropdown = document.getElementById('langDropdown');
+        const currentLang = document.querySelector('.current-lang');
+        
+        if (e.target !== currentLang && !currentLang.contains(e.target) && 
+            e.target !== langDropdown && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('show');
+        }
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        loadProducts();
+        addCoffeeBeans();
+        updateUIText();
+    });
+    </script>
+</body>
+</html>
