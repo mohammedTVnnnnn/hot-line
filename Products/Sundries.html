@@ -800,7 +800,14 @@ html[dir="rtl"] .search-button {
                 <div class="logo-placeholder">
                     <img src="img/logo.png" alt="شعار الخط الساخن" width="90" height="90">
                                 </div>
-                <div class="brand-name"></div>
+                <div class="brand-name">
+                    <div class="search-container">
+                        <input type="text" id="productSearch" placeholder="بحث عن منتج..." class="search-input">
+                        <button class="search-button">
+                            <i class="search-icon">🔍</i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <nav>
                 <ul class="nav-menu">
@@ -847,12 +854,6 @@ html[dir="rtl"] .search-button {
     <!-- Products Section -->
     <section id="products">
         <div class="container">
-            <div class="search-container">
-                <input type="text" id="productSearch" placeholder="بحث عن منتج..." class="search-input">
-                <button class="search-button">
-                    <i class="search-icon">🔍</i>
-                </button>
-            </div>
             <h2 class="section-title">منتجاتنا</h2>
             <div class="products-grid" id="productsContainer">
                 <!-- Products will be loaded dynamically -->
