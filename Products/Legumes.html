@@ -789,114 +789,6 @@ html[dir="rtl"] .search-button {
     width: 100%;
     grid-column: 1 / -1;
 }
-.language-selector {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    .current-lang {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        padding: 8px 12px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 30px;
-        border: 1px solid var(--primary);
-        transition: all 0.3s ease;
-    }
-
-    .current-lang:hover {
-        background-color: rgba(255, 225, 0, 0.1);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .lang-flag {
-        width: 24px;
-        height: 16px;
-        border-radius: 3px;
-        margin-left: 5px;
-        margin-right: 5px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    }
-
-    .lang-name {
-        margin: 0 5px;
-        font-weight: 500;
-    }
-
-    .lang-arrow {
-        margin-right: 5px;
-        transition: transform 0.3s ease;
-    }
-
-    .current-lang:hover .lang-arrow {
-        transform: rotate(180deg);
-    }
-
-    .lang-dropdown {
-        position: absolute;
-        top: calc(100% + 10px);
-        right: 0;
-        background-color: var(--dark);
-        border-radius: 10px;
-        padding: 5px;
-        min-width: 180px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        display: none;
-        z-index: 10;
-        border: 1px solid var(--primary);
-        transform: translateY(10px);
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .lang-dropdown.show {
-        display: block;
-        animation: fadeInUp 0.3s ease forwards;
-    }
-
-    .lang-option {
-        display: flex;
-        align-items: center;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        border-radius: 6px;
-        margin: 3px 0;
-    }
-
-    .lang-option:hover {
-        background-color: rgba(255, 225, 0, 0.2);
-        transform: translateX(-5px);
-    }
-
-    .lang-option span {
-        margin-right: 8px;
-        margin-left: 8px;
-    }
-
-    /* تحديث لضمان التوافق مع الـ RTL */
-    html[dir="rtl"] .lang-dropdown {
-        right: 0;
-        left: auto;
-    }
-
-    html[dir="rtl"] .lang-option:hover {
-        transform: translateX(5px);
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
     </style>
 </head>
 <body>
@@ -927,25 +819,13 @@ html[dir="rtl"] .search-button {
             </nav>
             <div class="language-selector">
                 <div class="current-lang" onclick="toggleLangDropdown()">
-                    <img src="img/flags/ar.png" alt="العربية" class="lang-flag">
-                    <span class="lang-name">العربية</span>
-                    <span class="lang-arrow">▾</span>
+                    العربية <span>▾</span>
                 </div>
                 <div class="lang-dropdown" id="langDropdown">
-                    <div class="lang-option" onclick="changeLang('ar')">
-                        <img src="img/flags/ar.png" alt="العربية" class="lang-flag">
-                        <span>العربية</span>
-                    </div>
-                    <div class="lang-option" onclick="changeLang('en')">
-                        <img src="img/flags/en.png" alt="English" class="lang-flag">
-                        <span>English</span>
-                    </div>
-                    <div class="lang-option" onclick="changeLang('ka')">
-                        <img src="img/flags/ka.png" alt="ქართული" class="lang-flag">
-                        <span>ქართული</span>
-                    </div>
+                    <div class="lang-option" onclick="changeLang('ar')">العربية</div>
+                    <div class="lang-option" onclick="changeLang('en')">English</div>
+                    <div class="lang-option" onclick="changeLang('ka')">ქართული</div>
                 </div>
-            </div>
             </div>
         </div>
     </header>
@@ -1434,22 +1314,13 @@ function showProductPopup(product) {
     // Toggle language dropdown
     function toggleLangDropdown() {
         const langDropdown = document.getElementById('langDropdown');
-        const currentLangArrow = document.querySelector('.current-lang .lang-arrow');
-        
-        if (langDropdown.classList.contains('show')) {
-            langDropdown.classList.remove('show');
-            currentLangArrow.style.transform = 'rotate(0deg)';
-        } else {
-            langDropdown.classList.add('show');
-            currentLangArrow.style.transform = 'rotate(180deg)';
-        }
+        langDropdown.classList.toggle('show');
     }
 
     // Change language function
     function changeLang(lang) {
         if (lang === currentLang) {
             document.getElementById('langDropdown').classList.remove('show');
-            document.querySelector('.current-lang .lang-arrow').style.transform = 'rotate(0deg)';
             return;
         }
         
